@@ -1,0 +1,27 @@
+:root {
+    --bg-color: #101217;
+    --orange: #EB7100;
+    --orange-low: #eb720079;
+    --text-color: #fff;
+
+    font-size: 62.5%;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}

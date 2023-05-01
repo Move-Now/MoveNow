@@ -1,0 +1,122 @@
+@import url("../../index.css");
+
+header {
+    height: 14vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid var(--orange);
+
+    padding: 3rem 5%;
+
+    background-color: transparent;
+}
+
+
+.logo {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.logo span {
+    color: var(--orange);
+}
+
+nav {
+    max-width: 70vw;
+}
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+nav ul li {
+    text-transform: capitalize;
+    display: flex;
+    gap: 0.7rem;
+
+    cursor: pointer;
+}
+
+.iconsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.arrowIcon {
+    color: var(--orange);
+}
+
+.menuIcon {
+    display: none;
+
+    color: var(--orange);
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+
+.disabled {
+    display: none;
+}
+
+/* responsiveness */
+
+@media screen and (max-width: 1045px) {
+
+    header nav,
+    header .iconsWrapper {
+        font-size: 2rem;
+    }
+
+    .menuIcon {
+        display: block;
+    }
+
+    .divider,
+    .arrowIcon {
+        display: none;
+    }
+
+
+
+    nav {
+        position: absolute;
+        right: 0;
+        top: 14vh;
+
+        display: flex;
+
+        align-items: flex-start;
+        justify-content: center;
+
+
+        height: 100vh;
+        width: 40vw;
+        padding: 1rem 0;
+
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(5px)
+    }
+
+
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 5rem;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 90%;
+        border-bottom: 1px solid var(--orange-low);
+        padding: 1rem 2rem;
+    }
+
+}

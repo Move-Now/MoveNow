@@ -26,6 +26,7 @@ header {
 
 nav {
     max-width: 70vw;
+    display: flex;
 }
 
 nav ul {
@@ -66,6 +67,13 @@ nav ul li {
     display: none;
 }
 
+
+
+.navDisabled {
+    right: -1000px;
+
+}
+
 /* responsiveness */
 
 @media screen and (max-width: 1045px) {
@@ -83,7 +91,6 @@ nav ul li {
     .arrowIcon {
         display: none;
     }
-
 
 
     nav {
@@ -105,8 +112,6 @@ nav ul li {
         backdrop-filter: blur(5px)
     }
 
-
-
     nav ul {
         flex-direction: column;
         margin-top: 5rem;
@@ -119,4 +124,11 @@ nav ul li {
         padding: 1rem 2rem;
     }
 
+}
+
+@media screen and (max-width: 680px) {
+    nav {
+        width: 100vw;
+        max-width: none;
+    }
 }

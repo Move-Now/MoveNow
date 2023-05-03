@@ -27,6 +27,7 @@ header {
 nav {
     max-width: 70vw;
     display: flex;
+    z-index: 1000;
 }
 
 nav ul {

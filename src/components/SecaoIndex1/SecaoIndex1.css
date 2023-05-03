@@ -1,14 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Raleway:ital@0;1&display=swap');
 @import url("../../index.css");
 
 h1 {
-    font-size: 47px;
+    font-size: 4.2rem;
+    /* o rem é uma medida relativa, mais usada para responsividade */
     margin-left: 50px;
     margin-top: 125px;
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     line-height: 72px;
     max-width: 855px;
+}
+
+h1 span {
+    color: var(--orange);
+}
+
+h1 span:nth-child(1) {
+    font-style: italic;
+    color: inherit;
+    /* a cor agora é herdada (inherit) da configuração inicial */
 }
 
 img {
@@ -32,53 +41,43 @@ img {
     z-index: 1;
 }
 
-
-.tituloMovimente {
-    font-style: italic;
-}
-
-.tituloTransporte {
-    color: var(--orange);
-}
-
 p {
     margin-top: 28px;
     margin-left: 50px;
     font-weight: 300;
     line-height: 32px;
-    font-size: 24px;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
 }
 
-p span{
+p span {
     color: var(--orange);
 }
 
-.buttons{
+.wrapperButtons {
     margin-top: 30px;
     margin-left: 50px;
     display: flex;
     gap: 26px;
 }
 
-a {
+button {
     padding: 14px 20px;
-    font-size: 18px;
+    font-size: 1.8rem;
+
     font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+
+    background: var(--orange);
+    border-radius: 20px;
+    border: none;
     cursor: pointer;
 }
 
-.buttonIndex1 {
-    color: #000000;
-    background: var(--orange);
-    border-radius: 20px;
-}
-
-.buttonIndex2{
+.wrapperButtons button:nth-child(2) {
     color: #FFFFFF;
     border: 3px solid #FB6730;
     border-radius: 20px;
+    background: transparent;
 }
 
 .parcerias {
@@ -89,14 +88,13 @@ a {
     margin-top: 8%;
     margin-left: 107px;
     padding: 20px;
-    
+
     max-width: max-content;
     align-items: center;
 
     background: rgba(255, 255, 255, 0.05);
     border: 3px solid #101217;
     backdrop-filter: blur(1.5px);
-    
+
     z-index: 3;
 }
-

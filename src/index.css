@@ -15,9 +15,14 @@
 }
 
 html,
-body {
+body,
+button {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
 }
 
 body {

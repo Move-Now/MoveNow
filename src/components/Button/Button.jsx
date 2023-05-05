@@ -6,7 +6,7 @@ export function Button(props) {
 
   return (  
     <>
-        <button>{props.name}</button> {/* Utilizar o event.preventDefault() para cancelar o submit do botão */}
+        <button style={props.style}>{props.name}</button> {/* Utilizar o event.preventDefault() para cancelar o submit do botão */}
     </>
   );
 }

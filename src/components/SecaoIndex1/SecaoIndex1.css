@@ -60,26 +60,6 @@ p span {
     gap: 26px;
 }
 
-button {
-    padding: 14px 20px;
-    font-size: 1.8rem;
-
-    font-weight: 600;
-    color: #000000;
-
-    background: var(--orange);
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-}
-
-.wrapperButtons button:nth-child(2) {
-    color: #FFFFFF;
-    border: 3px solid var(--orange);
-    border-radius: 20px;
-    background: transparent;
-}
-
 .parcerias {
     display: flex;
     flex-direction: row;
@@ -93,6 +73,7 @@ button {
     align-items: center;
 
     background: var(--bg-glass-dark);
+    border: 1px solid rgba(235, 113, 0, 0.15);
     box-shadow: var(--box-shadow-dark);
     backdrop-filter: blur(1.5px);
 

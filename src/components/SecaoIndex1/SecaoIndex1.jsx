@@ -3,8 +3,20 @@ import "./SecaoIndex1.css";
 
 export function SecaoIndex1() {
 
-  const nameButtonPrimary = 'Solicite um carreto';
-  const nameButtonSecondary = 'Seja um motorista';
+  // const nameButtonPrimary = 'Solicite um carreto'; Não a viabilidade de utilziar uma variável para puxar o dado dinamico ou apenas mudar na propria linha do componente ex na linha 29: <Button name="Solicite um motorista" />
+  // const nameButtonSecondary = 'Seja um motorista';
+
+  const styleButtonPrimary = {
+    color: '#000000',
+    background: 'var(--orange)',
+  };
+
+  const styleButtonSecondary = {
+    color: '#FFFFFF',
+    border: '3px solid var(--orange)',
+    background: 'transparent',
+    cursor: 'pointer',
+  };
 
   return (
     <section>
@@ -26,8 +38,8 @@ export function SecaoIndex1() {
       </p>
 
       <div className="wrapperButtons">
-        <Button name={nameButtonPrimary} />
-        <Button name={nameButtonSecondary} />
+        <Button style={styleButtonPrimary} name="Solicite um carreto" />
+        <Button style={styleButtonSecondary} name="Seja um motorista" />
       </div>
 
       <div className="parcerias">

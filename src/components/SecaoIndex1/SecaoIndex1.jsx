@@ -1,12 +1,10 @@
 import { Button } from "../../components/Button/Button";
-import { useState } from "react";
-
 import "./SecaoIndex1.css";
 
 export function SecaoIndex1() {
 
-  const nameButtonPrimary = useState('Solicite um carreto');
-  const nameButtonSecondary = useState('Seja um motorista');
+  const nameButtonPrimary = 'Solicite um carreto';
+  const nameButtonSecondary = 'Seja um motorista';
 
   return (
     <section>
@@ -28,8 +26,8 @@ export function SecaoIndex1() {
       </p>
 
       <div className="wrapperButtons">
-        <Button buttonName={nameButtonPrimary} />
-        <Button buttonName={nameButtonSecondary} />
+        <Button name={nameButtonPrimary} />
+        <Button name={nameButtonSecondary} />
       </div>
 
       <div className="parcerias">

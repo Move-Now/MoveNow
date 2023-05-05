@@ -2,8 +2,6 @@ import { Button } from "../../components/Button/Button";
 import "./SecaoIndex1.css";
 
 export function SecaoIndex1() {
-  // const nameButtonPrimary = 'Solicite um carreto'; Não a viabilidade de utilziar uma variável para puxar o dado dinamico ou apenas mudar na propria linha do componente ex na linha 29: <Button name="Solicite um motorista" />
-  // const nameButtonSecondary = 'Seja um motorista';
 
   const styleButtonPrimary = {
     color: "#000000",
@@ -43,13 +41,13 @@ export function SecaoIndex1() {
         </div>
       </div>
 
-      <img src="./assets/Caminhao1.png" alt="" />
+      <img src="../src/assets/Caminhao1.png" alt="" />
       {/* <div className="parcerias">
-        <img src="./assets/logoWaze.png" className="imagemParceira" />
-        <img src="./assets/logoShell.png" className="imagemParceira" />
-        <img src="./assets/logoPetrobras.png" className="imagemParceira" />
-        <img src="./assets/logoIpiranga.png" className="imagemParceira" />
-        <img src="./assets/logoRutter.png" className="imagemParceira" />
+        <img src="../src/assets/logoWaze.png" className="imagemParceira" />
+        <img src="../src/assets/logoShell.png" className="imagemParceira" />
+        <img src="../src/assets/logoPetrobras.png" className="imagemParceira" />
+        <img src="../src/assets/logoIpiranga.png" className="imagemParceira" />
+        <img src="../src/assets/logoRutter.png" className="imagemParceira" />
       </div> */}
     </section>
   );

@@ -25,6 +25,9 @@ export function SecaoIndex1() {
 
       <img src="./assets/Caminhao1.png" alt="" />
       {/* a imagem do caminhão também é provisória, até acharmos uma melhor */}
+      
+      
+      
       <h1>
         <span>Movimente</span> sua vida com tranquilidade. <br /> Deixe o
         <span> transporte</span> por nossa conta.

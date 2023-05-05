@@ -1,6 +1,6 @@
 import "./Button.css";
 
-export function Button(props, css) {
+export function Button(props) {
 
     
 

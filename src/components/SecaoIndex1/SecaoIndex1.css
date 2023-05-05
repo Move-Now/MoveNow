@@ -46,7 +46,7 @@ p {
     margin-left: 50px;
     font-weight: 300;
     line-height: 32px;
-    font-size: 2rem;
+    font-size: 2.2rem;
 }
 
 p span {
@@ -75,7 +75,7 @@ button {
 
 .wrapperButtons button:nth-child(2) {
     color: #FFFFFF;
-    border: 3px solid #FB6730;
+    border: 3px solid var(--orange);
     border-radius: 20px;
     background: transparent;
 }
@@ -92,8 +92,8 @@ button {
     max-width: max-content;
     align-items: center;
 
-    background: rgba(255, 255, 255, 0.05);
-    border: 3px solid #101217;
+    background: var(--bg-glass-dark);
+    box-shadow: var(--box-shadow-dark);
     backdrop-filter: blur(1.5px);
 
     z-index: 3;

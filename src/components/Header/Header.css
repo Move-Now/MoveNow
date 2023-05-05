@@ -1,17 +1,21 @@
 @import url("../../index.css");
 
 header {
+    position: fixed;
+    top: 0;
     height: 14vh;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    border-bottom: 1px solid var(--orange);
+    border-bottom: 1px solid rgba(235, 113, 0, 0.15);
+    box-shadow: var(--box-shadow-dark);
 
     padding: 3rem 5%;
 
-    background-color: transparent;
+    background-color: var(--bg-color-dark);
+    z-index: 3;
 }
 
 
@@ -37,6 +41,7 @@ nav ul {
     align-items: center;
     gap: 2.5rem;
 }
+
 
 nav ul li {
     text-transform: capitalize;

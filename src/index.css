@@ -1,8 +1,25 @@
 :root {
-    --bg-color: #101217;
-    --orange: #EB7100;
-    --orange-low: #eb720079;
-    --text-color: #fff;
+    --bg-color-dark: #101217; /* Background color do Dark Mode */
+    --orange: #FB6730; /* Cor principal (laranja forte) do Dark Mode */
+    --text-color-dark: #FFFFFF; /* Cor dos textos (branco) do Dark Mode */
+    --text-opacity-dark: rgba(255, 255, 255, 0.07); /* Cor dos textos com menos opacidade da página do Dark Mode */
+
+    --border-dark: 3px solid #101217; /* Borda utilizada nas seções de conteúdo no junto ao efeito de vidro */
+    --box-shadow-dark: 0px 0px 10px rgba(235, 113, 0, 0.25); /* Sombra utilizada nas seções de navbar, parceria e footer*/
+    --bg-glass-dark: rgba(255, 255, 255, 0.05); /* Background utilizado nas seções de conteúdo causando um efeito de vidro*/
+
+    /* Cores Light Mode
+
+    --bg-color-light: #FFFFFF; 
+    --blue: #3066BE; 
+    --text-color-light: #000000; 
+    --text-opacity-light: rgba(6, 6, 14, 0.09); 
+
+    --border-light: 3px solid rgba(48, 102, 190, 0.4);
+    --box-shadow-light: 0px 0px 10px rgba(48, 102, 190, 0.25); 
+    --bg-glass-light: rgba(16, 18, 23, 0.05);
+
+    */
 
     font-size: 62.5%;
 }
@@ -26,7 +43,23 @@ h1 {
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    padding-top: 14vh;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
     overflow-x: hidden;
 }
+
+/* CSS do ScrollBar da página/plataforma */
+
+*::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.07);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--bg-color-dark);
+    border-radius: 20px;
+  }

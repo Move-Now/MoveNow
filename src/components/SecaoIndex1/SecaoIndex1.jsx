@@ -1,6 +1,13 @@
+import { Button } from "../../components/Button/Button";
+import { useState } from "react";
+
 import "./SecaoIndex1.css";
 
 export function SecaoIndex1() {
+
+  const nameButtonPrimary = useState('Solicite um carreto');
+  const nameButtonSecondary = useState('Seja um motorista');
+
   return (
     <section>
       <div className="eclipse"></div>
@@ -21,8 +28,8 @@ export function SecaoIndex1() {
       </p>
 
       <div className="wrapperButtons">
-        <button>Solicite um carreto</button>
-        <button>Seja um motorista</button>
+        <Button buttonName={nameButtonPrimary} />
+        <Button buttonName={nameButtonSecondary} />
       </div>
 
       <div className="parcerias">

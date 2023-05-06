@@ -2,13 +2,14 @@
 
 section {
     width: 100%;
-    max-width: 1440px;
-    height: 100vh;
+
+    height: 85vh;
     margin: auto;
-    padding: 0 6rem;
+    padding: 1rem 6rem;
 
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 2rem;
     overflow-x: hidden;
 }
@@ -21,11 +22,8 @@ section {
 
 h1 {
     font-size: 4.2rem;
-    /* o rem é uma medida relativa, mais usada para responsividade */
-
     font-weight: 400;
     line-height: 5rem;
-
 }
 
 h1 span {
@@ -35,7 +33,6 @@ h1 span {
 h1 span:nth-child(1) {
     font-style: italic;
     color: inherit;
-    /* a cor agora é herdada (inherit) da configuração inicial */
 }
 
 img {
@@ -43,7 +40,6 @@ img {
     height: auto;
     object-fit: contain;
     z-index: 2;
-
 }
 
 /* .eclipse {
@@ -62,7 +58,6 @@ img {
 } */
 
 p {
-
     font-weight: 300;
     line-height: 32px;
     font-size: 2.2rem;
@@ -73,9 +68,8 @@ p span {
 }
 
 .wrapperButtons {
-
     display: flex;
-    gap: 26px;
+    gap: 2.6rem;
 }
 
 /* .parcerias {
@@ -98,12 +92,43 @@ p span {
     z-index: 3;
 } */
 
-@media screen and (max-width: 1045px) {
-    section {
-        display: grid;
+@media screen and (max-width: 1375px) {
+    section h1 {
+        font-size: 3.6rem;
+        line-height: 1.4;
+
+    }
+
+    section p {
+        font-size: 1.6rem;
+        line-height: 1.2;
+
     }
 
     section img {
-        display: none;
+        width: 45rem;
+    }
+}
+
+@media screen and (max-width: 1045px) {
+    section {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "image"
+            "text"
+        ;
+        gap: 2rem;
+        padding: 3rem 2rem;
+
+    }
+
+    section img {
+        grid-area: image;
+        align-self: center;
+    }
+
+    .wrapperContent {
+        grid-area: text;
     }
 }

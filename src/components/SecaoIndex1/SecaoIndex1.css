@@ -1,5 +1,10 @@
 @import url("../../index.css");
 
+.sectionOne {
+    display: flex;
+    flex-direction: column;
+}
+
 section {
     width: 100%;
 
@@ -92,6 +97,7 @@ p span {
     z-index: 3;
 } */
 
+
 @media screen and (max-width: 1375px) {
     section h1 {
         font-size: 3.6rem;
@@ -108,6 +114,15 @@ p span {
     section img {
         width: 45rem;
     }
+
+    .parcerias {
+        gap: 15px;
+    }
+
+    .parceiro img{
+        max-width: 100%;
+        max-height: 50px;
+    }
 }
 
 @media screen and (max-width: 1045px) {
@@ -120,7 +135,6 @@ p span {
         ;
         gap: 2rem;
         padding: 3rem 2rem;
-
     }
 
     section img {
@@ -130,5 +144,14 @@ p span {
 
     .wrapperContent {
         grid-area: text;
+    }
+
+    .parcerias {
+        gap: 0;
+    }
+
+    .parceiro img{
+        max-width: 100%;
+        max-height: 50px;
     }
 }

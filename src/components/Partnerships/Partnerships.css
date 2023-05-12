@@ -7,9 +7,9 @@
     justify-content: space-evenly;
 
     padding: 20px;
-    margin: 0 6.70rem;
+    margin: 0 107px;
 
-    border-radius: 1rem;
+    border-radius: 10px;
     backdrop-filter: blur(1.5px);
     background: var(--bg-glass-dark);
     border: 1px solid rgba(235, 113, 0, 0.15);
@@ -17,12 +17,11 @@
 }
 
 .parceiro {
-    padding: 20px;
-
+    padding: 10px;
 }
 
 .parceiro:hover {
-    border-radius: 1rem;
+    border-radius: 10px;
     background: var(--bg-glass-dark);
     transition: 0.4s;
 
@@ -30,10 +29,39 @@
 
 .parceiro:hover img {
     filter: none;
+    padding: 2px;
 }
 
 .parceiro img {
     max-width: 100%;
-    max-height: 6.25rem;
-    filter: grayscale(50%);
+    max-height: 80px;
+}
+
+@media screen and (max-width: 1045px) {
+    
+    .parcerias {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: max-content;
+    }
+
+    .parceiro img {
+        max-width: 80px;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    
+    .parcerias {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: max-content;
+    }
+
+    .parceiro img {
+        max-width: 45px;
+        padding: 0;
+    }
+
 }

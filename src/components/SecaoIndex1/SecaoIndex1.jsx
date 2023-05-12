@@ -30,8 +30,7 @@ export function SecaoIndex1() {
 
         <p>
           Se você está procurando um serviço de fretes ou carretos
-          <br />
-          confiável e eficiente, então você veio ao lugar certo! Não <br />
+          confiável e eficiente, então você veio ao lugar certo! Não
           deixe para depois, peça “<span>Now</span>” com a <span>MoveNow</span>.
         </p>
 
@@ -41,7 +40,7 @@ export function SecaoIndex1() {
         </div>
       </div>
 
-      <img src="../src/assets/Caminhao.png" alt="" />
+      <img src="../src/assets/CaminhaoDark.jpg" alt="" />
     </section>
   );
 }

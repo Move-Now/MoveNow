@@ -1,12 +1,19 @@
 :root {
-    --bg-color-dark: #101217; /* Background color do Dark Mode */
-    --orange: #FB6730; /* Cor principal (laranja forte) do Dark Mode */
-    --text-color-dark: #FFFFFF; /* Cor dos textos (branco) do Dark Mode */
-    --text-opacity-dark: rgba(255, 255, 255, 0.07); /* Cor dos textos com menos opacidade da página do Dark Mode */
+    --bg-color-dark: #101217;
+    /* Background color do Dark Mode */
+    --orange: #FB6730;
+    /* Cor principal (laranja forte) do Dark Mode */
+    --text-color-dark: #FFFFFF;
+    /* Cor dos textos (branco) do Dark Mode */
+    --text-opacity-dark: rgba(255, 255, 255, 0.07);
+    /* Cor dos textos com menos opacidade da página do Dark Mode */
 
-    --border-dark: 3px solid #101217; /* Borda utilizada nas seções de conteúdo no junto ao efeito de vidro */
-    --box-shadow-dark: 0px 0px 10px rgba(235, 113, 0, 0.25); /* Sombra utilizada nas seções de navbar, parceria e footer*/
-    --bg-glass-dark: rgba(255, 255, 255, 0.05); /* Background utilizado nas seções de conteúdo causando um efeito de vidro*/
+    --border-dark: 3px solid #101217;
+    /* Borda utilizada nas seções de conteúdo no junto ao efeito de vidro */
+    --box-shadow-dark: 0px 0px 10px rgba(235, 113, 0, 0.25);
+    /* Sombra utilizada nas seções de navbar, parceria e footer*/
+    --bg-glass-dark: rgba(255, 255, 255, 0.05);
+    /* Background utilizado nas seções de conteúdo causando um efeito de vidro*/
 
     /* Cores Light Mode
 
@@ -44,6 +51,7 @@ h1 {
 
 body {
     padding-top: 14vh;
+
     background-color: var(--bg-color-dark);
     color: var(--text-color-dark);
     overflow-x: hidden;
@@ -53,13 +61,13 @@ body {
 
 *::-webkit-scrollbar {
     width: 12px;
-  }
-  
-  *::-webkit-scrollbar-track {
+}
+
+*::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.07);
-  }
-  
-  *::-webkit-scrollbar-thumb {
+}
+
+*::-webkit-scrollbar-thumb {
     background-color: var(--bg-color-dark);
     border-radius: 20px;
-  }
+}

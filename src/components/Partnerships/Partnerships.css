@@ -10,11 +10,11 @@
     padding: 10px;
     margin: auto;
 
-    /* border-radius: 10px;
+    border-radius: 10px;
     backdrop-filter: blur(1.5px);
     background: var(--bg-glass-dark);
     border: 1px solid rgba(235, 113, 0, 0.15);
-    box-shadow: var(--box-shadow-dark); */
+    box-shadow: var(--box-shadow-dark);
 }
 
 .parceiro {

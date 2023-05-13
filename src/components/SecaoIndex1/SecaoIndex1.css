@@ -5,7 +5,7 @@ section {
 
 
     margin: auto;
-    padding: 60px;
+    padding: 60px; /*padding: 0.7vw 4.15vw; começar a utilar a medida vw e vh para espaços margin e padding, pois elas facilitam na responsividade*/ 
 
     display: flex;
     align-items: center;

@@ -3,28 +3,29 @@
 section {
     width: 100%;
 
-    height: 85vh;
-    max-height: 660px;
+
     margin: auto;
-    padding: 10px 60px;
+    padding: 60px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     overflow-x: hidden;
 }
 
 .wrapperContent {
+    width: 90%;
+    max-width: 850px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 h1 {
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 400;
-    line-height: 72px;
+    line-height: 1.5;
     letter-spacing: -0.035em;
 }
 
@@ -38,7 +39,7 @@ h1 span:nth-child(1) {
 }
 
 img {
-    width: 750px;
+    width: 760px;
     height: auto;
     object-fit: contain;
     z-index: 2;
@@ -78,7 +79,6 @@ p span {
 
 @media screen and (max-width: 1376px) {
     section h1 {
-        font-size: 36px;
         line-height: 1.4;
     }
 
@@ -108,11 +108,86 @@ p span {
 
     section img {
         grid-area: image;
-        align-self: center;
+        margin: auto;
     }
 
     .wrapperContent {
         grid-area: text;
+        text-align: center;
+        margin: auto;
+    }
+
+    .wrapperContent p {
+        margin: auto;
+    }
+
+    .wrapperContent .wrapperButtons {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .wrapperButtons {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    section img {
+        width: 270px;
+    }
+}
+
+/* Responsividade de texto */
+@media screen and (max-width: 1245px) {
+    section h1 {
+        font-size: 38px;
+    }
+
+
+
+    @media screen and (max-width: 760px) {
+        section h1 {
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        section p {
+            font-size: 14px;
+        }
+
+        section h1 br {
+            display: none;
+        }
+    }
+
+    .wrapperContent .wrapperButtons button {
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 1220px) {
+    section h1 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    section h1 {
+        font-size: 24px;
+    }
+
+    section p {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 370px) {
+    section h1 {
+        font-size: 20px;
     }
 
 }

@@ -1,27 +1,32 @@
 .parcerias {
     width: fit-content;
-
+    max-width: 70%;
     display: flex;
 
+    gap: 20px;
     align-items: center;
     justify-content: space-evenly;
 
-    padding: 20px;
-    margin: 0 107px;
+    padding: 10px;
+    margin: auto;
 
-    border-radius: 10px;
+    /* border-radius: 10px;
     backdrop-filter: blur(1.5px);
     background: var(--bg-glass-dark);
     border: 1px solid rgba(235, 113, 0, 0.15);
-    box-shadow: var(--box-shadow-dark);
+    box-shadow: var(--box-shadow-dark); */
 }
 
 .parceiro {
     padding: 10px;
+    border-radius: 10px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+
 }
 
 .parceiro:hover {
-    border-radius: 10px;
     background: var(--bg-glass-dark);
     transition: 0.4s;
 
@@ -34,34 +39,24 @@
 
 .parceiro img {
     max-width: 100%;
+    min-width: 70px;
     max-height: 80px;
+    filter: grayscale(30%);
+    object-fit: contain;
 }
 
-@media screen and (max-width: 1045px) {
-    
-    .parcerias {
-        flex-direction: row;
-        flex-wrap: wrap;
-        max-width: max-content;
-    }
-
+@media screen and (max-width:540px) {
     .parceiro img {
-        max-width: 80px;
+        min-width: 40px;
     }
 
+    .parcerias {
+        gap: 10px;
+    }
 }
 
-@media screen and (max-width: 480px) {
-    
-    .parcerias {
-        flex-direction: row;
-        flex-wrap: wrap;
-        max-width: max-content;
-    }
-
+@media screen and (max-width:370px) {
     .parceiro img {
-        max-width: 45px;
-        padding: 0;
+        min-width: 35px;
     }
-
 }

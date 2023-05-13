@@ -49,7 +49,7 @@ h1 {
 
 body {
     padding-top: 14vh;
-
+    height: auto;
     background-color: var(--bg-color-dark);
     color: var(--text-color-dark);
     overflow-x: hidden;

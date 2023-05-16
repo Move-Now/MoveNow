@@ -39,7 +39,8 @@
 
 html,
 body,
-button {
+button,
+input {
     font-family: 'Montserrat', sans-serif;
 }
 

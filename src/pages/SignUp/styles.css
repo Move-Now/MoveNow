@@ -1,0 +1,65 @@
+@import url("../../index.css");
+
+
+.logo {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+
+main {
+    width: 800px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 50px 0;
+    margin: 80px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+main h2 {
+    width: 87.5%;
+    height: 50px;
+    background-color: var(--bg-color-dark);
+    color: var(--orange);
+    border-radius: 20px;
+
+    text-align: center;
+    line-height: 2;
+    margin: auto;
+}
+
+form {
+    width: 87.5%;
+    margin: 60px auto;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.wrapperInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    background: #11151E;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    padding: 12px;
+
+}
+
+.column {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

@@ -9,6 +9,7 @@
     /* Cor dos textos com menos opacidade da página do Dark Mode */
 
     --border-dark: 3px solid #101217;
+    --border-orange: 1px solid #fb6730;
     /* Borda utilizada nas seções de conteúdo no junto ao efeito de vidro */
     --box-shadow-dark: 0px 0px 10px rgba(235, 113, 0, 0.25);
     /* Sombra utilizada nas seções de navbar, parceria e footer*/

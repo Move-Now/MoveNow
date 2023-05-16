@@ -1,0 +1,45 @@
+@import url("../../index.css");
+
+
+.wrapperInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+input {
+    background: #11151E;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    padding: 12px;
+    text-indent: 10%;
+    width: 100%;
+    color: white;
+    transition: all 200ms ease-in-out;
+}
+
+input:focus {
+    outline: var(--border-orange);
+}
+
+.input {
+    position: relative;
+
+}
+
+.icon {
+    position: absolute;
+    left: 1%;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+input::placeholder {
+    font-size: 14px;
+}

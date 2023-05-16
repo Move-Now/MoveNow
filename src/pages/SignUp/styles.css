@@ -21,7 +21,6 @@ main {
 
 }
 
-
 main h2 {
     width: 87.5%;
     height: 50px;
@@ -42,20 +41,7 @@ form {
     gap: 60px;
 }
 
-.wrapperInput {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
 
-input {
-    background: #11151E;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    padding: 12px;
-
-}
 
 .column {
     width: 45%;

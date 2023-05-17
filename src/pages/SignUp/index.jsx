@@ -6,6 +6,9 @@ import { BsEnvelopeFill } from "react-icons/bs";
 import { BsPersonVcardFill } from "react-icons/bs";
 import { BsTelephoneFill } from "react-icons/bs";
 import { BsPostcardFill } from "react-icons/bs";
+import { FaTruck } from "react-icons/fa";
+import { ImFilePicture } from "react-icons/im";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 export function SignUp() {
   const styleButtonPrimary = {
@@ -56,18 +59,36 @@ export function SignUp() {
             />
           </div>
           <div className="column">
-            <div className="wrapperInput">
-              <label htmlFor="">Nome Completo</label>
-              <input type="text" placeholder="Nome" />
-            </div>
-            <div className="wrapperInput">
-              <label htmlFor="">Nome Completo</label>
-              <input type="text" placeholder="Nome" />
-            </div>
-            <div className="wrapperInput">
-              <label htmlFor="">Nome Completo</label>
-              <input type="text" placeholder="Nome" />
-            </div>
+            <Input
+              title="Placa do Veículo"
+              type="text"
+              placeholder="123ABC"
+              icon={<FaTruck className="icon" />}
+            />
+            <Input
+              title="Foto do Documento"
+              type="file"
+              placeholder="Arraste até aqui, ou selecione"
+              icon={<ImFilePicture className="icon" size={40} />}
+            />
+            <Input
+              title="Senha"
+              type="password"
+              placeholder="Senha"
+              icon={<RiLockPasswordFill className="icon" />}
+            />
+            <Input
+              title="Confirmar a Senha"
+              type="password"
+              placeholder="Senha"
+              icon={<RiLockPasswordFill className="icon" />}
+            />
+            <p>
+              Já tem uma conta?{" "}
+              <span>
+                <a href="">Entre aqui </a>
+              </span>
+            </p>
           </div>
         </form>
         <Button type="submit" style={styleButtonPrimary} name="Cadastrar" />

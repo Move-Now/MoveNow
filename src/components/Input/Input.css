@@ -1,6 +1,5 @@
 @import url("../../index.css");
 
-
 .wrapperInput {
     display: flex;
     flex-direction: column;
@@ -42,4 +41,30 @@ input:focus {
 
 input::placeholder {
     font-size: 14px;
+}
+
+input[type=file] {
+    height: 80px;
+    border-radius: 6px;
+    color: transparent;
+
+}
+
+input[type=file]::after {
+    content: 'Clique para selecionar';
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    transform: translate(50%, -50%);
+
+}
+
+input[type=file]+svg {
+    left: -3%;
+}
+
+input[type=file]::file-selector-button {
+
+    display: none;
 }

@@ -41,7 +41,23 @@ form {
     gap: 60px;
 }
 
+p,
+span {
+    font-size: 14px;
+}
 
+span {
+    cursor: pointer;
+}
+
+span:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 .column {
     width: 45%;

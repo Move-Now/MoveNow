@@ -95,3 +95,95 @@ footer {
     color: #FFFFFF;
     font-size: 25px;
 }
+
+@media screen and (max-width: 1220px) {
+
+    .container {
+        gap: 5vw;
+    }
+}
+
+@media screen and (max-width: 1005px) {
+    .bottom {
+        align-items: center;
+        margin-top: 5vw;
+        flex-direction: column;
+        height: max-content;
+        gap: 0;
+    }
+
+    .bottom h2{
+        margin: 0;
+    }
+
+    .container {
+        margin-top: 3vw;
+        flex-direction: column;
+        gap: 2vw;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .top-mobile {
+        padding: 5vw;
+        margin-left: 0;
+        gap: 0px;
+        height: 35vw;
+        width: max-content;
+    }
+
+    .top-mobile p{
+        font-size: 20px;
+    }
+
+    .top-mobile button{
+        font-size: 15px;
+        line-height: 5px;
+    }
+
+    .wrapperButtons {
+        flex-direction: row;
+        gap: 5px;
+        margin: 0;
+        margin-top: 1vw;
+    }
+}
+
+@media screen and (max-width: 435px) {
+    .bottom h2{
+        font-size: 30px;
+    }
+
+    .container {
+        font-size: 10px;
+    }
+
+    .bottom-content-title {
+        font-size: 12px;
+    }
+
+    .Socials {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    
+    .top-mobile {
+        padding: 5vw;
+    }
+
+    .top-mobile p {
+        font-size: 15px;
+    }
+
+    .top-mobile button{
+        font-size: 12px;
+        line-height: 2px
+    }
+
+    .wrapperButtons {
+        width: max-content;
+        gap: 5px;
+    }
+}

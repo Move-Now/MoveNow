@@ -7,7 +7,7 @@ import { BsPersonVcardFill } from "react-icons/bs";
 import { BsTelephoneFill } from "react-icons/bs";
 import { BsPostcardFill } from "react-icons/bs";
 
-export function SignUp() {
+export function SignUpMotorista() {
   const styleButtonPrimary = {
     color: "#000000",
     background: "var(--orange)",

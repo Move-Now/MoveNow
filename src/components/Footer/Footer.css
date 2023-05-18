@@ -97,6 +97,9 @@ footer {
 }
 
 @media screen and (max-width: 1220px) {
+    .top {
+        background-position: 75%;
+    }
 
     .container {
         gap: 5vw;
@@ -122,34 +125,63 @@ footer {
 }
 
 @media screen and (max-width: 750px) {
+    .top {
+        height: 350px;
+        background-position: 78%;
+    }
+
+    .top-mobile {
+        margin-left: 5vw;
+        padding: 2vw;
+        width: min-content;
+        height: min-content;
+    }
+
+    .top-mobile p {
+        font-size: 20px;
+    }
+
+    .top-mobile button{
+        font-size: 15px;
+    }
+
+    .wrapperButtons {
+        margin-top: 0;
+        gap: 2vw;
+    }
+
     .bottom {
         flex-direction: column;
     }
 }
 
 @media screen and (max-width: 520px) {
+    .top {
+        height: 300px;
+        background-position: 75%;
+    }
+
     .top-mobile {
-        padding: 5vw;
-        margin-left: 0;
-        gap: 0px;
-        height: 35vw;
-        width: max-content;
+        padding: 0;
+        gap: 3vw;
+
+        background: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
     }
 
     .top-mobile p{
-        font-size: 20px;
+        font-size: 19px;
     }
 
     .top-mobile button{
-        font-size: 15px;
-        line-height: 5px;
+        line-height: 2.5px;
+        font-size: 12.5px;
     }
 
     .wrapperButtons {
         flex-direction: row;
-        gap: 5px;
-        margin: 0;
-        margin-top: 1vw;
+        width: max-content;
     }
     
     .bottom h2 {
@@ -188,22 +220,26 @@ footer {
 }
 
 @media screen and (max-width: 380px) {
+
+    .top {
+        height: 250px;
+    }
     
     .top-mobile {
-        padding: 5vw;
+        margin-left: 2vw;
     }
 
     .top-mobile p {
-        font-size: 15px;
+        font-size: 16.7px;
     }
 
     .top-mobile button{
-        font-size: 12px;
-        line-height: 2px
+        font-size: 12.5px;
+        line-height: 0px;
+        padding: 17px;
     }
 
     .wrapperButtons {
-        width: max-content;
         gap: 5px;
     }
 }

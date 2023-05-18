@@ -107,19 +107,23 @@ footer {
     .bottom {
         align-items: center;
         margin-top: 5vw;
-        flex-direction: column;
         height: max-content;
-        gap: 0;
+        gap: 5vw;
     }
 
     .bottom h2{
-        margin: 0;
+        margin: 5vw;
     }
 
     .container {
         margin-top: 3vw;
+        gap: 5vw;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .bottom {
         flex-direction: column;
-        gap: 2vw;
     }
 }
 
@@ -146,6 +150,22 @@ footer {
         gap: 5px;
         margin: 0;
         margin-top: 1vw;
+    }
+    
+    .bottom h2 {
+        font-size: 30px;
+    }
+
+    .container {
+        font-size: 12px;
+    }
+
+    .bottom-content-title {
+        font-size: 15px;
+    }
+
+    .Socials {
+        font-size: 15px;
     }
 }
 

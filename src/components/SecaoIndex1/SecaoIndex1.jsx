@@ -1,11 +1,11 @@
 import { Button } from "../../components/Button/Button";
-import { Partnerships } from "../Partnerships/Partnerships";
 import "./SecaoIndex1.css";
 
 export function SecaoIndex1() {
   const styleButtonPrimary = {
     color: "#000000",
     background: "var(--orange)",
+    fontWeight: "600",
   };
 
   const styleButtonSecondary = {
@@ -13,6 +13,7 @@ export function SecaoIndex1() {
     border: "3px solid var(--orange)",
     background: "transparent",
     cursor: "pointer",
+    fontWeight: "600",
   };
 
   return (

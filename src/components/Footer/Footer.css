@@ -175,8 +175,8 @@ footer {
     }
 
     .top-mobile button{
-        line-height: 2.5px;
-        font-size: 12.5px;
+        line-height: 10px;
+        font-size: 12px;
     }
 
     .wrapperButtons {
@@ -234,7 +234,6 @@ footer {
     }
 
     .top-mobile button{
-        font-size: 12.5px;
         line-height: 0px;
         padding: 17px;
     }

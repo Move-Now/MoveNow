@@ -95,3 +95,150 @@ footer {
     color: #FFFFFF;
     font-size: 25px;
 }
+
+@media screen and (max-width: 1220px) {
+    .top {
+        background-position: 75%;
+    }
+
+    .container {
+        gap: 5vw;
+    }
+}
+
+@media screen and (max-width: 1005px) {
+    .bottom {
+        align-items: center;
+        margin-top: 5vw;
+        height: max-content;
+        gap: 5vw;
+    }
+
+    .bottom h2{
+        margin: 5vw;
+    }
+
+    .container {
+        margin-top: 3vw;
+        gap: 5vw;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .top {
+        height: 350px;
+        background-position: 78%;
+    }
+
+    .top-mobile {
+        margin-left: 5vw;
+        padding: 2vw;
+        width: min-content;
+        height: min-content;
+    }
+
+    .top-mobile p {
+        font-size: 20px;
+    }
+
+    .top-mobile button{
+        font-size: 15px;
+    }
+
+    .wrapperButtons {
+        margin-top: 0;
+        gap: 2vw;
+    }
+
+    .bottom {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .top {
+        height: 300px;
+        background-position: 75%;
+    }
+
+    .top-mobile {
+        padding: 0;
+        gap: 3vw;
+
+        background: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+    }
+
+    .top-mobile p{
+        font-size: 19px;
+    }
+
+    .top-mobile button{
+        line-height: 10px;
+        font-size: 12px;
+    }
+
+    .wrapperButtons {
+        flex-direction: row;
+        width: max-content;
+    }
+    
+    .bottom h2 {
+        font-size: 30px;
+    }
+
+    .container {
+        font-size: 12px;
+    }
+
+    .bottom-content-title {
+        font-size: 15px;
+    }
+
+    .Socials {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 435px) {
+    .bottom h2{
+        font-size: 30px;
+    }
+
+    .container {
+        font-size: 10px;
+    }
+
+    .bottom-content-title {
+        font-size: 12px;
+    }
+
+    .Socials {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+
+    .top {
+        height: 250px;
+    }
+    
+    .top-mobile {
+        margin-left: 2vw;
+    }
+
+    .top-mobile p {
+        font-size: 16.7px;
+    }
+
+    .top-mobile button{
+        line-height: 0px;
+        padding: 17px;
+    }
+
+    .wrapperButtons {
+        gap: 5px;
+    }
+}

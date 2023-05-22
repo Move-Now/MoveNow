@@ -11,15 +11,15 @@ export function Footer() {
             <div className="top-mobile">
                 <p>Baixe nosso aplicativo para celular!</p>
                 <div className="wrapperButtons">
-                    <button>Google Play</button>
                     <button>App Store</button>
+                    <button>Google Play</button>
                 </div>
             </div>
         </div>
         <div className="bottom">
-
+            <h2>Move<span>Now</span></h2>
             <div className="container">
-                <h2>Move<span>Now</span></h2>
+                
                 <div id="content-empresa" className="bottom-content">
                     <ul>
                         <li className="bottom-content-title">Empresa</li>
@@ -31,7 +31,7 @@ export function Footer() {
                 <div className="bottom-content">
                     <ul>
                         <li className="bottom-content-title">Ajuda</li>
-                        <li>Perguntas Frenquentes</li>
+                        <li>Perguntas <br/>Frenquentes</li>
                         <li>Motorista</li>
                         <li>Usuário</li>
                         <li>Ajudante</li>

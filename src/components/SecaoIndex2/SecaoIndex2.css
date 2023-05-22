@@ -1,0 +1,174 @@
+.section {
+    width: 100%;
+
+    margin: auto;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    backdrop-filter: blur(1.5px);
+    background: var(--bg-glass-dark);
+    overflow-x: hidden;
+    gap: 1vw;
+}
+
+.topIndex2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleIndex2 {
+    width: auto;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 56px;
+    text-align: center;
+}
+
+.bottomIndex2 {
+    display: flex;
+    align-items: center;
+    gap: 15vw;
+
+}
+
+.buttonIndex2 {
+    padding: 0.6vw;
+    color: #FFFFFF;
+    border: 0.5px solid #FFFFFF;
+    border-radius: 8px;
+    background: transparent;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1vw;
+}
+
+img {
+    width: 650px;
+    height: auto;
+}
+
+button {
+    font-weight: 400;
+}
+
+.iconIndex2 {
+    float: right;
+    color: var(--orange);
+}
+
+span {
+    color: var(--orange)
+}
+
+.contentIndex2 {
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width: 1440px) {
+    .section {
+        gap: 5vw;
+    }
+}
+
+@media screen and (max-width: 1220px) {
+    .titleIndex2 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 15.7px;
+        line-height: normal;
+    }
+
+    .bottomIndex2 {
+        gap: 10vw;
+    }
+    
+    img {
+        width: 450px;
+        height: auto;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1045px) {
+    .section {
+        padding: 30px 20px;
+    }
+
+   .bottomIndex2 {
+        flex-direction: column-reverse;
+        gap: 5vw;
+    }
+
+    img {
+        width: 350px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .titleIndex2 {
+        line-height: normal;
+    }
+
+    .form {
+        gap: 2vw;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .section {
+        gap: 5vw;
+    }
+
+    .titleIndex2 {
+        font-size: 25px;
+    } 
+    
+    p {
+        font-size: 14px;
+    }
+
+    img {
+        width: 270px;
+        height: auto;
+    }
+
+    button {
+        padding: 10px 15px;
+        border-radius: 12px;
+    }
+}
+
+@media screen and (max-width: 435px) {
+    .titleIndex2 {
+        font-size: 20px;
+    } 
+    
+    p {
+        font-size: 12px;
+    }
+
+    .buttonIndex2 {
+        border-radius: 4px;
+        font-size: 11px;
+    }   
+}
+
+@media screen and (max-width: 355px) {
+    .titleIndex2 {
+        font-size: 17.8px;
+    } 
+}

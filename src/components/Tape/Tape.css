@@ -1,0 +1,63 @@
+.tape {
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    width: 100%;
+}
+
+.fita {
+    height: auto;
+    width: 250px;
+    object-fit: contain;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .tape {
+        gap: 15vw;
+    }
+
+    .tape img {
+        width: 200px;
+        height: 176px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .tape {
+        gap: 10vw;
+    }
+}
+
+@media screen and (max-width: 755px) {
+    .tape {
+        gap: 10vw;
+    }
+
+    .tape img {
+        width: 150px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .tape {
+        gap: 10vw;
+    }
+
+    .tape img {
+        width: 120px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .tape {
+        gap: 5vw;
+    }
+
+    .tape img {
+        width: 95px;
+        height: 100px;
+    }
+}

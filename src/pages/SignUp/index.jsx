@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./SignUp.css";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
 import { BsPersonCircle } from "react-icons/bs";
@@ -19,7 +19,7 @@ export function SignUp() {
   };
   return (
     <>
-      <h2 className="logo">
+      <h2 id="logo">
         Move<span>Now</span>
       </h2>
 

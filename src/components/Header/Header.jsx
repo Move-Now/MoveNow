@@ -4,6 +4,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { BiMenu } from "react-icons/bi";
 import { IoIosClose } from "react-icons/io";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [toggle, setToggle] = useState(true);
@@ -23,10 +24,12 @@ export function Header() {
           </li>
           <li className="divider">|</li>
           <li>trabalhe conosco</li>
-          <li>
-            entrar
-            <FaAngleDown className="arrowIcon" />
-          </li>
+          <Link to="/cadastro">
+            <li>
+              entrar
+              <FaAngleDown className="arrowIcon" />
+            </li>
+          </Link>
         </ul>
       </nav>
 

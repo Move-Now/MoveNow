@@ -1,7 +1,7 @@
 @import url("../../index.css");
 
 
-.logo {
+#logo {
     position: absolute;
     left: 5%;
     top: 5%;
@@ -19,7 +19,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 main h2 {
@@ -42,20 +41,20 @@ form {
     gap: 60px;
 }
 
-p,
-span {
+form>span,
+p {
     font-size: 14px;
 }
 
-span {
+form span {
     cursor: pointer;
 }
 
-span:hover {
+form span:hover {
     text-decoration: underline;
 }
 
-a {
+form a {
     text-decoration: none;
     color: inherit;
 }

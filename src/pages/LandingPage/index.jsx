@@ -8,12 +8,10 @@ import { Tape } from "../../components/Tape/Tape";
 export function LandingPage() {
   return (
     <>
-      <Header />
       <SecaoIndex1 />
       <Partnerships />
       <SecaoIndex2 />
       <Tape />
-      <Footer />
     </>
   );
 }

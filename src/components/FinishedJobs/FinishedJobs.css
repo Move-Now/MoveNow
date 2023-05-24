@@ -1,0 +1,43 @@
+section {
+    width: 100%;
+}
+
+#sectionJobs {
+    display: block;
+    position: relative;
+}
+
+h2{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 56px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.adesivo {
+    width: 100%;
+    margin: auto;
+    position: absolute;
+
+    left: 0;
+    z-index: 0;
+}
+
+.containerJobs {
+    width: 100%;
+    height: 700px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1.5px);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+
+.jobs {
+    width: 100%;
+    top: -40px;
+}

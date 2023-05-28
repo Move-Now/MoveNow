@@ -17,7 +17,7 @@ export function SecaoIndex1() {
   };
 
   return (
-    <section>
+    <div className="section1">
       {/* <div className="eclipse"></div> */}
       {/* por enquanto vamos deixar esse eclipse aqui, até encontrarmos uma maneira mais eficiente de reproduzir */}
 
@@ -42,6 +42,6 @@ export function SecaoIndex1() {
       </div>
 
       <img src="../src/assets/CaminhaoDark.jpg" alt="" />
-    </section>
+    </div>
   );
 }

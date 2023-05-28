@@ -27,6 +27,7 @@ a {
 .logo {
     font-size: 30px;
     font-weight: 400;
+    margin: 0;
 }
 
 .logo span {
@@ -120,8 +121,8 @@ nav ul li {
         width: 40vw;
         padding: 10px 0;
 
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(5px)
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(15px)
     }
 
     nav ul {

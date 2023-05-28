@@ -1,4 +1,4 @@
-.section {
+.section2 {
     width: 100%;
 
     margin: auto;
@@ -10,7 +10,7 @@
     backdrop-filter: blur(1.5px);
     background: var(--bg-glass-dark);
     overflow-x: hidden;
-    gap: 1vw;
+    gap: 3vw;
 }
 
 .topIndex2 {
@@ -73,7 +73,7 @@ span {
 }
 
 @media screen and (max-width: 1440px) {
-    .section {
+    .section2 {
         gap: 5vw;
     }
 }
@@ -103,7 +103,7 @@ span {
 }
 
 @media screen and (max-width: 1045px) {
-    .section {
+    .section2 {
         padding: 30px 20px;
     }
 
@@ -115,6 +115,11 @@ span {
     img {
         width: 350px;
         height: auto;
+    }
+
+    .buttonIndex2 {
+        padding-top: 6px;
+        padding-bottom: 6px;
     }
 }
 
@@ -129,7 +134,7 @@ span {
 }
 
 @media screen and (max-width: 520px) {
-    .section {
+    .section2 {
         gap: 5vw;
     }
 

@@ -11,7 +11,7 @@ export function SecaoIndex2() {
   };
 
   return (
-    <div className="section">
+    <div className="section2">
       {/* <div className="eclipse"></div> */}
       {/* por enquanto vamos deixar esse eclipse aqui, até encontrarmos uma maneira mais eficiente de reproduzir */}
       <div className="topIndex2">

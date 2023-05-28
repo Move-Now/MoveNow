@@ -19,12 +19,9 @@ export function SignUp() {
   };
   return (
     <>
-      <h2 id="logo">
-        Move<span>Now</span>
-      </h2>
-
+    
       <main>
-        <h2>Cadastro de Motorista</h2>
+        <h2 className="titleSignUp">Cadastro de Motorista</h2>
         <form action="">
           <div className="column">
             <Input
@@ -83,7 +80,7 @@ export function SignUp() {
               placeholder="Senha"
               icon={<RiLockPasswordFill className="icon" />}
             />
-            <p>
+            <p className="contentSignUp">
               Já tem uma conta?{" "}
               <span>
                 <a href="">Entre aqui </a>

@@ -1,12 +1,5 @@
 @import url("../../index.css");
 
-
-#logo {
-    position: absolute;
-    left: 5%;
-    top: 5%;
-}
-
 main {
     max-width: 800px;
     width: 90%;
@@ -27,10 +20,10 @@ main h2 {
     background-color: var(--bg-color-dark);
     color: var(--orange);
     border-radius: 20px;
-
+    
     text-align: center;
-    line-height: 2;
     margin: auto;
+    font-size: 40px;
 }
 
 form {
@@ -41,8 +34,7 @@ form {
     gap: 60px;
 }
 
-form>span,
-p {
+.contentSignUp {
     font-size: 14px;
 }
 
@@ -80,7 +72,7 @@ form a {
 
 /* responsividade de texto */
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:560px) {
     main h2 {
         font-size: 20px;
         line-height: 2.4;

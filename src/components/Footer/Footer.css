@@ -76,6 +76,7 @@ footer {
 .container {
     display: flex;
     height: max-content;
+    padding-bottom: 50px;
     gap: 10vw;
 }
 

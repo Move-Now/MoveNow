@@ -1,6 +1,6 @@
 @import url("../../index.css");
 
-section {
+.section1 {
     width: 100%;
 
 
@@ -78,24 +78,24 @@ p span {
 
 
 @media screen and (max-width: 1376px) {
-    section h1 {
+    .section1 h1 {
         line-height: 1.4;
     }
 
-    section p {
+    .section1 p {
         font-size: 16px;
         line-height: 1.2;
         max-width: 80%;
     }
 
-    section img {
+    .section1 img {
         width: 450px;
     }
 
 }
 
 @media screen and (max-width: 1045px) {
-    section {
+    .section1 {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -106,7 +106,7 @@ p span {
         padding: 30px 20px;
     }
 
-    section img {
+    .section1 img {
         grid-area: image;
         margin: auto;
     }
@@ -127,28 +127,28 @@ p span {
 }
 
 @media screen and (max-width: 515px) {
-    section img {
+    .section1 img {
         width: 270px;
     }
 }
 
 /* Responsividade de texto */
 @media screen and (max-width: 1245px) {
-    section h1 {
+    .section1 h1 {
         font-size: 38px;
     }
 
     @media screen and (max-width: 760px) {
-        section h1 {
+        .section1 h1 {
             font-size: 28px;
             line-height: 1.2;
         }
 
-        section p {
+        .section1 p {
             font-size: 14px;
         }
 
-        section h1 br {
+        .section1 h1 br {
             display: none;
         }
     }
@@ -160,24 +160,24 @@ p span {
 
 
 @media screen and (max-width: 1220px) {
-    section h1 {
+    .section1 h1 {
         font-size: 30px;
     }
 }
 
 @media screen and (max-width: 400px) {
-    section h1 {
+    .section1 h1 {
         font-size: 24px;
     }
 
-    section p {
+    .section1 p {
         font-size: 12px;
     }
 
 }
 
 @media screen and (max-width: 370px) {
-    section h1 {
+    .section1 h1 {
         font-size: 20px;
     }
 

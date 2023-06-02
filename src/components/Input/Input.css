@@ -29,7 +29,6 @@ input:focus {
 
 .input {
     position: relative;
-
 }
 
 .icon {
@@ -47,7 +46,6 @@ input[type=file] {
     height: 80px;
     border-radius: 6px;
     color: transparent;
-
 }
 
 input[type=file]::after {
@@ -57,7 +55,6 @@ input[type=file]::after {
     top: 50%;
     left: -5%;
     transform: translate(50%, -50%);
-
 }
 
 input[type=file]+svg {
@@ -65,6 +62,5 @@ input[type=file]+svg {
 }
 
 input[type=file]::file-selector-button {
-
     display: none;
 }

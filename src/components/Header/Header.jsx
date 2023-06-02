@@ -37,7 +37,7 @@ export function Header(props) {
     <StyledHeader>
       <header>
         <h2 className="logo">
-          Move<span>Now</span>
+         <Link to={"/home"}>Move<span>Now</span></Link>
         </h2>
 
         <nav className={toggle && "navDisabled"}>

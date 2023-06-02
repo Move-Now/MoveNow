@@ -9,6 +9,7 @@ import { BsPostcardFill } from "react-icons/bs";
 import { FaTruck } from "react-icons/fa";
 import { ImFilePicture } from "react-icons/im";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 export function SignUpDriver() {
   const styleButtonPrimary = {
@@ -83,7 +84,7 @@ export function SignUpDriver() {
             <p className="contentSignUp">
               Já tem uma conta?{" "}
               <span>
-                <a href="">Entre aqui </a>
+                <Link to={"/login"}>Entre aqui</Link>
               </span>
             </p>
           </div>

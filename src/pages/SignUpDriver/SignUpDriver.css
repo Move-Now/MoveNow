@@ -14,17 +14,18 @@ main {
     align-items: center;
 }
 
-main h2 {
+main h2{
     width: 87.5%;
     height: 50px;
     background-color: var(--bg-color-dark);
     color: var(--orange);
     border-radius: 20px;
     
-    text-align: center;
     margin: auto;
-    font-size: 40px;
+    text-align: center;
+    font-size: 30px;
 }
+
 
 form {
     width: 87.5%;

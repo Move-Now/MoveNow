@@ -12,6 +12,7 @@ import { Footer } from "../../components/Footer/Footer";
 
 const lightTheme = {
   borderBottom: "var(--border-light)",
+  outline: "var(--border-blue)",
   boxShadow: "var(--box-shadow-light)",
   backgroundColor: "#fff",
   glass: "var(--bg-glass-light)",
@@ -32,6 +33,7 @@ const lightTheme = {
 
 const darkTheme = {
   borderBottom: "1px solid rgba(235, 113, 0, 0.15)",
+  outline: "var(--border-orange)",
   boxShadow: "var(--box-shadow-dark)",
   backgroundColor: "#101217",
   glass: "var(--bg-glass-dark)",

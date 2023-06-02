@@ -10,6 +10,7 @@
 
     --border-dark: 3px solid #101217;
     --border-orange: 1px solid #fb6730;
+    --border-blue: 1px solid #3066BE;
     /* Borda utilizada nas seções de conteúdo no junto ao efeito de vidro */
     --box-shadow-dark: 0px 0px 10px rgba(235, 113, 0, 0.25);
     /* Sombra utilizada nas seções de navbar, parceria e footer*/
@@ -23,7 +24,7 @@
 
     --border-light: 2px solid rgba(48, 102, 190, 0.15);
     --box-shadow-light: 0px 0px 10px rgba(48, 102, 190, 0.7); 
-    --bg-glass-light: rgba(16, 18, 23, 0.05);
+    --bg-glass-light: rgba(16, 18, 23, 0.1);
 
 
 }

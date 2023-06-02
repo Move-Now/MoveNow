@@ -1,33 +1,40 @@
-import "./style.css";
+import React from "react";
+import styled from "styled-components";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
 import { BsPersonCircle } from "react-icons/bs";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { BsPersonVcardFill } from "react-icons/bs";
 import { BiLock } from "react-icons/bi";
+import "./style.css";
+
+const StyledSignUp = styled.div`
+
+  main {
+    background-color: ${props => props.theme.glass};
+    color: ${props => props.theme.textColor};
+    transition: ${props => props.theme.transitionComponents};
+  }
+
+  input {
+    background-color: ${props => props.theme.backgroundColor};
+  }
+
+  /* Adicione outros estilos personalizados específicos do componente aqui */
+`;
+
+const ButtonPrimary = styled.button` 
+  font-weight: ${props => props.theme.buttonFontWeight};
+  color: ${props => props.theme.buttonPrimaryColor};
+  background-color: ${props => props.theme.buttonBackgroundPrimaryColor};
+`;
+
 export function SignUpClient() {
     
-    const styleButtonPrimary = {
-        color: "#000000",
-        background: "var(--orange)",
-        width: "50.5%",
-        margin: "auto",
-    };
-    const styleButtonSecundary = {
-        color: "var(--orange)",
-        background: "var(--bg-color-dark)",
-        width: "70.5%",
-        margin: "auto",
-        borderRadius: "20px",
-        boxShadow: "0px 4px 4px rgba(253, 101, 0, 0.11)",
-       
-};
 return (
-    <>
-        
-
+    <StyledSignUp>
         <main>
-            <Button type="submit" style={styleButtonPrimary} name="Cadastrar" /> {/* Botão precisa ser estilizado com animação para ter a animação da troca do login para cadastro */}
+            <ButtonPrimary type="submit">Cadastrar</ButtonPrimary>
             <form action="">
                 <div className="column">
                     <Input
@@ -62,8 +69,8 @@ return (
                     />
                 </div>
             </form>
-            <Button type="submit" style={styleButtonSecundary} name="Entrar" />
+            <ButtonPrimary>Entrar</ButtonPrimary>
         </main>
-    </>
+    </StyledSignUp >
 );
 }

@@ -85,6 +85,10 @@ footer {
     list-style: none;
 }
 
+.bottom-click {
+    cursor: pointer;
+}
+
 .bottom-content-title {
     font-size: 18px;
     font-weight: 600;

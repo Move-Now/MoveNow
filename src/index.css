@@ -16,18 +16,15 @@
     --bg-glass-dark: rgba(255, 255, 255, 0.05);
     /* Background utilizado nas seções de conteúdo causando um efeito de vidro*/
 
-    /* Cores Light Mode
-
     --bg-color-light: #FFFFFF; 
     --blue: #3066BE; 
     --text-color-light: #000000; 
     --text-opacity-light: rgba(6, 6, 14, 0.09); 
 
-    --border-light: 3px solid rgba(48, 102, 190, 0.4);
-    --box-shadow-light: 0px 0px 10px rgba(48, 102, 190, 0.25); 
+    --border-light: 2px solid rgba(48, 102, 190, 0.15);
+    --box-shadow-light: 0px 0px 10px rgba(48, 102, 190, 0.7); 
     --bg-glass-light: rgba(16, 18, 23, 0.05);
 
-    */
 
 }
 
@@ -55,7 +52,6 @@ body {
     padding-top: 14vh;
     height: auto;
     background-color: var(--bg-color-dark);
-    color: var(--text-color-dark);
     overflow-x: hidden;
 }
 

@@ -29,7 +29,7 @@ h2{
     width: 100%;
     height: 700px;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.05);
+    /* background: rgba(255, 255, 255, 0.05); */
     backdrop-filter: blur(1.5px);
     z-index: 1;
     display: flex;

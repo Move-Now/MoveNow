@@ -1,3 +1,6 @@
+@import url("../../index.css");
+
+
 section {
     width: 100%;
 }
@@ -7,7 +10,7 @@ section {
     position: relative;
 }
 
-h2{
+h2 {
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 500;
@@ -15,29 +18,131 @@ h2{
     line-height: 56px;
     text-align: center;
     margin-bottom: 30px;
+    color: var(--orange);
 }
+
 .adesivo {
     width: 100%;
+    min-width: 1000px;
     margin: auto;
     position: absolute;
-
-    left: 0;
     z-index: 0;
+    overflow: hidden;
 }
 
 .containerJobs {
     width: 100%;
-    height: 700px;
+    height: auto;
     padding: 30px;
     /* background: rgba(255, 255, 255, 0.05); */
     backdrop-filter: blur(1.5px);
     z-index: 1;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
+table,
+td,
+tr,
+th {
+    color: white;
+}
 
-.jobs {
+table {
+    border-collapse: collapse;
     width: 100%;
-    top: -40px;
+    z-index: 10;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: black;
+    font-weight: bold;
+}
+
+td {
+    background-color: rgba(0, 0, 0, 0.444);
+}
+
+@media only screen and (max-width: 870px) {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .adesivo {
+        display: none;
+    }
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        font-size: 12px;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid rgb(173, 173, 173);
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid black;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    td:nth-of-type(1):before {
+        content: "Tipo de transporte";
+    }
+
+    td:nth-of-type(2):before {
+        content: "De";
+    }
+
+    td:nth-of-type(3):before {
+        content: "Para";
+    }
+
+    td:nth-of-type(4):before {
+        content: "Distância";
+    }
+
+    td:nth-of-type(5):before {
+        content: "Valor";
+    }
 }

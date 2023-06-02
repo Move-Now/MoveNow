@@ -49,8 +49,10 @@ export function Header(props) {
               <FaAngleDown className="arrowIcon" />
             </li>
             <li className="divider">|</li>
+            <Link to="/cadastroMotorista">
             <li>trabalhe conosco</li>
-            <Link to="/cadastro">
+            </Link>
+            <Link to="/login">
               <li>
                 entrar
                 <FaAngleDown className="arrowIcon" />

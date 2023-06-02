@@ -1,4 +1,4 @@
-import "./SignUp.css";
+import "./SignUpDriver.css";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
 import { BsPersonCircle } from "react-icons/bs";
@@ -10,7 +10,7 @@ import { FaTruck } from "react-icons/fa";
 import { ImFilePicture } from "react-icons/im";
 import { RiLockPasswordFill } from "react-icons/ri";
 
-export function SignUp() {
+export function SignUpDriver() {
   const styleButtonPrimary = {
     color: "#000000",
     background: "var(--orange)",

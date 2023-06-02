@@ -5,9 +5,10 @@ import "./index.css";
 // Configurando rotas
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { LandingPage } from "./pages/LandingPage";
-import { SignUp } from "./pages/SignUp";
 import { App } from "./pages/App/App";
+import { LandingPage } from "./pages/LandingPage";
+import { SignUpClient } from "./pages/SignUpClient";
+import { SignUpDriver } from "./pages/SignUpDriver";
 
 //Configurando o React Router
 const router = createBrowserRouter([
@@ -21,8 +22,12 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: "cadastro",
-        element: <SignUp />,
+        path: "login",
+        element: <SignUpClient />,
+      },
+      {
+        path: "cadastroMotorista",
+        element: <SignUpDriver />,
       },
     ],
   },

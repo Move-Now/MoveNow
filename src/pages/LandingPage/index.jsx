@@ -91,7 +91,7 @@ export function LandingPage() {
       <SecaoIndex2 img={imageIndex2}/>
       <Tape img={imageTape}/>
       <SecaoIndex3 />
-      {/* <FinishedJobs /> */}
+      <FinishedJobs />
       <SecaoIndex5 />
       <Footer />
     </ThemeProvider>

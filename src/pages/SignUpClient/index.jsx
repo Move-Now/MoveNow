@@ -16,10 +16,25 @@ const StyledSignUp = styled.div`
     transition: ${props => props.theme.transitionComponents};
   }
 
+  form {
+    margin:30px;
+  }
+
   input {
+    color: ${props => props.theme.textColor};
     background-color: ${props => props.theme.backgroundColor};
   }
 
+  input:focus {
+    outline: 1px solid ${props => props.theme.spanColor};;
+}
+
+    .buttonsLogin {
+        background-color: ${props => props.theme.backgroundColor};
+        border-radius: 20px;
+        border: ${props => props.theme.borderBottom};
+        box-shadow: ${props => props.theme.boxShadow};
+    }
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;
 
@@ -30,11 +45,13 @@ const ButtonPrimary = styled.button`
 `;
 
 export function SignUpClient() {
-    
 return (
     <StyledSignUp>
         <main>
-            <ButtonPrimary type="submit">Cadastrar</ButtonPrimary>
+            <div className="buttonsLogin">
+                <button>Entrar</button>
+                <ButtonPrimary type="submit">Cadastrar</ButtonPrimary>
+            </div>
             <form action="">
                 <div className="column">
                     <Input

@@ -29,10 +29,6 @@ const router = createBrowserRouter([
         path: "cadastroMotorista",
         element: <SignUpDriver />,
       },
-      {
-        path: "home",
-        element: <LandingPage />,
-      },
     ],
   },
 ]);

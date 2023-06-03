@@ -17,6 +17,7 @@ main {
 main h2{
     width: 87.5%;
     height: 50px;
+    line-height: 50px;
     background-color: var(--bg-color-dark);
     color: var(--orange);
     border-radius: 20px;
@@ -45,11 +46,6 @@ form span {
 
 form span:hover {
     text-decoration: underline;
-}
-
-form a {
-    text-decoration: none;
-    color: inherit;
 }
 
 .column {

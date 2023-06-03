@@ -37,7 +37,7 @@ export function Header(props) {
     <StyledHeader>
       <header>
         <h2 className="logo">
-         <Link to={"/home"}>Move<span>Now</span></Link>
+         <Link to={"/"}>Move<span>Now</span></Link>
         </h2>
 
         <nav className={toggle && "navDisabled"}>
@@ -64,7 +64,7 @@ export function Header(props) {
         <div className="iconsWrapper">
           <BiMenu className="menuIcon" onClick={() => setToggle(!toggle)} />
           <IoIosClose className="menuCloseIcon disabled" />
-          <FaRegMoon className="modeIcon" onClick={props.action}/>
+          <FaRegMoon className="modeIcon" onClick={props.action} />
         </div>
       </header>
     </StyledHeader>

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Header } from "../../components/Header/Header";
 import styled, { ThemeProvider } from "styled-components";
+import { LandingPage } from "../LandingPage";
 
 const lightTheme = {
   borderBottom: "var(--border-light)",
@@ -75,7 +76,6 @@ export function App() {
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme}/>
       <Outlet theme={isDarkMode ? darkTheme : lightTheme}/>
-      {/* <Footer /> */}
     </ThemeProvider>
   );
 }

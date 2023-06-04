@@ -30,26 +30,20 @@ const StyledHeader = styled.div`
   }
 
   .dropdown {
-    
-    position: absolute;
-    top: 65%; /* Posição abaixo do item "entrar" */
     background-color: ${props => props.theme.backgroundColor};
     box-shadow: ${props => props.theme.shadow};
-    padding: 10px 5px;
   }
 
-  .dropdownContent {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .dropdownContent li {
-    padding: 0;
+  .dropdown li {
+    color: ${props => props.theme.textColor};
   }
 
   .dropdownContent li:hover {
     color: ${props => props.theme.spanColor};
+    border-bottom: 1px solid ${props => props.theme.spanColor};
+  }
+
+  .dropdownMobile li{
     border-bottom: 1px solid ${props => props.theme.spanColor};
   }
 
@@ -93,7 +87,6 @@ export function Header(props) {
             <li onClick={closeMenu}>Solicite um carreto</li>
             <li onClick={closeMenu}>Quem somos?</li>
             <li
-              onClick={dropdownAjuda}
               onMouseEnter={dropdownAjuda}
               onMouseLeave={hideDropdownAjuda}
             >
@@ -110,13 +103,19 @@ export function Header(props) {
                 </div>
               )}
             </li>
+            {showDropdownAjuda && (
+            <div className="dropdownMobile">
+              <li onClick={closeMenu}>Para Motoristas</li>
+              <li onClick={closeMenu}>Para Empresas</li>
+              <li onClick={closeMenu}>Para Usuários</li>
+            </div>
+            )}
             <li className="divider">|</li>
             <Link to="/cadastroMotorista">
               <li onClick={closeMenu}>trabalhe conosco</li>
             </Link>
             
               <li
-                onClick={dropdownEntrar}
                 onMouseEnter={dropdownEntrar}
                 onMouseLeave={hideDropdownEntrar}
               >
@@ -133,6 +132,13 @@ export function Header(props) {
                   </div>
                 )}
               </li>
+              {showDropdownEntrar && (
+                <div className="dropdownMobile">
+                  <Link to={"/cadastroMotorista"}><li onClick={closeMenu}>Seja Motorista</li></Link>
+                    <Link to={"/cadastro"}><li onClick={closeMenu}>Cadastra-se</li></Link>
+                    <Link to="/login"><li onClick={closeMenu}>Entrar</li></Link>
+                </div>
+              )}
             
           </ul>
         </nav>

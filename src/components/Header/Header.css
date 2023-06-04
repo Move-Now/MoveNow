@@ -58,6 +58,26 @@ nav ul li {
     cursor: pointer;
 }
 
+.dropdownMobile {
+    display: none;
+}
+
+.dropdown {
+    position: absolute;
+    top: 65%; /* Posição abaixo do item "entrar" */
+    padding: 10px 5px;
+}
+
+.dropdownContent {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.dropdownContent li {
+    padding: 0;
+}
+
 .iconsWrapper {
     display: flex;
     align-items: center;
@@ -84,11 +104,8 @@ nav ul li {
     display: none;
 }
 
-
-
 .navDisabled {
     right: -1000px;
-
 }
 
 /* responsiveness */
@@ -104,8 +121,7 @@ nav ul li {
         display: block;
     }
 
-    .divider,
-    .arrowIcon {
+    .divider {
         display: none;
     }
 
@@ -131,6 +147,7 @@ nav ul li {
         flex-direction: column;
         margin-top: 50px;
         width: 100%;
+        gap: 10px;
     }
 
     nav ul li {
@@ -138,6 +155,13 @@ nav ul li {
         padding: 10px 20px;
     }
 
+    .dropdown {
+        display: none;
+    }
+
+    .dropdownMobile {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 680px) {

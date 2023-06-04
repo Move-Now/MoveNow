@@ -11,6 +11,12 @@ const StyledSecaoIndex1 = styled.div`
     color: ${props => props.theme.spanColor};
   }
 
+  .span1 {
+    font-style: italic;
+    color: ${props => props.theme.textColor};
+    transition: ${props => props.theme.transitionComponents};
+  }
+
   /* Adicione outros estilos aqui */
 `;
 

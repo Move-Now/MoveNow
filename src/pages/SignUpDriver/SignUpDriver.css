@@ -78,4 +78,8 @@ form span:hover {
     form label {
         font-size: 16px;
     }
+
+    button {
+        font-size: 15px;
+    }
 }

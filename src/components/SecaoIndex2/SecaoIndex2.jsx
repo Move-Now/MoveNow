@@ -23,10 +23,14 @@ const StyledSecaoIndex2 = styled.div`
   }
 
   .buttonIndex2 {
+    background-color: ${props => props.theme.backgroundColor};
     transition: ${props => props.theme.transitionComponents};
-    border: 0.5px solid ${props => props.theme.textColor};
     color : ${props => props.theme.textColor};
   }
+
+  input:focus {
+    outline: 1px solid ${props => props.theme.spanColor};;
+}
 
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;

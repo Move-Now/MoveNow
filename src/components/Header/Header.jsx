@@ -33,27 +33,32 @@ const StyledHeader = styled.div`
 
 export function Header(props) {
   const [toggle, setToggle] = useState(true);
+
+  const closeMenu = () => {
+    setToggle(true);
+  };
+
   return (
     <StyledHeader>
       <header>
-        <h2 className="logo">
-         <Link to={"/"}>Move<span>Now</span></Link>
+        <h2 className="logo" onClick={closeMenu}>
+         <Link to={"/"} >Move<span>Now</span></Link>
         </h2>
 
         <nav className={toggle && "navDisabled"}>
           <ul>
-            <li>Solicite um carreto</li>
-            <li>Quem somos?</li>
-            <li>
+          <li onClick={closeMenu}>Solicite um carreto</li>
+            <li onClick={closeMenu}>Quem somos?</li>
+            <li onClick={closeMenu}>
               ajuda
               <FaAngleDown className="arrowIcon" />
             </li>
             <li className="divider">|</li>
             <Link to="/cadastroMotorista">
-            <li>trabalhe conosco</li>
+            <li onClick={closeMenu}>trabalhe conosco</li>
             </Link>
             <Link to="/login">
-              <li>
+              <li onClick={closeMenu}>
                 entrar
                 <FaAngleDown className="arrowIcon" />
               </li>

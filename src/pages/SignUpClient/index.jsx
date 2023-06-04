@@ -1,33 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
+import { AiFillEye } from "react-icons/ai";
 import { BsPersonCircle } from "react-icons/bs";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { BsPersonVcardFill } from "react-icons/bs";
 import { BiLock } from "react-icons/bi";
-import "./style.css";
+
+import { Link } from "react-router-dom";
 
 const StyledSignUp = styled.div`
+    main {
+        background-color: ${props => props.theme.glass};
+        color: ${props => props.theme.textColor};
+        transition: ${props => props.theme.transitionComponents};
+    }
 
-  main {
-    background-color: ${props => props.theme.glass};
-    color: ${props => props.theme.textColor};
-    transition: ${props => props.theme.transitionComponents};
-  }
+    input {
+        color: ${props => props.theme.textColor};
+        background-color: ${props => props.theme.backgroundColor};
+    }
 
-  form {
-    margin:30px;
-  }
-
-  input {
-    color: ${props => props.theme.textColor};
-    background-color: ${props => props.theme.backgroundColor};
-  }
-
-  input:focus {
-    outline: 1px solid ${props => props.theme.spanColor};;
-}
+    input:focus {
+        outline: 1px solid ${props => props.theme.spanColor};;
+    }
 
     .buttonsLogin {
         background-color: ${props => props.theme.backgroundColor};
@@ -35,6 +31,22 @@ const StyledSignUp = styled.div`
         border: ${props => props.theme.borderBottom};
         box-shadow: ${props => props.theme.boxShadow};
     }
+
+    .buttonEntrar{
+        background: transparent;
+        color: #ccc;
+    }
+
+    span {
+        color: ${props => props.theme.spanColor};
+        font-weight: 500;
+    }
+
+    .icon2 {
+        right: 10%;
+    }
+    
+
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;
 
@@ -45,12 +57,19 @@ const ButtonPrimary = styled.button`
 `;
 
 export function SignUpClient() {
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+    };
+
 return (
     <StyledSignUp>
         <main>
             <div className="buttonsLogin">
-                <button>Entrar</button>
-                <ButtonPrimary type="submit">Cadastrar</ButtonPrimary>
+                <Link to={"/login"}><button className="buttonEntrar">Entrar</button></Link>
+                <ButtonPrimary className="buttonCadastrar">Cadastrar</ButtonPrimary>
             </div>
             <form action="">
                 <div className="column">
@@ -72,21 +91,32 @@ return (
                         placeholder="000.000.000-00"
                         icon={<BsPersonVcardFill className="icon" />}
                     />
+                    </div>
+                    <div className="column">
                     <Input
                         title="Senha"
-                        type="password"
-                        placeholder="senha"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Senha"
                         icon={<BiLock className="icon" />}
+                        icon2={<AiFillEye 
+                          className="icon2"
+                          onClick={handleTogglePassword}
+                          style={{cursor: "pointer"}}
+                          />
+                        }
                     />
                     <Input
                         title="Confirme sua Senha"
-                        type="password"
-                        placeholder="confirme a senha..."
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Confirme a senha..."
                         icon={<BiLock className="icon" />}
                     />
-                </div>
+                    <p className="contentLinks">Já possui uma conta?{" "} <Link to={"/login"}><span>Entre aqui!</span></Link></p>
+                    <p className="contentLinks">Quer ser motorista?{" "} <Link to={"/cadastroMotorista"}><span>Clique aqui!</span></Link></p>
+                    </div>
+                
             </form>
-            <ButtonPrimary>Entrar</ButtonPrimary>
+            <ButtonPrimary>Cadastrar</ButtonPrimary>
         </main>
     </StyledSignUp >
 );

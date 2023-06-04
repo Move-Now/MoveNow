@@ -10,6 +10,7 @@ const StyledSecaoIndex1 = styled.div`
   span {
     color: ${props => props.theme.spanColor};
   }
+
   /* Adicione outros estilos aqui */
 `;
 

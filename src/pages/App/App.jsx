@@ -5,6 +5,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { LandingPage } from "../LandingPage";
 
 const lightTheme = {
+  shadow: "0px 2px 4px rgba(0, 0, 0, 0.2);",
   borderBottom: "var(--border-light)",
   boxShadow: "var(--box-shadow-light)",
   backgroundColor: "#fff",
@@ -25,6 +26,7 @@ const lightTheme = {
 };
 
 const darkTheme = {
+  shadow: "0px 2px 4px rgba(255, 255, 255, 0.20);",
   borderBottom: "1px solid rgba(235, 113, 0, 0.15)",
   boxShadow: "var(--box-shadow-dark)",
   backgroundColor: "#101217",

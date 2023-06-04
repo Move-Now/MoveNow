@@ -1,8 +1,7 @@
-import "./SignUpDriver.css";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
+import { AiFillEye } from "react-icons/ai";
 import { BsPersonCircle } from "react-icons/bs";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { BsPersonVcardFill } from "react-icons/bs";
@@ -10,8 +9,9 @@ import { BsTelephoneFill } from "react-icons/bs";
 import { BsPostcardFill } from "react-icons/bs";
 import { FaTruck } from "react-icons/fa";
 import { ImFilePicture } from "react-icons/im";
-import { RiLockPasswordFill } from "react-icons/ri";
+import { BiLock } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import "./SignUpDriver.css";
 
 const StyledSignUpDriver = styled.div`
 
@@ -28,7 +28,7 @@ const StyledSignUpDriver = styled.div`
 
   span {
     color: ${props => props.theme.spanColor};
-    font-weight: 600;
+    font-weight: 500;
   }
 
   input {
@@ -48,6 +48,10 @@ const StyledSignUpDriver = styled.div`
       color: ${props => props.theme.textColor};
   }
 
+  .icon2 {
+    right: 10%;
+  }
+
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;
 
@@ -58,6 +62,12 @@ const ButtonPrimary = styled.button`
 `;
 
 export function SignUpDriver() {
+
+  const [showPassword, setShowPassword] = useState(false);
+
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+    };
 
   return (
     <StyledSignUpDriver>
@@ -114,19 +124,25 @@ export function SignUpDriver() {
             />
 
             <Input
-              title="Senha"
-              type="password"
-              placeholder="Senha"
-              icon={<RiLockPasswordFill className="icon" />}
+                title="Senha"
+                type={showPassword ? "text" : "password"}
+                placeholder="Senha"
+                icon={<BiLock className="icon" />}
+                icon2={<AiFillEye 
+                  className="icon2"
+                  onClick={handleTogglePassword}
+                  style={{cursor: "pointer"}}
+                  />
+                }
             />
             
             <Input
               title="Confirmar a Senha"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Senha"
-              icon={<RiLockPasswordFill className="icon" />}
+              icon={<BiLock className="icon" />}
             />
-            <p className="contentSignUp">
+            <p className="contentLinks">
               Já tem uma conta?{" "}
               <span>
                 <Link to={"/login"}>Entre aqui</Link>
@@ -134,7 +150,7 @@ export function SignUpDriver() {
             </p>
           </div>
         </form>
-        <ButtonPrimary>Cadastrar como Motorista</ButtonPrimary>
+        <ButtonPrimary className="cadastrar">Cadastrar como Motorista</ButtonPrimary>
       </main>
     </StyledSignUpDriver>
   );

@@ -9,6 +9,7 @@ import { App } from "./pages/App/App";
 import { LandingPage } from "./pages/LandingPage";
 import { SignUpClient } from "./pages/SignUpClient";
 import { SignUpDriver } from "./pages/SignUpDriver";
+import { Login } from "./pages/Login";
 
 //Configurando o React Router
 const router = createBrowserRouter([
@@ -22,12 +23,16 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: "login",
+        path: "cadastro",
         element: <SignUpClient />,
       },
       {
         path: "cadastroMotorista",
         element: <SignUpDriver />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },

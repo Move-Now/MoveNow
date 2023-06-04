@@ -1,0 +1,16 @@
+.contentLinks {
+    font-size: 14px;
+    line-height: normal;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 560px) {
+
+    .buttonCadastrar {
+        padding: 13.5px 15px;
+    }
+
+    .buttonEntrar {
+        padding: 13.5px 20px;
+    }
+}

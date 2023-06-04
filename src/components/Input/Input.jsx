@@ -6,7 +6,7 @@ export function Input(props) {
         <label>{props.title}</label>
         <div className="input">
           <input type={props.type} placeholder={props.placeholder} />
-          {props.icon}
+          {props.icon} {props.icon2}
         </div>
       </div>
   );

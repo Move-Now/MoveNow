@@ -38,6 +38,13 @@ input:focus {
     transform: translate(50%, -50%);
 }
 
+.icon2 {
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
 input::placeholder {
     font-size: 14px;
 }

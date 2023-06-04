@@ -49,6 +49,7 @@ nav ul {
 
 
 nav ul li {
+    padding: 10px 0;
     font-size: 15px;
     text-transform: capitalize;
     display: flex;

@@ -6,20 +6,22 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 50px;
+    gap: 25px;
 }
 
 .titleSection5{
     text-align: left;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 700;
     line-height: 47px;
+    margin: 0;
 }
 
 .textoSection5 {
     display: flex;
     flex-direction: column;
     text-justify: auto;
-    width: 594px;
+    width: 80%;
     gap: 1.5vw;
 }
 
@@ -28,6 +30,49 @@
     bottom: 500px;
 }
 
-.paragrafoSustentabilidade {
-    font-size: 23px;
+
+
+@media(max-width: 1220px) {
+    .titleSection5{
+        font-size: 30px;
+    }
+}
+@media(max-width: 1050px) {
+    .titleSection5 {
+        font-size: 30px;
+        margin-bottom: 0.3vh;
+    }
+    .textoSection5 p{
+        font-size: 14px;
+        
+    }
+    .section5{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .section5 img{
+        width: 400px;
+    }
+    .buttonSus{
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 620px) {
+    .titleSection5 {
+        font-size: 20px;
+        margin-bottom: 0.3vh;
+        text-align: center;
+        line-height: normal;
+    }
+    .textoSection5{
+        gap: 5vw;
+    }
+    .paragrafoSustentabilidade{
+        text-align: center;
+    }
+    .buttonSus{
+        font-size: 12px;
+    }
 }

@@ -84,7 +84,9 @@ export function Header(props) {
 
         <nav className={toggle && "navDisabled"}>
           <ul>
-            <li onClick={closeMenu}>Solicite um carreto</li>
+           <Link to={"/orcamento"}>
+           <li onClick={closeMenu}>Solicite um carreto</li>
+           </Link>
             <li onClick={closeMenu}>Quem somos?</li>
             <li
               onMouseEnter={dropdownAjuda}

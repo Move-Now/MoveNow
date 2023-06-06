@@ -20,7 +20,6 @@ const StyledTrabalhosFeitos = styled.div`
 
   td::before {
     color: ${props => props.theme.spanColor};
-    background: ${props => props.theme.glass};
   }
   
   /* Adicione outros estilos personalizados específicos do componente aqui */

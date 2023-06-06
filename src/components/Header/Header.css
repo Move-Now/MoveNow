@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/avengeance-heroic-avenger');
 @import url("../../index.css");
 
 header {
@@ -24,8 +25,10 @@ a {
 }
 
 .logo {
+    font-family: 'Avengeance Heroic Avenger', sans-serif;                             
     font-size: 30px;
-    font-weight: 400;
+    letter-spacing: 0.75px;
+    /* font-weight: 400; */
     margin: 0;
 }
 
@@ -51,6 +54,7 @@ nav ul {
 nav ul li {
     padding: 10px 0;
     font-size: 15px;
+    font-weight: 600;
     text-transform: capitalize;
     display: flex;
     gap: 7px;

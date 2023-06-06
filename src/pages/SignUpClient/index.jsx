@@ -87,7 +87,7 @@ return (
                     />
                     <Input
                         title="CPF"
-                        type="text"
+                        type="number"
                         placeholder="000.000.000-00"
                         icon={<BsPersonVcardFill className="icon" />}
                     />

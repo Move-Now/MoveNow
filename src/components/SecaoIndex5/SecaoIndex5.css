@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     text-justify: auto;
-    width: 80%;
+    width: 100%;
     gap: 1.5vw;
 }
 
@@ -44,15 +44,17 @@
     }
     .textoSection5 p{
         font-size: 14px;
-        
     }
+
     .section5{
         flex-direction: column;
         justify-content: center;
     }
+
     .section5 img{
         width: 400px;
     }
+
     .buttonSus{
         width: 80%;
         margin: auto;
@@ -60,18 +62,26 @@
 }
 
 @media (min-width: 320px) and (max-width: 620px) {
+    
+    .section5 img{
+        width: 250px;
+    }
+    
     .titleSection5 {
         font-size: 20px;
         margin-bottom: 0.3vh;
         text-align: center;
         line-height: normal;
     }
+
     .textoSection5{
         gap: 5vw;
     }
+
     .paragrafoSustentabilidade{
         text-align: center;
     }
+
     .buttonSus{
         font-size: 12px;
     }

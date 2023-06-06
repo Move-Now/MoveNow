@@ -17,6 +17,11 @@ const StyledTrabalhosFeitos = styled.div`
     color: ${props => props.theme.textColor};
     background: ${props => props.theme.glass};
   }
+
+  td::before {
+    color: ${props => props.theme.spanColor};
+    background: ${props => props.theme.glass};
+  }
   
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;

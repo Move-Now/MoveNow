@@ -43,6 +43,11 @@ const StyledHeader = styled.div`
     border-bottom: 1px solid ${props => props.theme.spanColor};
   }
 
+  ul li:hover {
+    color: ${props => props.theme.spanColor};
+    border-bottom: 1px solid ${props => props.theme.spanColor};
+  }
+
   .dropdownMobile li{
     border-bottom: 1px solid ${props => props.theme.spanColor};
   }
@@ -79,7 +84,7 @@ export function Header(props) {
     <StyledHeader>
       <header>
         <h2 className="logo" onClick={closeMenu}>
-          <Link to={"/"}>Move<span>Now</span></Link>
+          <Link to={"/"}>move<span>now</span></Link>
         </h2>
 
         <nav className={toggle && "navDisabled"}>

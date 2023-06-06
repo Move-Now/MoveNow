@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         <div className="bottom">
-            <h2>Move<span>Now</span></h2>
+            <h2 className="titleFooter">move<span>now</span></h2>
             <div className="container">
                 
                 <div id="content-empresa" className="bottom-content">

@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/avengeance-heroic-avenger');
+
 footer {
     width: 100%;
 }
@@ -59,17 +61,14 @@ footer {
     height: 300px; 
 }
 
-.bottom h2 span{
+.titleFooter span{
     color: var(--orange);
 }
 
-.bottom h2 {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
+.titleFooter {
+    font-family: 'Avengeance Heroic Avenger', sans-serif;  
+    letter-spacing: 0.75px;
     font-size: 50px;
-    line-height: 58px;
-
     margin-left: 10vw;
 }
 
@@ -119,7 +118,7 @@ footer {
         gap: 5vw;
     }
 
-    .bottom h2{
+    .titleFooter {
         margin: 5vw;
     }
 
@@ -188,7 +187,7 @@ footer {
         width: max-content;
     }
     
-    .bottom h2 {
+    .titleFooter {
         font-size: 30px;
     }
 
@@ -206,10 +205,7 @@ footer {
 }
 
 @media screen and (max-width: 435px) {
-    .bottom h2{
-        font-size: 30px;
-    }
-
+    
     .container {
         font-size: 10px;
     }

@@ -71,7 +71,7 @@ export function SignUpDriver() {
 
   return (
     <StyledSignUpDriver>
-      <main>
+      <main id="mainDriver">
         <h2 className="titleSignUp">Cadastro de Motorista</h2>
         <form action="">
           <div className="column">

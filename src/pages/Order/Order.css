@@ -1,2 +1,56 @@
 @import url("../../index.css");
 
+#mainOrder {
+    width: 100%;
+    padding: 70px 20px;
+}
+
+#sectionOrder {
+    width: 90%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 50px 0;
+    margin: 50px auto;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sectionOrder h2,
+h3 {
+    color: white;
+}
+
+#sectionOrder p {
+    color: white;
+
+}
+
+#sectionOrder p span {
+    color: var(--orange);
+}
+
+#sectionOrder label {
+    color: white;
+}
+
+#sectionOrder .icon {
+    color: white;
+}
+#sectionOrder .column{
+    width: 60%;
+}
+.row label{
+    font-size: 16px;
+}
+.row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+}
+

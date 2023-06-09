@@ -1,6 +1,6 @@
 @import url("../../index.css");
 
-main {
+#mainDriver{
     max-width: 800px;
     width: 90%;
     height: auto;
@@ -15,7 +15,7 @@ main {
     align-items: center;
 }
 
-main h2{
+#mainDriverh2{
     width: 87.5%;
     height: 50px;
     line-height: 50px;
@@ -67,7 +67,7 @@ form span:hover {
 /* responsividade de texto */
 
 @media screen and (max-width:560px) {
-    main h2 {
+    #mainDriverh2 {
         font-size: 20px;
         line-height: 2.4;
     }

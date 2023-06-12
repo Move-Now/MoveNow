@@ -11,6 +11,10 @@ import { SignUpClient } from "./pages/SignUpClient";
 import { SignUpDriver } from "./pages/SignUpDriver";
 import { Login } from "./pages/Login";
 import { Order } from "./pages/Order/Order";
+import { WorkWithUs } from "./pages/WorkWithUs/WorkWithUs";
+import { About } from "./pages/About/About";
+
+
 
 //Configurando o React Router
 const router = createBrowserRouter([
@@ -24,20 +28,28 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: "cadastro",
-        element: <SignUpClient />,
+        path: "orcamento",
+        element: <Order />,
+      },
+      {
+        path: "sobreNos",
+        element: <About />,
+      },
+      {
+        path: "trabalheConosco",
+        element: <WorkWithUs />,
       },
       {
         path: "cadastroMotorista",
         element: <SignUpDriver />,
       },
       {
-        path: "login",
-        element: <Login />,
+        path: "cadastro",
+        element: <SignUpClient />,
       },
       {
-        path: "orcamento",
-        element: <Order />,
+        path: "login",
+        element: <Login />,
       },
     ],
   },

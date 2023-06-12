@@ -8,6 +8,7 @@ import { BsPersonVcardFill } from "react-icons/bs";
 import { BiLock } from "react-icons/bi";
 
 import { Link } from "react-router-dom";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 const StyledSignUp = styled.div`
     main {
@@ -66,6 +67,7 @@ export function SignUpClient() {
 
 return (
     <StyledSignUp>
+        <ScrollToTop />
         <main>
             <div className="buttonsLogin">
                 <Link to={"/login"}><button className="buttonEntrar">Entrar</button></Link>

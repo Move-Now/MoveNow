@@ -61,21 +61,14 @@ footer {
     height: 300px; 
 }
 
-.titleFooter span{
-    color: var(--orange);
-}
-
-.titleFooter {
-    font-family: 'Avengeance Heroic Avenger', sans-serif;  
-    letter-spacing: 0.75px;
-    font-size: 50px;
+.imagemLogo2 {
+    width: 155px;
     margin-left: 10vw;
 }
 
 .container {
     display: flex;
     height: max-content;
-    padding-bottom: 50px;
     gap: 10vw;
 }
 
@@ -85,6 +78,9 @@ footer {
 }
 
 .bottom-click {
+    display: flex;
+    gap: 5px;
+    align-items: center;
     cursor: pointer;
 }
 

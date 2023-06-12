@@ -6,6 +6,7 @@ import { AiFillEye } from "react-icons/ai";
 import { BiLock } from "react-icons/bi";
 import "./style.css";
 import { Link } from "react-router-dom";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 const StyledLogin = styled.div`
 
@@ -64,6 +65,7 @@ export function Login() {
 
 return (
     <StyledLogin>
+      <ScrollToTop />
         <main>
             <div className="buttonsLogin">
                 <ButtonPrimary className="buttonEntrar">Entrar</ButtonPrimary>

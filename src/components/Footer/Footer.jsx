@@ -1,4 +1,6 @@
 import "./Footer.css";
+import React, {useState, useEffect, useContext } from "react";
+import { ThemeContext } from "styled-components";
 import { FaLinkedin } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";    
 import { FaGithub } from "react-icons/fa";
@@ -40,6 +42,18 @@ const StyledFooter = styled.div`
 
 export function Footer() {
 
+  const theme = useContext(ThemeContext);
+    const storedTheme = localStorage.getItem("theme");
+    const [isDarkMode, setIsDarkMode] = useState(storedTheme === "dark");
+
+    useEffect(() => {
+        setIsDarkMode(storedTheme === "dark");
+    }, [storedTheme]);
+
+    const image = isDarkMode
+    ? "../../src/assets/logoDark.png"
+    : "../../src/assets/logoLight.png";
+
   return (
     <StyledFooter>
       <footer>
@@ -54,7 +68,8 @@ export function Footer() {
         </div>
 
         <div className="bottom">
-            <h2 className="titleFooter">move<span>now</span></h2>
+            <img src={image} alt="" className="imagemLogo2"/>
+            
             <div className="container">
                 
                 <div id="content-empresa" className="bottom-content">
@@ -68,10 +83,9 @@ export function Footer() {
                 <div className="bottom-content">
                     <ul>
                         <li className="bottom-content-title">Ajuda</li>
-                        <li className="bottom-click">Perguntas <br/>Frenquentes</li>
-                        <li className="bottom-click">Motorista</li>
-                        <li className="bottom-click">Usuário</li>
-                        <li className="bottom-click">Ajudante</li>
+                        <li className="bottom-click">Motoristas</li>
+                        <li className="bottom-click">Empresas</li>
+                        <li className="bottom-click">Usuários</li>
                     </ul>
                 </div>
 

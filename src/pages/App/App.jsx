@@ -2,10 +2,10 @@ import { Outlet } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Header } from "../../components/Header/Header";
 import styled, { ThemeProvider } from "styled-components";
-import { LandingPage } from "../LandingPage";
 
 const lightTheme = {
   shadow: "0px 2px 4px rgba(0, 0, 0, 0.2);",
+  shadowBox: "rgba(0, 0, 0, 0.2);",
   borderBottom: "var(--border-light)",
   boxShadow: "var(--box-shadow-light)",
   backgroundColor: "#fff",
@@ -27,6 +27,7 @@ const lightTheme = {
 
 const darkTheme = {
   shadow: "0px 2px 4px rgba(255, 255, 255, 0.20);",
+  shadowBox: "rgba(255, 255, 255, 0.08);",
   borderBottom: "1px solid rgba(235, 113, 0, 0.15)",
   boxShadow: "var(--box-shadow-dark)",
   backgroundColor: "#101217",
@@ -74,9 +75,13 @@ export function App() {
     };
   }, [isDarkMode, isTransitionEnabled]);
 
+  const imageLogo = isDarkMode
+    ? "../../src/assets/logoDark.png"
+    : "../../src/assets/logoLight.png";
+
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme}/>
+      <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo}/>
       <Outlet theme={isDarkMode ? darkTheme : lightTheme}/>
     </ThemeProvider>
   );

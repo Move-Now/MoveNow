@@ -61,7 +61,7 @@ export function SecaoIndex2(props) {
 
               <button className="buttonIndex2">Campinas <AiFillCaretDown className="iconIndex2"/></button>
               <input type="text" className="buttonIndex2" placeholder="Cidade ou CEP"/>
-              <ButtonPrimary >Solicite já seu orçamento</ButtonPrimary>
+              <ButtonPrimary className="buttonSection2">Solicite já seu orçamento</ButtonPrimary>
               
           </div>
           <img src={props.img} alt=""/>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./SecaoIndex1.css";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 const StyledSecaoIndex1 = styled.div`
   transition: ${props => props.theme.transitionComponents};
@@ -38,12 +39,8 @@ export function SecaoIndex1(props) {
 
   return (
     <StyledSecaoIndex1>
-
+      <ScrollToTop />
       <div className="section1">
-        {/* <div className="eclipse"></div> */}
-        {/* por enquanto vamos deixar esse eclipse aqui, até encontrarmos uma maneira mais eficiente de reproduzir */}
-
-        {/* a imagem do caminhão também é provisória, até acharmos uma melhor */}
 
         <div className="wrapperContent">
           <h1>

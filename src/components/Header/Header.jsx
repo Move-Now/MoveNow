@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "./Header.css";
 import { FaRegMoon } from "react-icons/fa";
+import { BiSun } from "react-icons/bi";
 import { FaAngleDown } from "react-icons/fa";
 import { BiMenu } from "react-icons/bi";
 import { IoIosClose } from "react-icons/io";
@@ -83,16 +84,16 @@ export function Header(props) {
   return (
     <StyledHeader>
       <header>
-        <h2 className="logo" onClick={closeMenu}>
-          <Link to={"/"}>move<span>now</span></Link>
-        </h2>
 
+      <Link to={"/"}><img src={props.img} alt="" className="imagemLogo"/></Link>
         <nav className={toggle && "navDisabled"}>
           <ul>
            <Link to={"/orcamento"}>
-           <li onClick={closeMenu}>Solicite um carreto</li>
+              <li onClick={closeMenu}>Solicite um carreto</li>
            </Link>
-            <li onClick={closeMenu}>Quem somos?</li>
+            <Link to={"/sobreNos"}>
+              <li onClick={closeMenu}>Quem somos?</li>
+            </Link>
             <li
               onMouseEnter={dropdownAjuda}
               onMouseLeave={hideDropdownAjuda}
@@ -118,7 +119,7 @@ export function Header(props) {
             </div>
             )}
             <li className="divider">|</li>
-            <Link to="/cadastroMotorista">
+            <Link to="/trabalheConosco">
               <li onClick={closeMenu}>trabalhe conosco</li>
             </Link>
             

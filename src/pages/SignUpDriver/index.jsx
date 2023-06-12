@@ -12,6 +12,7 @@ import { ImFilePicture } from "react-icons/im";
 import { BiLock } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./SignUpDriver.css";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 const StyledSignUpDriver = styled.div`
 
@@ -71,6 +72,7 @@ export function SignUpDriver() {
 
   return (
     <StyledSignUpDriver>
+      <ScrollToTop />
       <main>
         <h2 className="titleSignUp">Cadastro de Motorista</h2>
         <form action="">

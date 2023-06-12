@@ -1,0 +1,74 @@
+
+.topAbout {
+    background-image: url(../../assets/sobreNos4.png);
+   
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.contentTopAbout {
+    align-self: flex-end;
+    width: 90%;
+    padding: 64px;
+}
+
+.titleAbout {
+    color: #ffffff;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 64px;
+}
+
+.bottomAbout {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.contentBottomAbout {
+    padding: 64px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.subtitleAbout {
+    font-size: 36px;
+    text-align: start;
+    line-height: normal;
+    margin: 0;
+}
+
+.bottomContent2 {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+}
+
+p {
+    font-size: 16px;
+}
+
+.dropdownParagraphAbout {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #ccc;
+    padding: 16px 20px;
+    cursor: pointer;
+}
+
+.dropdownParagraphAboutContent {
+    line-height: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+

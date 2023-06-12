@@ -96,7 +96,11 @@ button {
         height: auto;
     }
 
-    .buttonIndex2 button {
+    .buttonIndex2 {
+        font-size: 12px;
+    }
+
+    .buttonSection2 {
         font-size: 12px;
     }
 }

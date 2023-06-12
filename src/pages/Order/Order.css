@@ -43,14 +43,5 @@ h3 {
 #sectionOrder .column{
     width: 60%;
 }
-.row label{
-    font-size: 16px;
-}
-.row {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: left;
 
-}
 

@@ -1,5 +1,7 @@
 import { Input } from "../../components/Input/Input";
 import { Footer } from "../../components/Footer/Footer";
+import { Checkbox } from "../../components/Checkbox/Checkbox";
+import { Tape } from "../../components/Tape/Tape";
 import styled from "styled-components";
 import "./Order.css";
 import { BiMap } from "react-icons/bi";
@@ -12,6 +14,8 @@ import { FaRulerVertical } from "react-icons/fa";
 import { GiWeightScale } from "react-icons/gi";
 
 export function Order() {
+
+
   const ButtonPrimary = styled.button`
     font-weight: ${(props) => props.theme.buttonFontWeight};
     color: ${(props) => props.theme.buttonPrimaryColor};
@@ -24,6 +28,7 @@ export function Order() {
     background-color: ${(props) => props.theme.buttonBackgroundSecondaryColor};
     border: ${(props) => props.theme.buttonBorderSecondary};
   `;
+
   return (
     <>
       <main id="mainOrder">
@@ -77,6 +82,8 @@ export function Order() {
             </div>
           </form>
         </section>
+        <Tape img="../src/assets/LOGOLaranja.png"/>
+
         <section id="sectionOrder">
           <h2>Informe os detalhes da mudança</h2>
           <form action="">
@@ -118,6 +125,8 @@ export function Order() {
                 icon={<GiWeightScale className="icon" />}
               />
 
+              <Checkbox title="Seguro incluso" price={"00,00"} />
+
               <div className="wrapperButtons">
                 <ButtonSecondary>Adicionar</ButtonSecondary>
                 <ButtonPrimary>Finalizar</ButtonPrimary>
@@ -144,6 +153,7 @@ export function Order() {
             </div>
           </form>
         </section>
+        <Tape img="../src/assets/LOGOLaranja.png"/>
       </main>
       <Footer />
     </>

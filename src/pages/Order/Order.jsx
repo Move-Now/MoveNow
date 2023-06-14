@@ -14,8 +14,6 @@ import { FaRulerVertical } from "react-icons/fa";
 import { GiWeightScale } from "react-icons/gi";
 
 export function Order() {
-
-
   const ButtonPrimary = styled.button`
     font-weight: ${(props) => props.theme.buttonFontWeight};
     color: ${(props) => props.theme.buttonPrimaryColor};
@@ -80,9 +78,11 @@ export function Order() {
                 icon={<AiOutlineFieldNumber className="icon" />}
               />
             </div>
+            
           </form>
+            <ButtonPrimary className="next">Próximo {">"}</ButtonPrimary>
         </section>
-        <Tape img="../src/assets/LOGOLaranja.png"/>
+        <Tape img="../src/assets/LOGOLaranja.png" />
 
         <section id="sectionOrder">
           <h2>Informe os detalhes da mudança</h2>
@@ -128,7 +128,7 @@ export function Order() {
               <Checkbox title="Seguro incluso" price={"00,00"} />
 
               <div className="wrapperButtons">
-                <ButtonSecondary>Adicionar</ButtonSecondary>
+                <ButtonSecondary>+ Adicionar item</ButtonSecondary>
                 <ButtonPrimary>Finalizar</ButtonPrimary>
               </div>
             </div>
@@ -153,7 +153,6 @@ export function Order() {
             </div>
           </form>
         </section>
-        <Tape img="../src/assets/LOGOLaranja.png"/>
       </main>
       <Footer />
     </>

@@ -15,7 +15,7 @@ import "./SignUpDriver.css";
 
 const StyledSignUpDriver = styled.div`
 
-  main {
+  #mainDriver {
     background-color: ${props => props.theme.glass};
     color: ${props => props.theme.textColor};
     transition: ${props => props.theme.transitionComponents};

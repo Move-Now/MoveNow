@@ -1,6 +1,6 @@
 @import url("../../index.css");
 
-#mainOrder {
+#mainOrder{
     width: 100%;
     padding: 70px 20px;
 }
@@ -44,4 +44,10 @@ h3 {
     width: 60%;
 }
 
+#sectionOrder .next{
+    width: 40%;
+}
 
+#sectionOrder .wrapperButtons button{
+    width: 100%;
+}

@@ -24,16 +24,9 @@ a {
 
 }
 
-.logo {
-    font-family: 'Avengeance Heroic Avenger', sans-serif;                             
-    font-size: 30px;
-    letter-spacing: 0.75px;
-    /* font-weight: 400; */
-    margin: 0;
-}
-
-.logo span {
-    color: var(--orange);
+.imagemLogo {
+    width: 105px;
+    cursor: pointer;
 }
 
 nav {

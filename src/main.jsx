@@ -11,6 +11,10 @@ import { SignUpClient } from "./pages/SignUpClient";
 import { SignUpDriver } from "./pages/SignUpDriver";
 import { Login } from "./pages/Login";
 import { Order } from "./pages/Order/Order";
+import { About } from "./pages/About/About";
+import { Faq } from "./pages/Faq/Faq";
+import { WorkWithUs } from "./pages/WorkWithUs/WorkWithUs";
+
 
 //Configurando o React Router
 const router = createBrowserRouter([
@@ -24,6 +28,22 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
+        path: "orcamento",
+        element: <Order />,
+      },
+      {
+        path: "sobreNos",
+        element: <About />,
+      },
+      {
+        path: "faq",
+        element: <Faq />,
+      },
+      {
+        path: "trabalheConosco",
+        element: <WorkWithUs />,
+      },
+      {
         path: "cadastro",
         element: <SignUpClient />,
       },
@@ -34,10 +54,6 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
-      },
-      {
-        path: "orcamento",
-        element: <Order />,
       },
     ],
   },

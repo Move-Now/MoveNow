@@ -2,10 +2,12 @@ import { Outlet } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Header } from "../../components/Header/Header";
 import styled, { ThemeProvider } from "styled-components";
-import { LandingPage } from "../LandingPage";
+import { BsFillSunFill } from "react-icons/bs";
+import { FaRegMoon } from "react-icons/fa";
 
 const lightTheme = {
   shadow: "0px 2px 4px rgba(0, 0, 0, 0.2);",
+  shadowBox: "rgba(0, 0, 0, 0.2);",
   borderBottom: "var(--border-light)",
   boxShadow: "var(--box-shadow-light)",
   backgroundColor: "#fff",
@@ -27,6 +29,7 @@ const lightTheme = {
 
 const darkTheme = {
   shadow: "0px 2px 4px rgba(255, 255, 255, 0.20);",
+  shadowBox: "rgba(255, 255, 255, 0.08);",
   borderBottom: "1px solid rgba(235, 113, 0, 0.15)",
   boxShadow: "var(--box-shadow-dark)",
   backgroundColor: "#101217",
@@ -39,7 +42,7 @@ const darkTheme = {
   buttonSecondaryColor: "#FFFFFF",
   buttonBackgroundPrimaryColor: "#FB6730",
   buttonBackgroundSecondaryColor: "transparent",
-  buttonBorderSecondary: "3px solid #FB6730",
+  buttonBorderSecondary:"3px solid #FB6730",
   buttonFontWeight: "600",
   transitionComponents: "0.7s ease-in-out",
   glassFooter: "rgba(252, 112, 19, 0.33)", 
@@ -74,9 +77,17 @@ export function App() {
     };
   }, [isDarkMode, isTransitionEnabled]);
 
+  const imageLogo = isDarkMode
+    ? "../../src/assets/logoDark.png"
+    : "../../src/assets/logoLight.png";
+  
+  const iconeToggle = isDarkMode
+  ? <BsFillSunFill className="modeIcon" onClick={toggleTheme}/>
+  : <FaRegMoon className="modeIcon" onClick={toggleTheme}/>;
+
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme}/>
+      <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/>
       <Outlet theme={isDarkMode ? darkTheme : lightTheme}/>
     </ThemeProvider>
   );

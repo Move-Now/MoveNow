@@ -19,27 +19,7 @@
     align-items: center;
 }
 
-#sectionOrder h2,
-h3 {
-    color: white;
-}
 
-#sectionOrder p {
-    color: white;
-
-}
-
-#sectionOrder p span {
-    color: var(--orange);
-}
-
-#sectionOrder label {
-    color: white;
-}
-
-#sectionOrder .icon {
-    color: white;
-}
 #sectionOrder .column{
     width: 60%;
 }

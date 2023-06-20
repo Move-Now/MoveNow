@@ -17,7 +17,6 @@ const StyledSignUp = styled.div`
     max-width: 800px;
     width: 90%;
     height: auto;
-    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px);
     border-radius: 20px;
     padding: 50px 0;

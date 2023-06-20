@@ -12,6 +12,44 @@ import { MdKitchen } from "react-icons/md";
 import { FaRulerHorizontal } from "react-icons/fa";
 import { FaRulerVertical } from "react-icons/fa";
 import { GiWeightScale } from "react-icons/gi";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
+
+const StyledOrder = styled.div`
+  #sectionOrder {
+    background-color: ${props => props.theme.glass};
+    color: ${props => props.theme.textColor};
+    transition: ${props => props.theme.transitionComponents};
+  }
+
+  input {
+    background-color: ${props => props.theme.backgroundColor};
+  }
+
+  .icon {
+    color: ${props => props.theme.textColor};
+  }
+
+  #sectionOrder p span {
+    color: ${props => props.theme.spanColor};
+  }
+
+  th {
+    background: ${props => props.theme.spanColor};
+    color: #FFFFFF;
+  }
+
+  td {
+    transition: ${props => props.theme.transitionComponents};
+    color: ${props => props.theme.textColor};
+    background: ${props => props.theme.backgroundColor};
+  }
+
+  td::before {
+    color: ${props => props.theme.spanColor};
+  }
+
+  /* Adicione outros estilos personalizados específicos do componente aqui */
+`;
 
 export function Order() {
   const ButtonPrimary = styled.button`
@@ -28,7 +66,8 @@ export function Order() {
   `;
 
   return (
-    <>
+    <StyledOrder>
+      <ScrollToTop />
       <main id="mainOrder">
         <section id="sectionOrder">
           <h2>Informe os dados do endereço</h2>
@@ -155,6 +194,6 @@ export function Order() {
         </section>
       </main>
       <Footer />
-    </>
+    </StyledOrder>
   );
 }

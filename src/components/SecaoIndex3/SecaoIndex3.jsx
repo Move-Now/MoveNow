@@ -82,7 +82,7 @@ export function SecaoIndex3() {
       <div className='section3'>
 
         <h2 className='titleIndex3'>Como funciona?</h2>
-        <p className='contentTitleIndex3'>Entenda o processo até a conclusão de sua solicitação</p>
+        <p className='contentTitleIndex3'>Acompanhe o processo até a conclusão de seu pedido</p>
 
           <div id="progress-bar-container">
 
@@ -131,35 +131,35 @@ export function SecaoIndex3() {
               <div className={`section-content orcamento ${activeStep === 1 ? 'active' : ''}`}>
                 <h2>Solicite seu orçamento</h2>
                 <p>
-                  Para solicitar um orçamento completo, basta informar nos campos adequados a descrição de sua mudança ou transporte, para que nosso sistema te auxilie automaticamente com os melhores caminhões
+                  Para solicitar um orçamento completo, basta informar nos campos adequados a descrição de sua mudança ou transporte, para que nosso sistema auxilie automaticamente com os melhores caminhões disponíveis.
                 </p>
               </div>
 
               <div className={`section-content precos ${activeStep === 2 ? 'active' : ''}`}>
                 <h2>Receba diversos preços</h2>
                 <p>
-                  Com o nosso sistema de integração com os motoristas, você nosso cliente pode receber diversos orçamentos referente a mesma viagem, ou seja, todos os motoristas podem te enviar um orçamento totalmente gratuito.
+                  Com o nosso sistema de integração com os motoristas, você nosso cliente pode receber diversos orçamentos referente a mesma viagem.
                 </p>
               </div>
 
               <div className={`section-content precos2 ${activeStep === 3 ? 'active' : ''}`}>
                 <h2>Selecione o melhor orçamento</h2>
                 <p>
-                  Agora, basta você nosso cliente escolher dentre todos os orçamentos, o melhor para o seu bolso. Selecionar o melhor orçamento para a MoveNow é essencial para garantir que você obtenha o melhor valor pelo seu dinheiro e a qualidade desejada.
+                  Selecione o orçamento mais indicado para garantir que você obtenha o melhor valor e a qualidade desejada.
                 </p>
               </div>
 
               <div className={`section-content motorista ${activeStep === 4 ? 'active' : ''}`}>
                 <h2>Converse diretamente com nosso motorista</h2>
                 <p>
-                  Possuimos ainda um sistema de conversa privada entre o motorista que escolher! Podendo conversar em detalhes com o carreteiro para esclarecer dúvidas, obter informações adicionais e estabelecer uma comunicação clara e transparente.
+                  É possível conversar em detalhes com o carreteiro para esclarecer dúvidas, obter informações adicionais e estabelecer uma comunicação clara e transparente.
                 </p>
               </div>
 
               <div className={`section-content rastreio ${activeStep === 5 ? 'active' : ''}`}>
                 <h2>Rastreie a mudança</h2>
                 <p>
-                  Para sua e nossa segurança, rastreamos todas as nossas viagens de carreto, podendo ser acompanhada em tempo real pelo nosso site ou aplicativo mobile!
+                  Para segurança de todos, rastreamos todas a viagens de carreto podendo ser visualizada na aba do "rastreamento".
                 </p>
               </div>
             </div>

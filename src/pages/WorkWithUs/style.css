@@ -1,0 +1,139 @@
+.sectionTrabalheConosco {
+    width: 100%;
+    margin: auto;
+    
+    padding: 60px;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5vw;
+
+}
+
+.topContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
+
+.wrapperButtonsTrabalheConosco {
+    display: flex;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.buttonsTrabalheConosco {
+    display: flex;
+    gap: 50px;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+.buttonsTrabalheConosco p {
+    font-size: 30px;
+}
+
+.arrow {
+    font-size: 30px;
+}
+
+.bottomContent {
+    padding: 60px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: justify;
+}
+
+.bottomContent p {
+    font-size: 17px;
+}
+
+@media screen and (max-width: 1300px) {
+    .sectionTrabalheConosco img {
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 1220px) {
+    .sectionTrabalheConosco h1 {
+        font-size: 30px;
+    }
+
+    .topContent p {
+        font-size: 17px;
+    }
+
+    .sectionTrabalheConosco img {
+        width: 450px;
+    }
+    
+    .buttonsTrabalheConosco {
+        gap: 30px;
+    }
+
+    .buttonsTrabalheConosco p {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    .bottomContent {
+        text-align: start;
+    }
+
+    .sectionTrabalheConosco {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "image"
+            "text"
+        ;
+
+        padding: 30px 20px;
+    }
+
+    .sectionTrabalheConosco img {
+        width: 450px;
+        grid-area: image;
+        margin: auto;
+    }
+
+    .topContent, .wrapperButtonsTrabalheConosco {
+        grid-area: text;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 580px) {
+
+    .buttonsTrabalheConosco {
+        gap: 20px;
+        padding-bottom: 8px;
+    }
+
+    .buttonsTrabalheConosco p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .sectionTrabalheConosco h1 {
+        font-size: 25px;
+    }
+
+    .sectionTrabalheConosco img {
+        width: 300px;
+    }
+
+    .wrapperButtonsTrabalheConosco {
+        gap: 15px;
+    }
+    
+    .buttonsTrabalheConosco {
+        gap: 8px;
+    }
+}

@@ -96,7 +96,11 @@ button {
         height: auto;
     }
 
-    .buttonIndex2 button {
+    .buttonIndex2 {
+        font-size: 12px;
+    }
+
+    .buttonSection2 {
         font-size: 12px;
     }
 }
@@ -142,7 +146,7 @@ button {
     } 
     
     p {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     img {
@@ -162,7 +166,7 @@ button {
     } 
     
     p {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .buttonIndex2 {

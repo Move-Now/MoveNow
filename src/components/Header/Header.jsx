@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import "./Header.css";
-import { FaRegMoon } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 import { BiMenu } from "react-icons/bi";
 import { IoIosClose } from "react-icons/io";
@@ -58,73 +57,43 @@ const StyledHeader = styled.div`
 export function Header(props) {
   const [toggle, setToggle] = useState(true);
   const [showDropdownEntrar, setShowDropdownEntrar] = useState(false); // Estado para controlar a exibição do dropdown do item "entrar"
-  const [showDropdownAjuda, setShowDropdownAjuda] = useState(false); // Estado para controlar a exibição do dropdown do item "ajuda"
 
-  const closeMenu = () => {
+
+  const entrar = () => {
+    setShowDropdownEntrar(!showDropdownEntrar)
+  }
+
+  const hide = () => {
+    setShowDropdownEntrar(false)
     setToggle(true);
-  };
-
-  const dropdownEntrar = () => {
-    setShowDropdownEntrar(true);
-  };
-
-  const hideDropdownEntrar = () => {
-    setShowDropdownEntrar(false);
-  };
-
-  const dropdownAjuda = () => {
-    setShowDropdownAjuda(true);
-  };
-
-  const hideDropdownAjuda = () => {
-    setShowDropdownAjuda(false);
-  };
+  }
 
   return (
     <StyledHeader>
       <header>
-        <h2 className="logo" onClick={closeMenu}>
-          <Link to={"/"}>move<span>now</span></Link>
-        </h2>
 
+      <Link to={"/"}><img src={props.img} alt="" className="imagemLogo" onClick={hide}/></Link>
         <nav className={toggle && "navDisabled"}>
           <ul>
-           <Link to={"/orcamento"}>
-           <li onClick={closeMenu}>Solicite um carreto</li>
+           <Link to={"/orcamento"} onClick={hide}>
+              <li onClick={hide}>Solicite um carreto</li>
            </Link>
-            <li onClick={closeMenu}>Quem somos?</li>
-            <li
-              onMouseEnter={dropdownAjuda}
-              onMouseLeave={hideDropdownAjuda}
-            >
-              ajuda
-              <FaAngleDown className="arrowIcon" />
-              {showDropdownAjuda && (
-                <div className="dropdown">
-                  {/* Conteúdo do dropdown */}
-                  <ul className="dropdownContent">
-                    <li>Para Motoristas</li>
-                    <li>Para Empresas</li>
-                    <li>Para Usuários</li>
-                  </ul>
-                </div>
-              )}
-            </li>
-            {showDropdownAjuda && (
-            <div className="dropdownMobile">
-              <li onClick={closeMenu}>Para Motoristas</li>
-              <li onClick={closeMenu}>Para Empresas</li>
-              <li onClick={closeMenu}>Para Usuários</li>
-            </div>
-            )}
-            <li className="divider">|</li>
-            <Link to="/cadastroMotorista">
-              <li onClick={closeMenu}>trabalhe conosco</li>
+            <Link to={"/sobreNos"} onClick={hide}>
+              <li onClick={hide}>Quem somos?</li>
+            </Link>
+
+            <Link to={"/faq"} onClick={hide}>
+              <li onClick={hide}>
+                ajuda
+              </li>
             </Link>
             
+            <li className="divider">|</li>
+            <Link to="/trabalheConosco" onClick={hide}>
+              <li onClick={hide}>trabalhe conosco</li>
+            </Link>
               <li
-                onMouseEnter={dropdownEntrar}
-                onMouseLeave={hideDropdownEntrar}
+                onClick={entrar}
               >
                 entrar
                 <FaAngleDown className="arrowIcon" />
@@ -140,10 +109,10 @@ export function Header(props) {
                 )}
               </li>
               {showDropdownEntrar && (
-                <div className="dropdownMobile">
-                  <Link to={"/cadastroMotorista"}><li onClick={closeMenu}>Seja Motorista</li></Link>
-                    <Link to={"/cadastro"}><li onClick={closeMenu}>Cadastra-se</li></Link>
-                    <Link to="/login"><li onClick={closeMenu}>Entrar</li></Link>
+                <div className="dropdownMobile" onClick={() => setShowDropdownEntrar(!showDropdownEntrar)}>
+                  <Link to={"/cadastroMotorista"}><li onClick={hide}>Seja Motorista</li></Link>
+                    <Link to={"/cadastro"}><li onClick={hide}>Cadastra-se</li></Link>
+                    <Link to="/login"><li onClick={hide}>Entrar</li></Link>
                 </div>
               )}
             
@@ -153,7 +122,7 @@ export function Header(props) {
         <div className="iconsWrapper">
           <BiMenu className="menuIcon" onClick={() => setToggle(!toggle)} />
           <IoIosClose className="menuCloseIcon disabled" />
-          <FaRegMoon className="modeIcon" onClick={props.action} />
+          {props.iconeToggle}
         </div>
       </header>
     </StyledHeader>

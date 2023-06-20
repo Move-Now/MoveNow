@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { ThemeContext } from "styled-components";
-import { Header } from "../../components/Header/Header";
 import { SecaoIndex1 } from "../../components/SecaoIndex1/SecaoIndex1";
 import { Partnerships } from "../../components/Partnerships/Partnerships";
 import { SecaoIndex2 } from "../../components/SecaoIndex2/SecaoIndex2";

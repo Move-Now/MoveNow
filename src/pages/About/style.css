@@ -263,6 +263,8 @@
 @media screen and (max-width: 500px) {
     .contentTopAbout {
         text-align: center;
+        padding: 30px;
+
     }
 
     .titleAbout {
@@ -311,9 +313,7 @@
 }
 
 @media screen and (max-width: 390px) {
-    .contentTopAbout {
-        padding: 30px;
-    }
+    
 
     .aboutSustentabilidadeContent {
         gap: 0px;

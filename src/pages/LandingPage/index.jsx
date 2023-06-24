@@ -9,6 +9,7 @@ import { SecaoIndex5 } from "../../components/SecaoIndex5/SecaoIndex5";
 import { FinishedJobs } from "../../components/FinishedJobs/FinishedJobs";
 import { SecaoIndex3 } from "../../components/SecaoIndex3/SecaoIndex3";
 import { Footer } from "../../components/Footer/Footer";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 
 export function LandingPage() {
@@ -35,6 +36,7 @@ export function LandingPage() {
 
   return (
     <ThemeProvider theme={theme}>
+      <ScrollToTop />
       <SecaoIndex1 img={imageTruck} />
       <Partnerships />
       <SecaoIndex2 img={imageIndex2}/>

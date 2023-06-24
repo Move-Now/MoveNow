@@ -75,6 +75,9 @@ export function Header(props) {
       <Link to={"/"}><img src={props.img} alt="" className="imagemLogo" onClick={hide}/></Link>
         <nav className={toggle && "navDisabled"}>
           <ul>
+           <Link to={"/driver"}>
+              <li>INDEX MOTORISTA</li>
+           </Link>
            <Link to={"/orcamento"} onClick={hide}>
               <li onClick={hide}>Solicite um carreto</li>
            </Link>

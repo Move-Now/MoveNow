@@ -4,6 +4,7 @@ import { Input } from "../../components/Input/Input";
 import { AiFillEye } from "react-icons/ai";
 import { BsPersonCircle } from "react-icons/bs";
 import { BsEnvelopeFill } from "react-icons/bs";
+import { BsTelephoneFill } from "react-icons/bs";
 import { BsPersonVcardFill } from "react-icons/bs";
 import { BiLock } from "react-icons/bi";
 
@@ -57,6 +58,10 @@ const StyledSignUp = styled.div`
     right: 10%;
   }
 
+  .contentLinks {
+    text-align: center;
+  }
+
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;
 
@@ -102,8 +107,20 @@ export function SignUpClient() {
               placeholder="000.000.000-00"
               icon={<BsPersonVcardFill className="icon" />}
             />
+            <p className="contentLinks">
+              Já possui uma conta?{" "}
+              <Link to={"/login"}>
+                <span>Entre aqui!</span>
+              </Link>
+            </p>
           </div>
           <div className="column">
+          <Input
+              title="Telefone"
+              type="tel"
+              placeholder="00 00000-0000"
+              icon={<BsTelephoneFill className="icon" />}
+            />
             <Input
               title="Senha"
               type={showPassword ? "text" : "password"}
@@ -123,12 +140,6 @@ export function SignUpClient() {
               placeholder="Confirme a senha..."
               icon={<BiLock className="icon" />}
             />
-            <p className="contentLinks">
-              Já possui uma conta?{" "}
-              <Link to={"/login"}>
-                <span>Entre aqui!</span>
-              </Link>
-            </p>
             <p className="contentLinks">
               Quer ser motorista?{" "}
               <Link to={"/cadastroMotorista"}>

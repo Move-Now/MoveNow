@@ -60,7 +60,7 @@ export function Footer() {
         <div className="top">
             <div className="top-mobile">
                 <p className="content">Baixe o aplicativo para celular!</p>
-                <div className="wrapperButtons">
+                <div className="wrapper-buttons-footer">
                     <button>App Store</button>
                     <button>Google Play</button>
                 </div>

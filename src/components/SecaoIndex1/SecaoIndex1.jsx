@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./SecaoIndex1.css";
+import { Link } from "react-router-dom";
 
 const StyledSecaoIndex1 = styled.div`
   transition: ${props => props.theme.transitionComponents};

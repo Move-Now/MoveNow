@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../../components/Button/Button";
-import { AiFillCaretDown } from "react-icons/ai";
 import "./SecaoIndex2.css";
 
 const StyledSecaoIndex2 = styled.div`
@@ -27,6 +25,12 @@ const StyledSecaoIndex2 = styled.div`
     transition: ${props => props.theme.transitionComponents};
     color : ${props => props.theme.textColor};
   }
+
+  .buttonIndex2-origem {
+    transition: ${props => props.theme.transitionComponents};
+    color : ${props => props.theme.textColor};
+    border-color: ${props => props.theme.spanColor};
+  } 
 
   input:focus {
     outline: 1px solid ${props => props.theme.spanColor};;
@@ -56,11 +60,11 @@ export function SecaoIndex2(props) {
           <div className="form">
               <p>Peça seu orçamento <span>grátis</span> <br/> e sem compromisso</p>
 
-              <button className="buttonIndex2">São Bernado do Campo <AiFillCaretDown className="iconIndex2"/></button>
-              <input type="text" className="buttonIndex2" placeholder="Cidade ou CEP"/>
+              <span className="buttonIndex2-origem">Origem:</span>
+              <input type="text" className="buttonIndex2" placeholder="CEP de origem"/>
 
-              <button className="buttonIndex2">Campinas <AiFillCaretDown className="iconIndex2"/></button>
-              <input type="text" className="buttonIndex2" placeholder="Cidade ou CEP"/>
+              <span className="buttonIndex2-origem">Destino:</span>
+              <input type="text" className="buttonIndex2" placeholder="CEP de destino"/>
               <ButtonPrimary className="buttonSection2">Solicite já seu orçamento</ButtonPrimary>
               
           </div>

@@ -38,101 +38,101 @@ export function FinishedJobs(props) {
           alt=""
           className="adesivo"
         />
-          <table>
-            <thead>
-              <tr>
-                <th>Tipo de transporte</th>
-                <th>De</th>
-                <th>Para</th>
-                <th>Distância</th>
-                <th>Valor</th>
+          <table className="table-fineshed-jobs">
+            <thead className="thead-fineshed-jobs">
+              <tr className="tr-fineshed-jobs">
+                <th className="th-fineshed-jobs">Tipo de transporte</th>
+                <th className="th-fineshed-jobs">De</th>
+                <th className="th-fineshed-jobs">Para</th>
+                <th className="th-fineshed-jobs">Distância</th>
+                <th className="th-fineshed-jobs">Valor</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Mudança</td>
-                <td>Av. 9 de Julho</td>
-                <td>Av. Cruzeiro do Sul</td>
-                <td>3km</td>
-                <td>R$100</td>
+            <tbody className="tbody-fineshed-jobs">
+              <tr  className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Mudança</td>
+                <td className="td-fineshed-jobs">Av. 9 de Julho</td>
+                <td className="td-fineshed-jobs">Av. Cruzeiro do Sul</td>
+                <td className="td-fineshed-jobs">3km</td>
+                <td className="td-fineshed-jobs">R$100</td>
               </tr>
-              <tr>
-                <td>Carreto</td>
-                <td>Av. Paulista</td>
-                <td>Oscar Freire</td>
-                <td>3km</td>
-                <td>R$150</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Carreto</td>
+                <td className="td-fineshed-jobs">Av. Paulista</td>
+                <td className="td-fineshed-jobs">Oscar Freire</td>
+                <td className="td-fineshed-jobs">3km</td>
+                <td className="td-fineshed-jobs">R$150</td>
               </tr>
-              <tr>
-                <td>Mudança</td>
-                <td>Faria Lima</td>
-                <td>Higienópolis</td>
-                <td>7km</td>
-                <td>R$400</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Mudança</td>
+                <td className="td-fineshed-jobs">Faria Lima</td>
+                <td className="td-fineshed-jobs">Higienópolis</td>
+                <td className="td-fineshed-jobs">7km</td>
+                <td className="td-fineshed-jobs">R$400</td>
               </tr>
-              <tr>
-                <td>Mudança</td>
-                <td>Av. 9 de Julho</td>
-                <td>Av. Cruzeiro do Sul</td>
-                <td>3km</td>
-                <td>R$100</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Mudança</td>
+                <td className="td-fineshed-jobs">Av. 9 de Julho</td>
+                <td className="td-fineshed-jobs">Av. Cruzeiro do Sul</td>
+                <td className="td-fineshed-jobs">3km</td>
+                <td className="td-fineshed-jobs">R$100</td>
               </tr>
-              <tr>
-                <td>Carreto</td>
-                <td>Av. Paulista</td>
-                <td>Oscar Freire</td>
-                <td>3km</td>
-                <td>R$150</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Carreto</td>
+                <td className="td-fineshed-jobs">Av. Paulista</td>
+                <td className="td-fineshed-jobs">Oscar Freire</td>
+                <td className="td-fineshed-jobs">3km</td>
+                <td className="td-fineshed-jobs">R$150</td>
               </tr>
-              <tr>
-                <td>Mudança</td>
-                <td>Faria Lima</td>
-                <td>Higienópolis</td>
-                <td>7km</td>
-                <td>R$400</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Mudança</td>
+                <td className="td-fineshed-jobs">Faria Lima</td>
+                <td className="td-fineshed-jobs">Higienópolis</td>
+                <td className="td-fineshed-jobs">7km</td>
+                <td className="td-fineshed-jobs">R$400</td>
               </tr>
             
-              <tr>
-                <td>Mudança</td>
-                <td>Av. 9 de Julho</td>
-                <td>Av. Cruzeiro do Sul</td>
-                <td>3km</td>
-                <td>R$100</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Mudança</td>
+                <td className="td-fineshed-jobs">Av. 9 de Julho</td>
+                <td className="td-fineshed-jobs">Av. Cruzeiro do Sul</td>
+                <td className="td-fineshed-jobs">3km</td>
+                <td className="td-fineshed-jobs">R$100</td>
               </tr>
-              <tr>
-                <td>Carreto</td>
-                <td>Av. Paulista</td>
-                <td>Oscar Freire</td>
-                <td>3km</td>
-                <td>R$150</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Carreto</td>
+                <td className="td-fineshed-jobs">Av. Paulista</td>
+                <td className="td-fineshed-jobs">Oscar Freire</td>
+                <td className="td-fineshed-jobs">3km</td>
+                <td className="td-fineshed-jobs">R$150</td>
               </tr>
-              <tr>
-                <td>Mudança</td>
-                <td>Faria Lima</td>
-                <td>Higienópolis</td>
-                <td>7km</td>
-                <td>R$400</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Mudança</td>
+                <td className="td-fineshed-jobs">Faria Lima</td>
+                <td className="td-fineshed-jobs">Higienópolis</td>
+                <td className="td-fineshed-jobs">7km</td>
+                <td className="td-fineshed-jobs">R$400</td>
               </tr>
-              <tr>
-                <td>Mudança</td>
-                <td>Av. 9 de Julho</td>
-                <td>Av. Cruzeiro do Sul</td>
-                <td>3km</td>
-                <td>R$100</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Mudança</td>
+                <td className="td-fineshed-jobs">Av. 9 de Julho</td>
+                <td className="td-fineshed-jobs">Av. Cruzeiro do Sul</td>
+                <td className="td-fineshed-jobs">3km</td>
+                <td className="td-fineshed-jobs">R$100</td>
               </tr>
-              <tr>
-                <td>Carreto</td>
-                <td>Av. Paulista</td>
-                <td>Oscar Freire</td>
-                <td>3km</td>
-                <td>R$150</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Carreto</td>
+                <td className="td-fineshed-jobs">Av. Paulista</td>
+                <td className="td-fineshed-jobs">Oscar Freire</td>
+                <td className="td-fineshed-jobs">3km</td>
+                <td className="td-fineshed-jobs">R$150</td>
               </tr>
-              <tr>
-                <td>Mudança</td>
-                <td>Faria Lima</td>
-                <td>Higienópolis</td>
-                <td>7km</td>
-                <td>R$400</td>
+              <tr className="tr-fineshed-jobs">
+                <td className="td-fineshed-jobs">Mudança</td>
+                <td className="td-fineshed-jobs">Faria Lima</td>
+                <td className="td-fineshed-jobs">Higienópolis</td>
+                <td className="td-fineshed-jobs">7km</td>
+                <td className="td-fineshed-jobs">R$400</td>
               </tr>
             
             </tbody>

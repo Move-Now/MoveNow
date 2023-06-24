@@ -88,34 +88,34 @@ td {
         display: none;
     }
 
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
+    .table-fineshed-jobs,
+    .thead-fineshed-jobs,
+    .tbody-fineshed-jobs,
+    .th-fineshed-jobs,
+    .td-fineshed-jobs,
+    .tr-fineshed-jobs {
         display: block;
         font-size: 12px;
     }
 
-    thead tr {
+    .thead-fineshed-jobs .tr-fineshed-jobs {
         position: absolute;
         top: -9999px;
         left: -9999px;
     }
 
-    tr {
+    .tr-fineshed-jobs {
         border: 1px solid rgb(173, 173, 173);
     }
 
-    td {
+    .td-fineshed-jobs {
         border: none;
         border-bottom: 1px solid black;
         position: relative;
         padding-left: 50%;
     }
 
-    td:before {
+    .td-fineshed-jobs:before {
         position: absolute;
         top: 6px;
         left: 6px;
@@ -125,23 +125,23 @@ td {
         font-weight: bold;
     }
 
-    td:nth-of-type(1):before {
+    .td-fineshed-jobs:nth-of-type(1):before {
         content: "Tipo de transporte";
     }
 
-    td:nth-of-type(2):before {
+    .td-fineshed-jobs:nth-of-type(2):before {
         content: "De";
     }
 
-    td:nth-of-type(3):before {
+    .td-fineshed-jobs:nth-of-type(3):before {
         content: "Para";
     }
 
-    td:nth-of-type(4):before {
+    .td-fineshed-jobs:nth-of-type(4):before {
         content: "Distância";
     }
 
-    td:nth-of-type(5):before {
+    .td-fineshed-jobs:nth-of-type(5):before {
         content: "Valor";
     }
 }

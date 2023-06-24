@@ -53,6 +53,11 @@ footer {
     color: #FFFFFF;
 }
 
+.wrapper-buttons-footer{
+    display: flex;
+    gap: 25px;
+}
+
 .bottom {
     display: flex;
     align-items: center;
@@ -146,7 +151,7 @@ footer {
         font-size: 15px;
     }
 
-    .wrapperButtons {
+    .wrapper-buttons-footer {
         margin-top: 0;
         gap: 2vw;
     }
@@ -179,7 +184,7 @@ footer {
         font-size: 12px;
     }
 
-    .wrapperButtons {
+    .wrapper-buttons-footer {
         flex-direction: row;
         width: max-content;
     }
@@ -235,7 +240,7 @@ footer {
         padding: 17px;
     }
 
-    .wrapperButtons {
+    .wrapper-buttons-footer {
         gap: 5px;
     }
 }

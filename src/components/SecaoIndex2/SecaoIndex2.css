@@ -34,11 +34,17 @@
 
 }
 
-.buttonIndex2 {
+.buttonIndex2,
+.buttonIndex2-origem {
     padding: 0.6vw;
     color: #FFFFFF;
     border-radius: 8px;
     background: transparent;
+}
+
+.buttonIndex2-origem {
+    border-bottom: 1px solid #000;
+    font-size: 18px;
 }
 
 .form {

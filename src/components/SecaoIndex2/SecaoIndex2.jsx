@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
 import "./SecaoIndex2.css";
+import { useNavigate } from 'react-router-dom';
 
 const StyledSecaoIndex2 = styled.div`
   .section2 {
@@ -46,6 +48,66 @@ const ButtonPrimary = styled.button`
 `;
 
 export function SecaoIndex2(props) {
+  const [originCep, setOriginCep] = useState("");
+  const [destinationCep, setDestinationCep] = useState("");
+  const navigate = useNavigate();
+
+  const handleOriginCepChange = (event) => {
+    setOriginCep(event.target.value);
+  };
+
+  const handleDestinationCepChange = (event) => {
+    setDestinationCep(event.target.value);
+  };
+
+  const searchAndStoreCep = async () => {
+    try {
+      const originResponse = await axios.get(
+        `https://viacep.com.br/ws/${originCep}/json/`
+      );
+      const originData = originResponse.data;
+
+      const destinationResponse = await axios.get(
+        `https://viacep.com.br/ws/${destinationCep}/json/`
+      );
+      const destinationData = destinationResponse.data;
+
+      // Verificar se os CEPs são válidos
+      if (!originData.erro && !destinationData.erro) {
+        // Armazenar os CEPs no Local Storage
+        localStorage.setItem("originCep", originCep);
+        localStorage.setItem("destinationCep", destinationCep);
+        document.getElementById('cep-origin').value = "";
+        document.getElementById('cep-destination').value = "";
+        
+        alert("Redirecionando...");
+        setOriginCep("");
+        setDestinationCep("");
+        navigate('/orcamento');
+      }
+    } catch (error) {
+      localStorage.removeItem("originCep")
+      localStorage.removeItem("destinationCep")
+      alert("CEP inválido!");
+      console.error(error);
+      // Tratar erros de requisição
+    }
+  };
+
+  const handleCepOrigemKeyDown = (event) => {
+    if (event.key === "Enter") {
+      const cepInputDestino = document.querySelector("#cep-destination");
+      if (cepInputDestino) {
+        cepInputDestino.focus();
+      }
+    }
+  };
+
+  const handleCepDestinoKeyDown = (event) => {
+    if (event.key === "Enter") {
+      searchAndStoreCep()
+    }
+  };
 
   return (
     <StyledSecaoIndex2>
@@ -61,11 +123,14 @@ export function SecaoIndex2(props) {
               <p>Peça seu orçamento <span>grátis</span> <br/> e sem compromisso</p>
 
               <span className="buttonIndex2-origem">Origem:</span>
-              <input type="text" className="buttonIndex2" placeholder="CEP de origem"/>
+              <input type="text" className="buttonIndex2" placeholder="CEP de origem" id="cep-origin" value={originCep}
+              onChange={handleOriginCepChange} onKeyDown={handleCepOrigemKeyDown}/>
 
               <span className="buttonIndex2-origem">Destino:</span>
-              <input type="text" className="buttonIndex2" placeholder="CEP de destino"/>
-              <ButtonPrimary className="buttonSection2">Solicite já seu orçamento</ButtonPrimary>
+              <input type="text" className="buttonIndex2" placeholder="CEP de destino" id="cep-destination" value={destinationCep}
+              onChange={handleDestinationCepChange} onKeyDown={handleCepDestinoKeyDown}/>
+
+              <ButtonPrimary className="buttonSection2" onClick={searchAndStoreCep}>Solicite já seu orçamento</ButtonPrimary>
               
           </div>
           <img src={props.img} alt=""/>

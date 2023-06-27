@@ -53,7 +53,7 @@ form span:hover {
 }
 
 @media screen and (max-width:850px) {
-    form {
+    .form-signup-driver {
         flex-direction: column;
         gap: 10px;
     }

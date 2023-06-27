@@ -13,6 +13,8 @@ label {
 
 input {
     background: #11151E;
+    font-size: 17px;
+    font-weight: 500;
     border-radius: 20px;
     border: none;
     outline: none;
@@ -21,10 +23,6 @@ input {
     width: 100%;
     color: white;
     transition: all 200ms ease-in-out;
-}
-
-input:focus {
-    outline: var(--border-orange);
 }
 
 .input {
@@ -46,7 +44,8 @@ input:focus {
 }
 
 input::placeholder {
-    font-size: 14px;
+    font-size: 16px;
+    color: #ccc;
 }
 
 input[type=file] {

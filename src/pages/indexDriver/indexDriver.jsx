@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { GoogleMap, LoadScript, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, DirectionsRenderer } from '@react-google-maps/api';
 import styled from "styled-components";
 import { Footer } from "../../components/Footer/Footer";
+import { useNavigate } from 'react-router-dom';
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import "./style.css";
 
@@ -34,10 +35,13 @@ const StyledDriver = styled.div`
   }
 `;
 
-export function Driver() {
+export function IndexDriver() {
+
+  const navigate = useNavigate();
   const [directions, setDirections] = useState(null);
   const [directionsLoaded, setDirectionsLoaded] = useState(false);
   const [distance, setDistance] = useState(null);
+  const [mapKey, setMapKey] = useState(0);
 
   const origin = 'R. Sírius, 140 - Jardim Antares, São Bernardo do Campo - SP, 09606-100';
   const destination = 'Senac Lapa Tito, R. Tito, 54 - Vila Romana, São Paulo - SP, 05051-000';
@@ -67,6 +71,17 @@ export function Driver() {
     }
   };
 
+  useEffect(() => {
+    return () => {
+      setDirectionsLoaded(false);
+      setMapKey((prevKey) => prevKey + 1);
+    };
+  }, []);
+
+  const RedirectDetailsOrder = () => {
+    navigate('/orderDetails');
+  };
+
   return (
     <StyledDriver>
       <ScrollToTop />
@@ -87,17 +102,15 @@ export function Driver() {
         <div className="index-driver-content-orders">
           <div className="driver-orders-content">
             <div className="client-order">
+
               <div className="order-map">
                 <LoadScript
                   id="script-loader"
+                  key={mapKey} 
                   googleMapsApiKey="AIzaSyByBrJO4UaLMh_0B8nLzKxVjbhg14WF5Bs"
                 >
                   <GoogleMap
-                    mapContainerStyle={{ width: '100%', height: '100%' }}
-                    center={{
-                      lat: -23.528211621427616,
-                      lng: -46.691804675537156,
-                    }}
+                    mapContainerStyle={{ width: '100%', height: '100%', borderRadius: '20px', boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.2)' }}
                     zoom={15}
                     onLoad={handleLoadMap}
                   >
@@ -122,7 +135,7 @@ export function Driver() {
                   </div>
 
                   <div className="division-vertical"></div>
-
+                      
                   <div className="division-horizontal"></div>
 
                   <div className="details-content-right">
@@ -133,13 +146,11 @@ export function Driver() {
                   </div>
                 </div>
                 <div className="details-button">
-                  <button className="details-button-content">Veja mais</button>
+                  <button className="details-button-content" onClick={RedirectDetailsOrder}>Veja mais</button>
                   <p className="details-post-data">Data de postagem: 23/06</p>
                 </div>
               </div>
             </div>
-
-
 
           </div>
         </div>

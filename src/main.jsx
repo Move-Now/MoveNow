@@ -14,7 +14,8 @@ import { Order } from "./pages/Order/Order";
 import { About } from "./pages/About/About";
 import { Faq } from "./pages/Faq/Faq";
 import { WorkWithUs } from "./pages/WorkWithUs/WorkWithUs";
-import { Driver } from "./pages/indexDriver/indexDriver";
+import { IndexDriver } from "./pages/indexDriver/indexDriver";
+import { IndexDriverDetails } from "./pages/IndexDriverDetails/IndexDriverDetails";
 
 
 //Configurando o React Router
@@ -58,7 +59,11 @@ const router = createBrowserRouter([
       },
       {
         path: "driver",
-        element: <Driver />,
+        element: <IndexDriver />,
+      },
+      {
+        path: "orderDetails",
+        element: <IndexDriverDetails />,
       },
     ],
   },

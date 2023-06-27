@@ -1,5 +1,31 @@
 @import url("../../index.css");
 
+.topOrder {
+    background-image: url(../../assets/carrosel1.png);
+   
+    background-size: cover;
+    background-position: top;
+    height: 500px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.contentTopOrder {
+    align-self: center;
+    width: 1280px;
+    padding: 64px 0 ;
+}
+
+.titletopOrder {
+    color: #ffffff;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 64px;
+    text-align: center;
+}
+
 #mainOrder{
     width: 100%;
     padding: 70px 20px;
@@ -19,8 +45,11 @@
     align-items: center;
 }
 
+
+
 .section-order-title {
     font-size: 40px;
+    margin: 0;
 }
 
 .section-order-paragraph {
@@ -29,11 +58,51 @@
 }
 
 .table-order {
-    margin-top: 25px;
+    max-height: 505px;
+    overflow: auto;
+}
+
+.table-order-content {
+    margin-top: 0px;
+}
+
+.thead-table-order {
+    position: sticky;
+    top: 0; 
 }
 
 #sectionOrder .column{
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.select-itens-order {
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 17px;
+    border: none;
+}
+
+.subtitle-column-order {
+    margin: 0;
+    font-size: 30px;
+    text-align: start;
+    font-weight: 600;
+}
+
+.wrapperInput label {
+    font-size: 18px;
+}
+
+.form-order {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 10px;
 }
 
 .wrapper-button-order {
@@ -41,7 +110,25 @@
     margin-top: 25px;
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 10px;
+}
+
+.total-details-order {
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    display: flex; 
+}
+
+.total-details-content {
+    width: 33,3%;
+}
+
+.total-details-content p {
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .order-buttons-next {
@@ -51,6 +138,16 @@
 
 .order-buttons {
     width: 100%;
+}
+
+.teste {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 0;
+
 }
 
 @media screen and (max-width: 1355px){
@@ -63,6 +160,17 @@
     .order-buttons-next {
         width: 70%;
     }
+    
+    form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-section-order {
+        flex-direction: column;
+        gap: 50px;
+    }
+
 }
 
 @media screen and (max-width: 750px){

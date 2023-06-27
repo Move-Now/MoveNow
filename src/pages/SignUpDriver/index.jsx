@@ -73,7 +73,7 @@ export function SignUpDriver() {
     <StyledSignUpDriver>
       <main id="mainDriver">
         <h2 className="titleSignUp">Cadastro de Motorista</h2>
-        <form action="">
+        <form action="" className="form-signup-driver">
           <div className="column">
             <Input
               title="Nome Completo"

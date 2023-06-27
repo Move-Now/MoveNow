@@ -135,9 +135,9 @@ export function About() {
               </div>
 
               <div className="aboutContainers">
-                <img src="../../src/assets/futuroAbout.png" className="containersImages"/>
-                <p className="subtitleContainers">Inovação e tecnologia</p>
-                <p className="paragraphsAbout">Buscamos por tecnologias inovadoras para impulsionar nossa plataforma. Introduzimos recursos avançados, como geolocalização e realidade aumentada, aprimorando o gerenciamento de caminhos e veículos. Além disso, investimos em frotas elétricas e melhoramos a infraestrutura viária, visando um transporte mais sustentável e eficiente.</p>
+                <img src="../../src/assets/diversidadeMoveNow.png" className="containersImages"/>
+                <p className="subtitleContainers">Diversidade</p>
+                <p className="paragraphsAbout">Na nossa empresa, valorizamos a diversidade em todos os aspectos. Acreditamos que equipes diversas trazem uma variedade de perspectivas e ideias inovadoras. Buscamos promover um ambiente inclusivo, onde todas as pessoas são respeitadas e têm oportunidades iguais. #TodesMovem</p>
               </div>
 
             </div>

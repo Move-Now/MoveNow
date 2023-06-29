@@ -48,49 +48,58 @@ const ButtonPrimary = styled.button`
 `;
 
 export function SecaoIndex2(props) {
-  const [originCep, setOriginCep] = useState("");
-  const [destinationCep, setDestinationCep] = useState("");
+  const [cepOrigem, setCepOrigem] = useState("");
+  const [cepDestino, setCepDestino] = useState("");
   const navigate = useNavigate();
 
   const handleOriginCepChange = (event) => {
-    setOriginCep(event.target.value);
+    setCepOrigem(event.target.value, "origem");
   };
 
   const handleDestinationCepChange = (event) => {
-    setDestinationCep(event.target.value);
+    setCepDestino(event.target.value, "destino");
   };
 
-  const searchAndStoreCep = async () => {
+  const buscarDetalhesCEP = async () => {
     try {
-      const originResponse = await axios.get(
-        `https://viacep.com.br/ws/${originCep}/json/`
+      const origemResponse = await axios.get(
+        `https://viacep.com.br/ws/${cepOrigem}/json/`
       );
-      const originData = originResponse.data;
+      const origemData = origemResponse.data;
 
-      const destinationResponse = await axios.get(
-        `https://viacep.com.br/ws/${destinationCep}/json/`
+      const destinoResponse = await axios.get(
+        `https://viacep.com.br/ws/${cepDestino}/json/`
       );
-      const destinationData = destinationResponse.data;
+      const destinoData = destinoResponse.data;
 
-      // Verificar se os CEPs são válidos
-      if (!originData.erro && !destinationData.erro) {
-        // Armazenar os CEPs no Local Storage
-        localStorage.setItem("originCep", originCep);
-        localStorage.setItem("destinationCep", destinationCep);
+      if (!origemData.erro && !destinoData.erro) {
+        localStorage.setItem("cepOrigem", cepOrigem);
+        localStorage.setItem("cepDestino", cepDestino);
         document.getElementById('cep-origin').value = "";
         document.getElementById('cep-destination').value = "";
         
         alert("Redirecionando...");
-        setOriginCep("");
-        setDestinationCep("");
+        setCepOrigem("");
+        setCepDestino("");
         navigate('/orcamento');
       }
+
     } catch (error) {
-      localStorage.removeItem("originCep")
-      localStorage.removeItem("destinationCep")
       alert("CEP inválido!");
-      console.error(error);
-      // Tratar erros de requisição
+
+      setCepOrigem("");
+      setCepDestino("");
+
+      document.getElementById("cep-origin").value = "";
+      document.getElementById("cep-destination").value = "";
+
+      localStorage.removeItem("cepOrigem");
+      localStorage.removeItem("cepDestino");
+
+      const cepInput = document.querySelector("#cep-origin");
+      if (cepInput) {
+        cepInput.focus();
+      }
     }
   };
 
@@ -105,15 +114,14 @@ export function SecaoIndex2(props) {
 
   const handleCepDestinoKeyDown = (event) => {
     if (event.key === "Enter") {
-      searchAndStoreCep()
+      buscarDetalhesCEP(cepDestino)
     }
   };
 
   return (
     <StyledSecaoIndex2>
       <div className="section2">
-        {/* <div className="eclipse"></div> */}
-        {/* por enquanto vamos deixar esse eclipse aqui, até encontrarmos uma maneira mais eficiente de reproduzir */}
+
         <div className="topIndex2">
           <h2 className="titleIndex2">Transporte de carretos e mudanças na região de São Paulo</h2>
           <p className="contentIndex2">Faça a <span>escolha certa</span> para sua mudança. Peça um <span>orçamento</span>!</p>
@@ -123,14 +131,14 @@ export function SecaoIndex2(props) {
               <p>Peça seu orçamento <span>grátis</span> <br/> e sem compromisso</p>
 
               <span className="buttonIndex2-origem">Origem:</span>
-              <input type="text" className="buttonIndex2" placeholder="CEP de origem" id="cep-origin" value={originCep}
+              <input type="number" className="buttonIndex2" placeholder="CEP de origem" id="cep-origin" value={cepOrigem}
               onChange={handleOriginCepChange} onKeyDown={handleCepOrigemKeyDown}/>
 
               <span className="buttonIndex2-origem">Destino:</span>
-              <input type="text" className="buttonIndex2" placeholder="CEP de destino" id="cep-destination" value={destinationCep}
+              <input type="number" className="buttonIndex2" placeholder="CEP de destino" id="cep-destination" value={cepDestino}
               onChange={handleDestinationCepChange} onKeyDown={handleCepDestinoKeyDown}/>
 
-              <ButtonPrimary className="buttonSection2" onClick={searchAndStoreCep}>Solicite já seu orçamento</ButtonPrimary>
+              <ButtonPrimary className="buttonSection2" onClick={buscarDetalhesCEP}>Solicite já seu orçamento</ButtonPrimary>
               
           </div>
           <img src={props.img} alt=""/>

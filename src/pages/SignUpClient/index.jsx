@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Input } from "../../components/Input/Input";
 import { AiFillEye } from "react-icons/ai";
 import { BsPersonCircle } from "react-icons/bs";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { BsTelephoneFill } from "react-icons/bs";
 import { BsPersonVcardFill } from "react-icons/bs";
 import { BiLock } from "react-icons/bi";
-
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const StyledSignUp = styled.div`
   #SignUpClientMain {
@@ -78,6 +77,31 @@ export function SignUpClient() {
     setShowPassword(!showPassword);
   };
 
+  let navigate = useNavigate();
+
+  const [usuario, setUsuario] = useState({
+    username: "",
+    senha: "",
+    nome_completo: "",
+    endereco: "",
+    cpf: "",
+    data_nasc: "",
+    email: "",
+    telefone: "",
+  });
+
+  const { username, senha, nome_completo, endereco, cpf, data_nasc, email, telefone } = usuario
+
+  const onInputChange = (e) => {
+    setUsuario({ ...usuario, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const response = await axios.post("http://localhost:8080/usuario", usuario);
+    console.log(response)
+  };
+
   return (
     <StyledSignUp>
       <main id="SignUpClientMain">
@@ -87,25 +111,60 @@ export function SignUpClient() {
           </Link>
           <ButtonPrimary className="buttonCadastrar">Cadastrar</ButtonPrimary>
         </div>
-        <form action="">
+        <form onSubmit={(e) => onSubmit(e)} id="SignUpForm">
           <div className="column">
-            <Input
+            <label>Username</label>
+            <input
+              type={"text"}
+              name="username"
+              value={username}
+              
+              onChange={(e) => onInputChange(e)}
+              placeholder="Username"
+              />
+              <label>Nome Completo</label>
+             <input
               title="Nome Completo"
-              type="text"
+              type={"text"}
+              name="nome_completo"
+              value={nome_completo}
+              onChange={(e) => onInputChange(e)}
               placeholder="Nome"
-              icon={<BsPersonCircle className="icon" />}
             />
-            <Input
+              <label>CEP</label>
+             <input
+              title="Endereço"
+              type={"text"}
+              name="endereco"
+              value={endereco}
+              onChange={(e) => onInputChange(e)}
+              placeholder="Endereço"
+            />
+            <label>Data de Nascimento</label>
+             <input
+              title="Data de nascimento"
+              type={"date"}
+              name="data_nasc"
+              value={data_nasc}
+              onChange={(e) => onInputChange(e)}
+              placeholder="Data de nascimento"
+            />
+            <label>E-mail</label>
+            <input
               title="Email"
-              type="email"
+              type={"mail"}
+              name="email"
+              value={email}
+              onChange={(e) => onInputChange(e)}
               placeholder="Email"
-              icon={<BsEnvelopeFill className="icon" />}
             />
-            <Input
+            <input
               title="CPF"
-              type="number"
+              type={"number"}
+              name="cpf"
+              value={cpf}
+              onChange={(e) => onInputChange(e)}
               placeholder="000.000.000-00"
-              icon={<BsPersonVcardFill className="icon" />}
             />
             <p className="contentLinks">
               Já possui uma conta?{" "}
@@ -115,17 +174,22 @@ export function SignUpClient() {
             </p>
           </div>
           <div className="column">
-          <Input
+            <input
               title="Telefone"
-              type="tel"
+              type={"tel"}
+              name="telefone"
+              value={telefone}
+              onChange={(e) => onInputChange(e)}
               placeholder="00 00000-0000"
-              icon={<BsTelephoneFill className="icon" />}
             />
-            <Input
+            <input
               title="Senha"
               type={showPassword ? "text" : "password"}
+              name="senha"
+              value={senha}
+              onChange={(e) => onInputChange(e)}
               placeholder="Senha"
-              icon={<BiLock className="icon" />}
+              
               icon2={
                 <AiFillEye
                   className="icon2"
@@ -134,11 +198,11 @@ export function SignUpClient() {
                 />
               }
             />
-            <Input
+            <input
               title="Confirme sua Senha"
               type={showPassword ? "text" : "password"}
               placeholder="Confirme a senha..."
-              icon={<BiLock className="icon" />}
+              
             />
             <p className="contentLinks">
               Quer ser motorista?{" "}
@@ -148,7 +212,7 @@ export function SignUpClient() {
             </p>
           </div>
         </form>
-        <ButtonPrimary>Cadastrar</ButtonPrimary>
+        <button type="submit" form="SignUpForm">Cadastrar</button>
       </main>
     </StyledSignUp>
   );

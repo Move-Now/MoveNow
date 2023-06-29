@@ -16,6 +16,7 @@ import { Faq } from "./pages/Faq/Faq";
 import { WorkWithUs } from "./pages/WorkWithUs/WorkWithUs";
 import { IndexDriver } from "./pages/indexDriver/indexDriver";
 import { IndexDriverDetails } from "./pages/IndexDriverDetails/IndexDriverDetails";
+import AddUsuario from "./pages/SignUpClient/AddUsuario";
 
 
 //Configurando o React Router
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "orderDetails",
         element: <IndexDriverDetails />,
+      },
+      {
+        path: "addUsuario",
+        element: <AddUsuario />,
       },
     ],
   },

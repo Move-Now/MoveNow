@@ -41,10 +41,6 @@ export function SecaoIndex1(props) {
     <StyledSecaoIndex1>
 
       <div className="section1">
-        {/* <div className="eclipse"></div> */}
-        {/* por enquanto vamos deixar esse eclipse aqui, até encontrarmos uma maneira mais eficiente de reproduzir */}
-
-        {/* a imagem do caminhão também é provisória, até acharmos uma melhor */}
 
         <div className="wrapperContent">
           <h1>
@@ -52,10 +48,7 @@ export function SecaoIndex1(props) {
           <span> transporte</span> por nossa conta.
           </h1>
 
-          <p>
-            Se você está procurando um serviço de fretes ou carretos
-            confiável e eficiente, então você veio ao lugar certo! Não
-            deixe para depois, peça “<span>Now</span>” com a <span>MoveNow</span>.
+          <p>Se você está procurando um serviço confiável e eficiente de fretes ou carretos, então você veio ao lugar certo! Não deixe para depois, peça “<span>Now</span>” com a <span>MoveNow</span>.
           </p>
 
           <div className="wrapperButtons">

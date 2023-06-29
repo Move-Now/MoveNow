@@ -144,20 +144,32 @@ export function Order() {
         document.getElementById("ruaOrigem").value = "";
         document.getElementById("cidadeOrigem").value = "";
         document.getElementById("ufOrigem").value = "";
+        document.getElementById("numeroOrigem").value = "";
+
+        const cepInput = document.querySelector("#cepOrigem");
+        if (cepInput	) {
+          cepInput.focus();
+        }
       } else if (tipo === "destino") {
         setCepDestino("");
         setDetalhesDestino(null);
         document.getElementById("ruaDestino").value = "";
         document.getElementById("cidadeDestino").value = "";
         document.getElementById("ufDestino").value = "";
+        document.getElementById("numeroDestino").value = "";
+
+        const cepInput = document.querySelector("#cepDestino");
+        if (cepInput) {
+          cepInput.focus();
+        }
       }
     }
 
   };
 
   useEffect(() => {
-    const cepOrigemLocalStorage = localStorage.getItem("originCep");
-    const cepDestinoLocalStorage = localStorage.getItem("destinationCep");
+    const cepOrigemLocalStorage = localStorage.getItem("cepOrigem");
+    const cepDestinoLocalStorage = localStorage.getItem("cepDestino");
 
     if (cepOrigemLocalStorage) {
       setCepOrigem(cepOrigemLocalStorage);
@@ -170,33 +182,13 @@ export function Order() {
     }
   }, []);
 
-  const handleCepOrigemBlur = () => {
-
-    buscarDetalhesCEP(cepOrigem, "origem");
-
-    const numeroInput = document.querySelector("#numeroOrigem");
-    if (numeroInput) {
-      numeroInput.focus();
-    }
-
-  };
-
-  const handleCepDestinoBlur = () => {
-    buscarDetalhesCEP(cepDestino, "destino");
-
-
-    const numeroInput = document.querySelector("#numeroDestino");
-    if (numeroInput) {
-      numeroInput.focus();
-    }
-
-  };
-
   const handleCepOrigemKeyDown = (event) => {
+    const numeroInput = document.querySelector("#numeroOrigem");
+
     if (event.key === "Enter") {
       event.preventDefault();
       buscarDetalhesCEP(cepOrigem, "origem");
-      const numeroInput = document.querySelector("#numeroDestino");
+
       if (numeroInput) {
         numeroInput.focus();
       }
@@ -204,22 +196,57 @@ export function Order() {
   };
 
   const handleCepDestinoKeyDown = (event) => {
+    const numeroInput = document.querySelector("#numeroDestino");
+
     if (event.key === "Enter") {
       event.preventDefault();
       buscarDetalhesCEP(cepDestino, "destino");
-      const numeroInput = document.querySelector("#numeroDestino");
+
       if (numeroInput) {
         numeroInput.focus();
       }
     }
   };
 
-  // FUNCIONALIDADE DE ROLAR A PÁGINA AO CLICAR NO BOTÃO DE PRÓXIMO
+  // FUNCIONALIDADE DE ROLAR A PÁGINA AO CLICAR NO BOTÃO DE PRÓXIMO APENAS SE OS INPUTS DE ENDERECO TIVEREM PREENCHIDOS
+
+  const verificarInputsPreenchidosCep = () => {
+    const inputs = [
+      cepOrigem,
+      detalhesOrigem?.logradouro,
+      document.getElementById("numeroOrigem")?.value,
+      detalhesOrigem?.localidade,
+      detalhesOrigem?.uf,
+      cepDestino,
+      detalhesDestino?.logradouro,
+      document.getElementById("numeroDestino")?.value,
+      detalhesDestino?.localidade,
+      detalhesDestino?.uf
+    ];
+  
+    const algumInputVazio = inputs.some(value => !value);
+    return !algumInputVazio;
+  };
 
   const sectionRef = useRef(null);
 
   const scrollToSection = () => {
-    sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    const numeroInputOrigem = document.querySelector("#numeroOrigem").value;
+    const numeroInputDestino = document.querySelector("#numeroDestino").value;
+    const cepOrigem = document.querySelector("#cepOrigem").value;
+    const cepDestino = document.querySelector("#cepDestino").value;
+
+    if (verificarInputsPreenchidosCep()) {
+      if (numeroInputOrigem == numeroInputDestino && cepOrigem == cepDestino) {
+        alert("Não é possível mudar para o mesmo endereço")
+        document.querySelector("#numeroOrigem").value = ""
+        document.querySelector("#numeroDestino").value = ""
+      } else {
+        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      alert("Preencha todos os campos")
+    }
   };
 
   // FUNCIONALIDADES DE ADICIONAR ITENS NA TABELA: 
@@ -271,6 +298,8 @@ export function Order() {
     }
   };
 
+  // FUNCIONALIDADE DE SOMAR O TOTAL DE ITENS, VOLUME E PESO
+
   const calcularTotal = () => {
     let volume = 0;
     let peso = 0;
@@ -288,8 +317,8 @@ export function Order() {
   useEffect(() => {
     calcularTotal();
   }, [itensAdicionados]);
-
-  // FUNCIONALIDADE DE MUDAR O VALOR DO SEGURA DE ACORDO COM OS ITENS
+  
+  // FUNCIONALIDADE DE MUDAR O VALOR DO SEGURO DE ACORDO COM OS ITENS
 
   const [seguroValor, setSeguroValor] = useState(0);
 
@@ -361,7 +390,7 @@ export function Order() {
           <section id="sectionOrder">
             <h2 className="section-order-title">Informe os dados do endereço</h2>
             <p className="section-order-paragraph">
-              Solicite o seu orçamento sem compromisso.
+              Aperte <span>"enter"</span> para autocompletar seu CEP
             </p>
             <form action="">
               <div className="column">
@@ -374,7 +403,6 @@ export function Order() {
                   value={cepOrigem}
                   onKeyDown={handleCepOrigemKeyDown}
                   onChange={event => setCepOrigem(event.target.value)}
-                  onBlur={handleCepOrigemBlur}
                   icon={<BiMap className="icon" />}
                 />
                 <Input
@@ -419,7 +447,6 @@ export function Order() {
                   placeholder="00000-000"
                   value={cepDestino}
                   onKeyDown={handleCepDestinoKeyDown}
-                  onBlur={handleCepDestinoBlur}
                   onChange={event => setCepDestino(event.target.value)}
                   icon={<BiMap className="icon" />}
                 />
@@ -581,6 +608,7 @@ export function Order() {
                         <td>{item.altura * item.largura * item.comprimento / 1000000}</td>
                         <td>{item.peso}</td>
                         <td onClick={() => handleExcluirItem(index)} className="teste"><AiOutlineClose className="teste2"/></td>
+                        
                       </tr>
                     ))}
                   </tbody>

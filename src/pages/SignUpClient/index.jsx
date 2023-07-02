@@ -76,9 +76,9 @@ export function SignUpClient() {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
-
+  
   let navigate = useNavigate();
-
+  
   const [usuario, setUsuario] = useState({
     username: "",
     senha: "",
@@ -90,17 +90,144 @@ export function SignUpClient() {
     telefone: "",
   });
 
-  const { username, senha, nome_completo, endereco, cpf, data_nasc, email, telefone } = usuario
+  const { username, senha, nome_completo, endereco, cpf, data_nasc, email, telefone } = usuario;
 
   const onInputChange = (e) => {
     setUsuario({ ...usuario, [e.target.name]: e.target.value });
   };
 
+
+  // email valido
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  //Algoritimo que valida se o CPF existe
+  const isValidCPF = (cpf) => {
+    cpf = cpf.replace(/\D/g, ''); // Remove os caracteres não numéricos do CPF
+  
+    const cpfRegex = /^(\d{3}\.?\d{3}\.?\d{3}-?\d{2})$/;
+    if (!cpfRegex.test(cpf)) {
+      return false;
+    }
+  
+    let sum = 0;
+    let remainder;
+  
+    // Verifica se todos os dígitos são iguais; se sim, o CPF é inválido
+    if (/^(\d)\1+$/.test(cpf)) {
+      return false;
+    }
+  
+    // Completa o CPF com zeros à esquerda para facilitar os cálculos
+    cpf = cpf.padStart(11, '0');
+  
+    // Calcula o primeiro dígito verificador
+    for (let i = 1; i <= 9; i++) {
+      sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+    }
+    remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) {
+      remainder = 0;
+    }
+    if (remainder !== parseInt(cpf.substring(9, 10))) {
+      return false;
+    }
+  
+    sum = 0;
+    // Calcula o segundo dígito verificador
+    for (let i = 1; i <= 10; i++) {
+      sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+    }
+    remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) {
+      remainder = 0;
+    }
+    if (remainder !== parseInt(cpf.substring(10, 11))) {
+      return false;
+    }
+  
+    return true;
+  };
+  
+    
+  const validaForm = async () => {
+    const listaCampos = ["username", "nome_completo", "endereco", "data_nasc", "email", "cpf", "telefone", "senha"];
+    const nomeCampo = {
+      username: "Username",
+      nome_completo: "Nome completo",
+      endereco: "CEP",
+      data_nasc: "Data de nascimento",
+      email: "Endereço de e-mail",
+      cpf: "CPF",
+      telefone: "Telefone",
+      senha: "Senha"
+    };
+
+    let formValido = true;
+    
+    // Valida se tem algum campo vazio
+    for (const campo of listaCampos) {
+      if (!usuario[campo]) {
+        alert(`Preencha o campo ${nomeCampo[campo]}`);
+        formValido = false;
+        break; 
+      }
+    }
+     //Valida email valido
+     if (formValido) {
+      const email = usuario["email"];
+      if (!isValidEmail(email)) {
+       alert("Digite um e-mail válido.");
+         formValido = false;
+    }}
+
+    //valida se o CPF existe
+    if (formValido) {
+      const cpf = usuario["cpf"];
+      if (!isValidCPF(cpf)) {
+        alert("Digite um CPF válido.");
+        formValido = false;
+      }
+    }
+
+    // Valida se a senha e confirmação são iguais 
+    if (formValido) {
+      const senha = usuario["senha"];
+      const confirsenha = document.getElementsByName("confirsenha")[0].value;
+
+      if (senha !== confirsenha) {
+        alert("A senha e a confirmação devem ser iguais.");
+        formValido = false;
+    }}
+
+    if (formValido) {
+      //Valida Cep
+    }
+      return formValido;
+  };
+
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:8080/usuario", usuario);
-    console.log(response)
+  
+    try {
+      const formValido = await validaForm();
+  
+      if (!formValido) {
+        return;
+      }
+  
+      const response = await axios.post("http://localhost:8080/usuario", usuario);
+      console.log(response);
+      navigate("/login"); 
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error);
+      // Tratar o erro, exibir mensagem de erro, etc.
+    }
   };
+  
 
   return (
     <StyledSignUp>
@@ -113,26 +240,28 @@ export function SignUpClient() {
         </div>
         <form onSubmit={(e) => onSubmit(e)} id="SignUpForm">
           <div className="column">
+
             <label>Username</label>
             <input
               type={"text"}
               name="username"
               value={username}
-              
               onChange={(e) => onInputChange(e)}
               placeholder="Username"
-              />
-              <label>Nome Completo</label>
-             <input
+            />
+
+            <label>Nome Completo</label>
+            <input
               title="Nome Completo"
-              type={"text"}
+              type={"text"} 
               name="nome_completo"
               value={nome_completo}
               onChange={(e) => onInputChange(e)}
               placeholder="Nome"
             />
-              <label>CEP</label>
-             <input
+
+            <label>CEP</label>
+            <input
               title="Endereço"
               type={"text"}
               name="endereco"
@@ -140,8 +269,9 @@ export function SignUpClient() {
               onChange={(e) => onInputChange(e)}
               placeholder="Endereço"
             />
+
             <label>Data de Nascimento</label>
-             <input
+            <input
               title="Data de nascimento"
               type={"date"}
               name="data_nasc"
@@ -149,6 +279,7 @@ export function SignUpClient() {
               onChange={(e) => onInputChange(e)}
               placeholder="Data de nascimento"
             />
+
             <label>E-mail</label>
             <input
               title="Email"
@@ -158,6 +289,18 @@ export function SignUpClient() {
               onChange={(e) => onInputChange(e)}
               placeholder="Email"
             />
+
+            <p className="contentLinks">
+              Já possui uma conta?{" "}
+              <Link to={"/login"}>
+                <span>Entre aqui!</span>
+              </Link>
+            </p>
+
+          </div>
+          <div className="column">
+
+            <label>CPF</label>
             <input
               title="CPF"
               type={"number"}
@@ -166,14 +309,8 @@ export function SignUpClient() {
               onChange={(e) => onInputChange(e)}
               placeholder="000.000.000-00"
             />
-            <p className="contentLinks">
-              Já possui uma conta?{" "}
-              <Link to={"/login"}>
-                <span>Entre aqui!</span>
-              </Link>
-            </p>
-          </div>
-          <div className="column">
+
+            <label>Telefone</label>
             <input
               title="Telefone"
               type={"tel"}
@@ -182,6 +319,8 @@ export function SignUpClient() {
               onChange={(e) => onInputChange(e)}
               placeholder="00 00000-0000"
             />
+
+            <label>Senha</label>
             <input
               title="Senha"
               type={showPassword ? "text" : "password"}
@@ -189,7 +328,6 @@ export function SignUpClient() {
               value={senha}
               onChange={(e) => onInputChange(e)}
               placeholder="Senha"
-              
               icon2={
                 <AiFillEye
                   className="icon2"
@@ -198,21 +336,27 @@ export function SignUpClient() {
                 />
               }
             />
+
+            <label>Confirme Senha</label>
             <input
               title="Confirme sua Senha"
+              name="confirsenha"
               type={showPassword ? "text" : "password"}
               placeholder="Confirme a senha..."
-              
             />
+
             <p className="contentLinks">
               Quer ser motorista?{" "}
               <Link to={"/cadastroMotorista"}>
                 <span>Clique aqui!</span>
               </Link>
             </p>
+
           </div>
         </form>
-        <button type="submit" form="SignUpForm">Cadastrar</button>
+        <button type="submit" form="SignUpForm">
+          Cadastrar
+        </button>
       </main>
     </StyledSignUp>
   );

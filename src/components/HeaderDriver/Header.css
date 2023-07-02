@@ -1,0 +1,169 @@
+@import url('https://fonts.cdnfonts.com/css/avengeance-heroic-avenger');
+@import url("../../index.css");
+
+header {
+    position: fixed;
+    top: 0;
+    height: 14vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(235, 113, 0, 0.15);
+    box-shadow: var(--box-shadow-dark);
+
+    padding: 30px 5%;
+
+    z-index: 3;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.imagemLogo {
+    width: 105px;
+    cursor: pointer;
+}
+
+nav {
+    max-width: 70vw;
+    display: flex;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+nav ul li {
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: flex;
+    gap: 7px;
+
+    cursor: pointer;
+}
+
+.dropdownMobile {
+    display: none;
+}
+
+.dropdown {
+    position: absolute;
+    top: 65%; /* Posição abaixo do item "entrar" */
+    padding: 10px 5px;
+}
+
+.dropdownContent {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.dropdownContent li {
+    padding: 0;
+}
+
+.iconsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.arrowIcon {
+    color: var(--orange);
+}
+
+.modeIcon {
+    cursor: pointer;
+}
+
+.menuIcon {
+    display: none;
+
+    color: var(--orange);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.disabled {
+    display: none;
+}
+
+.navDisabled {
+    right: -1000px;
+}
+
+/* responsiveness */
+
+@media screen and (max-width: 1045px) {
+
+    header nav,
+    header .iconsWrapper {
+        font-size: 20px;
+    }
+
+    .menuIcon {
+        display: block;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    nav {
+        position: absolute;
+        right: 0;
+        top: 14vh;
+
+        display: flex;
+
+        align-items: flex-start;
+
+        height: 100vh;
+        width: 40vw;
+        padding: 10px 0;
+
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(15px);
+        color: #FFFFFF;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 50px;
+        width: 100%;
+        gap: 10px;
+    }
+
+    nav ul li {
+        border-bottom: 1px solid var(--orange-low);
+        padding: 10px 20px;
+    }
+
+    .dropdown {
+        display: none;
+    }
+
+    .dropdownMobile {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    nav {
+        width: 100vw;
+        max-width: none;
+    }
+}

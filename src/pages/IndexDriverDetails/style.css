@@ -26,6 +26,7 @@
     display: flex;
     width: 1280px;
     height: 100%;
+    gap: 25px;
     margin: auto;
     justify-content: space-between;
 }
@@ -101,6 +102,10 @@
     font-weight: 500;
 }
 
+.column-details {
+    width: 50%;
+}
+
 .table-order {
     margin: 0;
     z-index: 0;
@@ -155,7 +160,6 @@
 .form-input-name {
     display: flex;
     align-items: center;
-    width: 100%;
     gap: 10px;
 }
 
@@ -163,6 +167,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    gap: 15px;
 }
 
 .icon-budget-value {
@@ -173,7 +178,7 @@
 }
 
 .icon-budget-content {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .budget-form-value-content {
@@ -184,4 +189,128 @@
 
 .button-budget-send {
     width: 100%;
+}
+
+@media screen and (max-width: 1300px){
+    .top-details {
+        width: 100%;
+    }
+
+    .top-details-content {
+        width: 100%;
+    }
+
+    .top-details-content-map-address {
+        width: 100%;
+    }
+
+    .change-details-itens {
+        width: 100%;
+    }
+
+    .details-change-content {
+        width: 100%;
+    }
+
+    .send-budget-content {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1040px){
+    .top-details, 
+    .details-change {
+        height: 100%;
+        padding: 50px 15px;
+    }
+
+    .title-details-index-driver {
+        text-align: center;
+    }
+
+    .top-details-content-map-address {
+       flex-direction: column;
+       width: 100%;
+       justify-content: center;
+       align-items: center;
+       padding: 0;
+    }
+
+    .details-map {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .details-content {
+        width: 100%;
+    }
+
+    .details-content-address {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user-order-content {
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .change-details-itens {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .column-details {
+        width: 100%;
+    }
+
+    .change-details-right {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 580px){
+    .icon-budget-value {
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        align-items: normal;
+    }
+
+    .input-budget-send {
+        padding-left: 0;
+    }
+
+    .budget-form-inputs {
+        padding: 0;
+        width: 95%;
+        margin: auto;
+    }
+
+    .budget-value-order {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .budget-form-value-content {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .subtitle-details-address {
+        font-size: 20px;
+    }
+
+    .address-order {
+        font-size: 17px;
+    }
+
+    .user-order-content {
+        font-size: 20px;
+    }
 }

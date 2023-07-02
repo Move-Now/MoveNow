@@ -137,7 +137,7 @@ export function About() {
               <div className="aboutContainers">
                 <img src="../../src/assets/diversidadeMoveNow.png" className="containersImages"/>
                 <p className="subtitleContainers">Diversidade</p>
-                <p className="paragraphsAbout">Na nossa empresa, valorizamos a diversidade em todos os aspectos. Acreditamos que equipes diversas trazem uma variedade de perspectivas e ideias inovadoras. Buscamos promover um ambiente inclusivo, onde todas as pessoas são respeitadas e têm oportunidades iguais. #TodesMovem</p>
+                <p className="paragraphsAbout">Na nossa empresa, valorizamos a diversidade em todos os aspectos. Acreditamos que equipes diversas trazem uma variedade de perspectivas e ideias inovadoras. Buscamos promover um ambiente inclusivo, onde todas as pessoas são respeitadas e têm oportunidades iguais. #GeralMove com a MoveNow!</p>
               </div>
 
             </div>

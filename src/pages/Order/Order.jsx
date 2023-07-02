@@ -16,6 +16,7 @@ import { FaRulerHorizontal } from "react-icons/fa";
 import { FaRulerVertical } from "react-icons/fa";
 import { FaArrowsAltH, FaWeightHanging } from "react-icons/fa";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
+import Swal from "sweetalert2";
 import axios from "axios";
 
 const StyledOrder = styled.div`
@@ -135,10 +136,17 @@ export function Order() {
       }
 
     } catch (error) {
-      console.error(error);
-      alert("CEP inválido!");
 
       if (tipo === "origem") {
+
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'CEP de origem inválido!',
+        })
+
         setCepOrigem("");
         setDetalhesOrigem(null);
         document.getElementById("ruaOrigem").value = "";
@@ -146,11 +154,16 @@ export function Order() {
         document.getElementById("ufOrigem").value = "";
         document.getElementById("numeroOrigem").value = "";
 
-        const cepInput = document.querySelector("#cepOrigem");
-        if (cepInput	) {
-          cepInput.focus();
-        }
       } else if (tipo === "destino") {
+
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'CEP de destino inválido!',
+        })
+
         setCepDestino("");
         setDetalhesDestino(null);
         document.getElementById("ruaDestino").value = "";
@@ -158,10 +171,6 @@ export function Order() {
         document.getElementById("ufDestino").value = "";
         document.getElementById("numeroDestino").value = "";
 
-        const cepInput = document.querySelector("#cepDestino");
-        if (cepInput) {
-          cepInput.focus();
-        }
       }
     }
 
@@ -208,6 +217,26 @@ export function Order() {
     }
   };
 
+  const handleNumeroOrigemKeyDown = (event) => {
+    const numeroInput = document.querySelector("#cepDestino");
+
+    if (event.key === "Enter") {
+      event.preventDefault();
+    
+
+      if (numeroInput) {
+        numeroInput.focus();
+      }
+    }
+  };
+
+  const handleNumeroDestinoKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      scrollToSection();
+    }
+  };
+
   // FUNCIONALIDADE DE ROLAR A PÁGINA AO CLICAR NO BOTÃO DE PRÓXIMO APENAS SE OS INPUTS DE ENDERECO TIVEREM PREENCHIDOS
 
   const verificarInputsPreenchidosCep = () => {
@@ -238,14 +267,30 @@ export function Order() {
 
     if (verificarInputsPreenchidosCep()) {
       if (numeroInputOrigem == numeroInputDestino && cepOrigem == cepDestino) {
-        alert("Não é possível mudar para o mesmo endereço")
+
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Não é possível mudar para o mesmo endereço!',
+        })
+
         document.querySelector("#numeroOrigem").value = ""
         document.querySelector("#numeroDestino").value = ""
       } else {
         sectionRef.current.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      alert("Preencha todos os campos")
+
+      Swal.fire({
+        color: '#000',
+        confirmButtonColor: '#000',
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Preencha todos os campos!',
+      })
+
     }
   };
 
@@ -253,7 +298,7 @@ export function Order() {
 
   const listaItens = [
     { nome: "Geladeira", peso: "60", altura: "175", largura: "65", comprimento: "65" },
-    { nome: "Sofá", peso: "80", altura: "90", largura: "90", comprimento: "220" },
+    { nome: "Sofá", peso: "80", altura: "60", largura: "60", comprimento: "220" },
     { nome: "Mesa", peso: "15", altura: "75", largura: "80", comprimento: "120" },
   ];
 
@@ -285,7 +330,6 @@ export function Order() {
         comprimento: "",
       });
     } else if (selectedIndex !== "") {
-
       const selectedItem = listaItens[selectedIndex];
       setItemPersonalizado({
         ...itemPersonalizado,
@@ -347,6 +391,25 @@ export function Order() {
   // FUNCIONALIDADE DE ADICIONAR ITENS NA TABELA
 
   const handleAdicionarItem = () => {
+    
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      color: '#000',
+      icon: 'success',
+      title: 'Item adicionado!'
+    })
+
     if (inputsPreenchidos) {
       setItensAdicionados([...itensAdicionados, itemPersonalizado]);
       setItemPersonalizado({
@@ -358,13 +421,39 @@ export function Order() {
       });
       setSelectedItemIndex("");
     } else {
-      alert("Preencha todos os campos antes de adicionar o item.");
+      
+      Swal.fire({
+        color: '#000',
+        confirmButtonColor: '#000',
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Preencha todos os campos!',
+      })
     }
   };
 
   // FUNCIONALIDADE DE EXCLUIR ITENS DA TABELA E ATUALIZAR OS DADOS TOTAIS
 
   const handleExcluirItem = (index) => {
+    
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      color: '#000',
+      icon: 'error',
+      title: 'Item removido!'
+    })
+
     const novosItens = [...itensAdicionados];
     const itemExcluido = novosItens.splice(index, 1)[0];
   
@@ -417,6 +506,7 @@ export function Order() {
                   id="numeroOrigem"
                   title="Número"
                   type="text"
+                  onKeyDown={handleNumeroOrigemKeyDown}
                   placeholder="000"
                   icon={<AiOutlineFieldNumber className="icon" />}
                 />
@@ -462,6 +552,7 @@ export function Order() {
                   id="numeroDestino"
                   title="Número"
                   type="text"
+                  onKeyDown={handleNumeroDestinoKeyDown}
                   placeholder="000"
                   icon={<AiOutlineFieldNumber className="icon" />}
                 />

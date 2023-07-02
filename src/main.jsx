@@ -17,6 +17,9 @@ import { WorkWithUs } from "./pages/WorkWithUs/WorkWithUs";
 import { IndexDriver } from "./pages/indexDriver/indexDriver";
 import { IndexDriverDetails } from "./pages/IndexDriverDetails/IndexDriverDetails";
 import AddUsuario from "./pages/SignUpClient/AddUsuario";
+import { LandingPageUser } from "./pages/LandingPageUser";
+import { Ranqueamento } from "./pages/RankingDriver/Ranqueamento";
+import { ProfileDriver } from "./pages/ProfileDriver/ProfileDriver";
 
 
 //Configurando o React Router
@@ -63,12 +66,24 @@ const router = createBrowserRouter([
         element: <IndexDriver />,
       },
       {
+        path: "user",
+        element: <LandingPageUser />,
+      },
+      {
         path: "orderDetails",
         element: <IndexDriverDetails />,
       },
       {
         path: "addUsuario",
         element: <AddUsuario />,
+      },
+      {
+        path: "ranking",
+        element: <Ranqueamento />,
+      },
+      {
+        path: "profile",
+        element: <ProfileDriver />,
       },
     ],
   },

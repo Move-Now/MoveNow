@@ -4,6 +4,7 @@ import { Header } from "../../components/Header/Header";
 import styled, { ThemeProvider } from "styled-components";
 import { BsFillSunFill } from "react-icons/bs";
 import { FaRegMoon } from "react-icons/fa";
+import { HeaderDriver } from "../../components/HeaderDriver/HeaderDriver";
 
 const lightTheme = {
   shadow: "0px 2px 4px rgba(0, 0, 0, 0.2);",
@@ -87,7 +88,8 @@ export function App() {
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/>
+      {/* <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/> */}
+      <HeaderDriver action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/>
       <Outlet theme={isDarkMode ? darkTheme : lightTheme}/>
     </ThemeProvider>
   );

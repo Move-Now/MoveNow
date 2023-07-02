@@ -1,13 +1,10 @@
 @import url("../../index.css");
 
-
 #sectionJobs {
-    width: 100%;
-}
-
-#sectionJobs {
-    display: block;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h2 {
@@ -30,7 +27,7 @@ h2 {
 }
 
 .containerJobs {
-    width: 100%;
+    width: 1280px;
     height: auto;
     padding: 30px;
     /* background: rgba(255, 255, 255, 0.05); */
@@ -69,6 +66,12 @@ th {
 
 td {
     background-color: rgba(0, 0, 0, 0.444);
+}
+
+@media screen and (max-width: 1300px) {
+    .containerJobs {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 870px) {

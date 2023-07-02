@@ -38,21 +38,6 @@ img {
     z-index: 2;
 }
 
-/* .eclipse {
-    margin-left: 65%;
-    float: right;
-    position: absolute;
-    box-sizing: border-box;
-    width: 450px;
-    height: 250px;
-    top: 302px;
-
-    background: rgba(48, 102, 190, 0.44);
-    filter: blur(175px);
-
-    z-index: 1;
-} */
-
 p {
     font-size: 23px;
     font-weight: 300;
@@ -71,12 +56,6 @@ p {
         line-height: 1.4;
     }
 
-    .section1 p {
-        font-size: 16px;
-        line-height: 1.2;
-        max-width: 80%;
-    }
-
     .section1 img {
         width: 450px;
     }
@@ -93,6 +72,10 @@ p {
         ;
         gap: 20px;
         padding: 30px 20px;
+    }
+
+    .section1 p {
+        font-size: 18px;
     }
 
     .section1 img {
@@ -115,6 +98,17 @@ p {
     }
 }
 
+@media screen and (max-width: 550px) {
+    .wrapperContent {
+        width: 100%;
+    }
+
+    .wrapperButtons button{
+        font-size: 15px;
+        padding: 12px;
+    }
+}
+
 @media screen and (max-width: 515px) {
     .section1 img {
         width: 270px;
@@ -133,17 +127,9 @@ p {
             line-height: 1.2;
         }
 
-        .section1 p {
-            font-size: 14px;
-        }
-
         .section1 h1 br {
             display: none;
         }
-    }
-
-    .wrapperContent .wrapperButtons button {
-        font-size: 12px;
     }
 }
 
@@ -173,6 +159,6 @@ p {
     .wrapperContent .wrapperButtons button {
         font-size: 10.5px;
         width: max-content;
-        padding: 8px 10px;
+        padding: 12px;
     }
 }

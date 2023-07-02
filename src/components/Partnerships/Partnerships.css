@@ -1,5 +1,5 @@
 .parcerias {
-    width: fit-content;
+    width: 1280px;
     max-width: 80%;
     display: flex;
     
@@ -10,7 +10,7 @@
 
     padding: 10px;
     margin: auto;
-    margin-bottom: 6.5vw;
+    margin-bottom: 100px;
 
     border-radius: 10px;
     backdrop-filter: blur(1.5px);

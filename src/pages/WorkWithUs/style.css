@@ -19,6 +19,24 @@
     gap: 25px;
 }
 
+.comercial-movenow {
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 0 20px 20px 20px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.comercial-movenow iframe {
+    width: 100%;
+    height: 600px;
+    border-radius: 20px;
+}
+
 .wrapperButtonsTrabalheConosco {
     display: flex;
     margin-top: 50px;
@@ -106,6 +124,15 @@
         text-align: center;
         margin: auto;
     }
+
+    .comercial-movenow {
+        width: 90%;
+    }
+    
+
+    .comercial-movenow iframe {
+        height: 410px;
+    }
 }
 
 @media screen and (max-width: 580px) {
@@ -117,6 +144,12 @@
 
     .buttonsTrabalheConosco p {
         font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .comercial-movenow iframe {
+        height: 275px;
     }
 }
 

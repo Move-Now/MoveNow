@@ -1,0 +1,104 @@
+.profile-driver {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-driver-content {
+    width: 1280px;
+    padding: 64px 0;
+}
+
+.details-profile {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    padding: 64px;
+    background-color: #ccc;
+}
+
+.left-details-profiles {
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-circle {
+    background-image: url(../../assets/equipeMoveNow.jpg);
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+}
+
+.right-details-profiles {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 20px;
+    gap: 20px;
+}
+
+.details-profiles-content {
+    display: flex;
+    border-bottom: 1px solid #000;
+    border-radius: 20px 0;
+}
+
+.details-profiles-data-personal-title {
+    width: 50%;
+    border-right: 1px solid #000;
+}
+
+.data-personal-title-content {
+    text-align: center;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.data-personal-paragraphs-content {
+    text-align: center;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.details-profiles-data-personal-paragraphs {
+    width: 50%;
+}
+
+.button-edit-profile-content {
+    width: 15%;
+    align-items: center;
+    text-align: center;
+    float: right;
+}
+
+.edit-profile {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin: auto;
+    gap: 20px;
+}
+
+.details-profiles-content-edit {
+    display: flex;
+    border-radius: 20px 0;
+}
+
+.details-profiles-data-personal-title-edit {
+    width: 50%;
+}
+
+.data-personal-title-content-edit {
+    text-align: center;
+    font-weight: 600;
+    padding: 5px;
+}

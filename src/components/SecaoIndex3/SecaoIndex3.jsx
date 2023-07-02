@@ -80,87 +80,89 @@ export function SecaoIndex3() {
   return (
     <StyledSecaoIndex3>
       <div className='section3'>
+        <div className='section3-content'>
 
-        <h2 className='titleIndex3'>Como funciona?</h2>
-        <p className='contentTitleIndex3'>Acompanhe o processo até a conclusão de seu pedido</p>
+            <h2 className='titleIndex3'>Como funciona?</h2>
+            <p className='contentTitleIndex3'>Acompanhe o processo até a conclusão de seu pedido</p>
 
-          <div id="progress-bar-container">
+            <div id="progress-bar-container">
 
-            <ul>
-              <li
-                className={`step step01 ${activeStep >= 1 ? 'active' : ''}`}
-                onClick={() => handleStepClick(1)}
-              >
-                <div className="step-inner">Solicite seu orçamento</div>
-              </li>
-              <li
-                className={`step step02 ${activeStep >= 2 ? 'active' : ''}`}
-                onClick={() => handleStepClick(2)}
-              >
-                <div className="step-inner">Receba diversos preços</div>
-              </li>
-              <li
-                className={`step step03 ${activeStep >= 3 ? 'active' : ''}`}
-                onClick={() => handleStepClick(3)}
-              >
-                <div className="step-inner">Selecione o melhor orçamento</div>
-              </li>
-              <li
-                className={`step step04 ${activeStep >= 4 ? 'active' : ''}`}
-                onClick={() => handleStepClick(4)}
-              >
-                <div className="step-inner">Converse com o motorista</div>
-              </li>
-              <li
-                className={`step step05 ${activeStep >= 5 ? 'active' : ''}`}
-                onClick={() => handleStepClick(5)}
+              <ul>
+                <li
+                  className={`step step01 ${activeStep >= 1 ? 'active' : ''}`}
+                  onClick={() => handleStepClick(1)}
                 >
-                <div className="step-inner">Rastreie a mudança</div>
-              </li>
-            </ul>
+                  <div className="step-inner">Solicite seu orçamento</div>
+                </li>
+                <li
+                  className={`step step02 ${activeStep >= 2 ? 'active' : ''}`}
+                  onClick={() => handleStepClick(2)}
+                >
+                  <div className="step-inner">Receba diversos preços</div>
+                </li>
+                <li
+                  className={`step step03 ${activeStep >= 3 ? 'active' : ''}`}
+                  onClick={() => handleStepClick(3)}
+                >
+                  <div className="step-inner">Selecione o melhor orçamento</div>
+                </li>
+                <li
+                  className={`step step04 ${activeStep >= 4 ? 'active' : ''}`}
+                  onClick={() => handleStepClick(4)}
+                >
+                  <div className="step-inner">Converse com o motorista</div>
+                </li>
+                <li
+                  className={`step step05 ${activeStep >= 5 ? 'active' : ''}`}
+                  onClick={() => handleStepClick(5)}
+                  >
+                  <div className="step-inner">Rastreie a mudança</div>
+                </li>
+              </ul>
 
-            <div id="line">
-              <div id="line-progress"></div>
+              <div id="line">
+                <div id="line-progress"></div>
+              </div>
+
             </div>
 
-          </div>
+            <div className="process-wrapper">
 
-          <div className="process-wrapper">
+              <div id="progress-content-section">
+                <div className={`section-content orcamento ${activeStep === 1 ? 'active' : ''}`}>
+                  <h2>Solicite seu orçamento</h2>
+                  <p>
+                    Para solicitar um orçamento completo, basta informar nos campos adequados a descrição de sua mudança ou transporte, para que nosso sistema auxilie  automaticamente com os melhores caminhões disponíveis.
+                  </p>
+                </div>
 
-            <div id="progress-content-section">
-              <div className={`section-content orcamento ${activeStep === 1 ? 'active' : ''}`}>
-                <h2>Solicite seu orçamento</h2>
-                <p>
-                  Para solicitar um orçamento completo, basta informar nos campos adequados a descrição de sua mudança ou transporte, para que nosso sistema auxilie automaticamente com os melhores caminhões disponíveis.
-                </p>
-              </div>
+                <div className={`section-content precos ${activeStep === 2 ? 'active' : ''}`}>
+                  <h2>Receba diversos preços</h2>
+                  <p>
+                    Com o nosso sistema de integração com os motoristas, você nosso cliente pode receber diversos orçamentos referente a mesma viagem.
+                  </p>
+                </div>
 
-              <div className={`section-content precos ${activeStep === 2 ? 'active' : ''}`}>
-                <h2>Receba diversos preços</h2>
-                <p>
-                  Com o nosso sistema de integração com os motoristas, você nosso cliente pode receber diversos orçamentos referente a mesma viagem.
-                </p>
-              </div>
+                <div className={`section-content precos2 ${activeStep === 3 ? 'active' : ''}`}>
+                  <h2>Selecione o melhor orçamento</h2>
+                  <p>
+                    Selecione o orçamento mais indicado para garantir que você obtenha o melhor valor e a qualidade desejada.
+                  </p>
+                </div>
 
-              <div className={`section-content precos2 ${activeStep === 3 ? 'active' : ''}`}>
-                <h2>Selecione o melhor orçamento</h2>
-                <p>
-                  Selecione o orçamento mais indicado para garantir que você obtenha o melhor valor e a qualidade desejada.
-                </p>
-              </div>
+                <div className={`section-content motorista ${activeStep === 4 ? 'active' : ''}`}>
+                  <h2>Converse diretamente com nosso motorista</h2>
+                  <p>
+                    É possível conversar em detalhes com o carreteiro para esclarecer dúvidas, obter informações adicionais e estabelecer uma comunicação clara e transparente.
+                  </p>
+                </div>
 
-              <div className={`section-content motorista ${activeStep === 4 ? 'active' : ''}`}>
-                <h2>Converse diretamente com nosso motorista</h2>
-                <p>
-                  É possível conversar em detalhes com o carreteiro para esclarecer dúvidas, obter informações adicionais e estabelecer uma comunicação clara e transparente.
-                </p>
-              </div>
-
-              <div className={`section-content rastreio ${activeStep === 5 ? 'active' : ''}`}>
-                <h2>Rastreie a mudança</h2>
-                <p>
-                  Para segurança de todos, rastreamos todas a viagens de carreto podendo ser visualizada na aba do "rastreamento".
-                </p>
+                <div className={`section-content rastreio ${activeStep === 5 ? 'active' : ''}`}>
+                  <h2>Rastreie a mudança</h2>
+                  <p>
+                    Para segurança de todos, rastreamos todas a viagens de carreto podendo ser visualizada na aba do "rastreamento".
+                  </p>
+                </div>
               </div>
             </div>
           </div>

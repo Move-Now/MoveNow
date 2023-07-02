@@ -1,7 +1,7 @@
 @import url("../../index.css");
 
 .topOrder {
-    background-image: url(../../assets/carrosel1.png);
+    background-image: url(../../assets/carroselDark.png);
    
     background-size: cover;
     background-position: top;
@@ -152,11 +152,30 @@
 
 @media screen and (max-width: 1355px){
     #sectionOrder {
-        width: 90%;
+        width: 100%;
     }
 }
 
 @media screen and (max-width: 850px){
+    #mainOrder {
+        padding: 10px 10px;
+    }
+
+    .form-section-order {
+        width: 100%;
+    }
+
+    .contentTopOrder {
+        width: 100%;
+        align-self: flex-end;
+    }
+    
+    .titletopOrder {
+        width: 90%;
+        margin: auto;
+        font-size: 50px;
+    }
+
     .order-buttons-next {
         width: 70%;
     }
@@ -171,6 +190,9 @@
         gap: 50px;
     }
 
+    #sectionOrder .column {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 750px){
@@ -185,6 +207,10 @@
     .section-order-title {
         font-size: 36px;
     }
+
+    .section-order-paragraph {
+        font-size: 20px;
+    }
 }
 
 
@@ -195,13 +221,25 @@
     .order-buttons-next {
         font-size: 12px;
     }
+
+    .total-details-order p{
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 475px){
+    .titletopOrder {
+        font-size: 40px;
+    }
+
     .section-order-title {
         font-size: 30px;
         line-height: normal;
         width: 90%;
+    }
+
+    .section-order-paragraph {
+        font-size: 18px;
     }
 
     #sectionOrder .column{

@@ -18,7 +18,9 @@
     "react-hook-form": "^7.45.0",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.11.2",
-    "styled-components": "^5.3.11"
+    "react-youtube": "^10.1.0",
+    "styled-components": "^5.3.11",
+    "sweetalert2": "^11.7.12"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

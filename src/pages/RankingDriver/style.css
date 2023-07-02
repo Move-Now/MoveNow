@@ -1,0 +1,220 @@
+.raqueamento {
+    width: 100%;
+}
+
+.top-ranqueamento {
+    background-image: url(../../assets/ranqueamento.png);
+   
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.content-top-ranqueamento {
+    align-self: flex-end;
+    background-color: rgba(0, 0, 0, 0.50);
+    width: 1280px;
+    padding: 64px;
+    margin-bottom: 20px;
+}
+
+.title-ranqueamento {
+    color: #fff;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 64px;
+}
+
+.title-top-ranking {
+    margin-top: 50px;
+}
+
+.ranqueamento-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 1280px;
+    padding: 64px;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.details-ranqueamento-content {
+    width: 100%;
+    display: flex;
+}
+
+.subtitle-ranqueamento-content {
+    font-weight: 600;
+}
+
+.subtitle-ranqueamento-content-center {
+    font-weight: 600;
+}
+
+.subtitle-ranqueamento-content-top1 {
+    font-weight: 600;
+}
+
+.left-raqueamento-content {
+    width: 33.3%;
+    text-align: center;
+    padding: 12px;
+}
+
+.center-raqueamento-content {
+    width: 33.3%;
+    text-align: center;
+    padding: 12px;
+}
+
+.right-raqueamento-content {
+    width: 33.3%;
+    text-align: center;
+    padding: 12px;
+}
+
+.left-raqueamento-content-drivers {
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-right: 1px solid #000;
+}
+
+.center-raqueamento-content-drivers {
+    width: 33.3%;
+    text-align: center;
+    padding: 12px;
+    border-right: 1px solid #000;
+}
+
+.right-raqueamento-content-drivers {
+    width: 33.3%;
+    text-align: center;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-ranqueamento-content-drivers {
+    display: flex;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.details-ranqueamento-content-drivers-top1 {
+    display: flex;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.bottom-ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    padding: 64px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}   
+
+.bottom-ranking p {
+    font-size: 17px;
+}
+
+.title-bottom {
+    font-size: 36px;
+    margin: 0;
+}
+
+@media screen and (max-width: 1300px) {
+    .content-top-ranqueamento {
+        width: 90%;
+    }
+
+    .ranqueamento-content {
+        width: 100%;
+    }
+
+    .center-raqueamento-content-drivers {
+        width: 46%;
+    }
+
+    .right-raqueamento-content-drivers {
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .center-raqueamento-content-drivers {
+        display: none;
+    }
+
+    .left-raqueamento-content {
+        width: 50%;
+    }
+
+    .center-raqueamento-content {
+        display: none;
+    }
+
+    .right-raqueamento-content {
+        width: 50%;
+    }
+
+    .subtitle-ranqueamento-content-center {
+        display: none;
+    }
+
+    .left-raqueamento-content-drivers {
+        width: 50%;
+    }
+
+    .right-raqueamento-content-drivers {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .title-top-ranking {
+        font-size: 36px;
+    }
+
+    .content-top-ranqueamento {
+        padding: 20px;
+    }
+
+    .title-ranqueamento {
+        font-size: 36px;
+    }
+
+    .left-raqueamento-content-drivers {
+        width: 50%;
+        align-items: normal;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .ranqueamento-content {
+        padding: 20px;
+    }
+
+    .bottom-ranking {
+        padding: 20px;
+    }
+}
+

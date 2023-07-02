@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { GoogleMap, LoadScript, DirectionsRenderer } from '@react-google-maps/api';
 import { Footer } from "../../components/Footer/Footer";
 import { BsPersonCircle } from "react-icons/bs";
+import { BsTelephoneFill } from "react-icons/bs";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import styled from "styled-components";
 import "./style.css";
@@ -94,12 +95,12 @@ export function IndexDriverDetails() {
                                     <h2 className="subtitle-details-address">Local de origem: </h2>
                                     <p className="address-order">R.Simao vieira lindo</p>
 
-                                    <h2 className="subtitle-details-address">Local de origem: </h2>
+                                    <h2 className="subtitle-details-address">Local de destino: </h2>
                                     <p className="address-order">R.Simao vieira lindo</p>
                                 </div>
 
                                 <div className="user-order">
-                                    <p className="user-order-content"><BsPersonCircle />Fabricio Herculano da Silva</p>
+                                    <p className="user-order-content"><BsPersonCircle />Fabricio</p>
                                 </div>
                             </div>
                         </div>
@@ -109,8 +110,8 @@ export function IndexDriverDetails() {
                     <div className="details-change-content">
                         <h2 className="title-details-index-driver">Detalhes da mudança</h2>
                         <div className="change-details-itens">
-                            <div className="column">
-                                <table className="table-order">
+                            <div className="column-details">
+                                <table className="table-order-details">
                                     <thead>
                                         <tr>
                                             <th>Item</th>
@@ -173,7 +174,7 @@ export function IndexDriverDetails() {
                                     </div>
 
                                     <div className="budget-form-inputs-content">
-                                        <p className="form-input-name"><BsPersonCircle />Telefone</p>
+                                        <p className="form-input-name"><BsTelephoneFill />Telefone</p>
                                         <input type="text" className="input-budget-send" placeholder="00 00000-0000" />
                                     </div>
                                 </div>

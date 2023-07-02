@@ -78,9 +78,15 @@ export function Header(props) {
            <Link to={"/driver"}>
               <li>INDEX MOTORISTA</li>
            </Link>
+
+           <Link to={"/user"}>
+              <li>INDEX USER</li>
+           </Link>
+
            <Link to={"/orcamento"} onClick={hide}>
               <li onClick={hide}>Solicite um carreto</li>
            </Link>
+
             <Link to={"/sobreNos"} onClick={hide}>
               <li onClick={hide}>Quem somos?</li>
             </Link>

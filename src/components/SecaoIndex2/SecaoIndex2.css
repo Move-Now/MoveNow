@@ -10,7 +10,7 @@
     backdrop-filter: blur(1.5px);
     background: var(--bg-glass-dark);
     overflow-x: hidden;
-    gap: 3vw;
+    gap: 50px;
 }
 
 .topIndex2 {
@@ -20,7 +20,7 @@
 }
 
 .titleIndex2 {
-    width: auto;
+    width: 1280px;
     font-size: 40px;
     font-weight: 400;
     line-height: 56px;
@@ -30,13 +30,12 @@
 .bottomIndex2 {
     display: flex;
     align-items: center;
-    gap: 15vw;
-
+    width: 1280px;
+    justify-content: space-between;
 }
 
-.buttonIndex2,
 .buttonIndex2-origem {
-    padding: 0.6vw;
+    padding: 17px;
     color: #FFFFFF;
     border-radius: 8px;
     background: transparent;
@@ -51,7 +50,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 1vw;
+    gap: 15px;
 }
 
 img {
@@ -63,23 +62,18 @@ button {
     font-weight: 400;
 }
 
-.iconIndex2 {
-    float: right;
-    color: var(--orange);
-}
-
-/* span {
-    color: var(--orange)
-} */
-
 .contentIndex2 {
     width: 100%;
     text-align: center;
 }
 
-@media screen and (max-width: 1440px) {
-    .section2 {
-        gap: 5vw;
+@media screen and (max-width: 1300px) {
+    .titleIndex2 {
+        width: 100%;  
+    }
+
+    .bottomIndex2 {
+        width: 100%;
     }
 }
 
@@ -89,7 +83,6 @@ button {
     }
 
     p {
-        font-size: 15.7px;
         line-height: normal;
     }
 
@@ -100,14 +93,6 @@ button {
     img {
         width: 450px;
         height: auto;
-    }
-
-    .buttonIndex2 {
-        font-size: 12px;
-    }
-
-    .buttonSection2 {
-        font-size: 12px;
     }
 }
 
@@ -127,8 +112,7 @@ button {
     }
 
     .buttonIndex2 {
-        padding-top: 6px;
-        padding-bottom: 6px;
+        padding: 12px;
     }
 }
 
@@ -136,49 +120,39 @@ button {
     .titleIndex2 {
         line-height: normal;
     }
+}
 
-    .form {
-        gap: 2vw;
+@media screen and (max-width: 550px) {
+    .buttonSection2 {
+        font-size: 15px;
+        padding: 12px;
     }
 }
 
 @media screen and (max-width: 520px) {
     .section2 {
-        gap: 5vw;
+        gap: 50px;
     }
 
     .titleIndex2 {
         font-size: 25px;
     } 
-    
-    p {
-        font-size: 15px;
-    }
 
     img {
         width: 270px;
         height: auto;
     }
 
-    .buttonIndex2 button {
-        padding: 10px 15px;
-        border-radius: 12px;
-    }
 }
 
 @media screen and (max-width: 435px) {
     .titleIndex2 {
         font-size: 20px;
     } 
-    
-    p {
-        font-size: 15px;
-    }
 
-    .buttonIndex2 {
-        border-radius: 4px;
-        font-size: 11px;
-    }   
+    .contentIndex2 {
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 355px) {

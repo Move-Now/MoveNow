@@ -1,6 +1,6 @@
 .section5 {
     display: flex;
-    width: 80%;
+    width: 1280px;
     height: 530px;
     margin: auto;
     justify-content: space-between;
@@ -30,7 +30,11 @@
     bottom: 500px;
 }
 
-
+@media screen and (max-width: 1300px) {
+	.section5 {
+		width: 80%;
+	}
+}
 
 @media(max-width: 1220px) {
     .titleSection5{

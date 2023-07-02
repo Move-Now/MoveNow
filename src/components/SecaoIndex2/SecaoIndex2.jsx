@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 import styled from "styled-components";
 import "./SecaoIndex2.css";
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const StyledSecaoIndex2 = styled.div`
   .section2 {
@@ -13,11 +14,6 @@ const StyledSecaoIndex2 = styled.div`
   }
 
   span {
-    transition: ${props => props.theme.transitionComponents};
-    color: ${props => props.theme.spanColor};
-  }
-
-  .iconIndex2 {
     transition: ${props => props.theme.transitionComponents};
     color: ${props => props.theme.spanColor};
   }
@@ -38,6 +34,10 @@ const StyledSecaoIndex2 = styled.div`
     outline: 1px solid ${props => props.theme.spanColor};;
 }
 
+  .confirmButtonColor {
+    color: ${props => props.theme.spanColor};
+  }
+
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;
 
@@ -53,11 +53,11 @@ export function SecaoIndex2(props) {
   const navigate = useNavigate();
 
   const handleOriginCepChange = (event) => {
-    setCepOrigem(event.target.value, "origem");
+    setCepOrigem(event.target.value);
   };
 
   const handleDestinationCepChange = (event) => {
-    setCepDestino(event.target.value, "destino");
+    setCepDestino(event.target.value);
   };
 
   const buscarDetalhesCEP = async () => {
@@ -77,15 +77,42 @@ export function SecaoIndex2(props) {
         localStorage.setItem("cepDestino", cepDestino);
         document.getElementById('cep-origin').value = "";
         document.getElementById('cep-destination').value = "";
+
+        // DENTRO DESSA CHAMADA, VERIFICAR SE TA LOGADO OU NAO COMO USUARIO, SE SIM IR PARA /ORCAMENTO SE NAO IR PARA LOGIN...
+
+        const Toast = Swal.mixin({
+          
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
         
-        alert("Redirecionando...");
+        Toast.fire({
+          color: '#000',
+          icon: 'success',
+          title: 'CEP validado com sucesso!'
+        })
+        
         setCepOrigem("");
         setCepDestino("");
         navigate('/orcamento');
       }
 
     } catch (error) {
-      alert("CEP inválido!");
+
+      Swal.fire({
+        color: '#000',
+        confirmButtonColor: '#000',
+        icon: 'error',
+        title: 'Oops...',
+        text: 'CEPs inválidos!',
+      })
 
       setCepOrigem("");
       setCepDestino("");
@@ -95,11 +122,6 @@ export function SecaoIndex2(props) {
 
       localStorage.removeItem("cepOrigem");
       localStorage.removeItem("cepDestino");
-
-      const cepInput = document.querySelector("#cep-origin");
-      if (cepInput) {
-        cepInput.focus();
-      }
     }
   };
 
@@ -121,14 +143,13 @@ export function SecaoIndex2(props) {
   return (
     <StyledSecaoIndex2>
       <div className="section2">
-
         <div className="topIndex2">
           <h2 className="titleIndex2">Transporte de carretos e mudanças na região de São Paulo</h2>
           <p className="contentIndex2">Faça a <span>escolha certa</span> para sua mudança. Peça um <span>orçamento</span>!</p>
         </div>
         <div className="bottomIndex2">
           <div className="form">
-              <p>Peça seu orçamento <span>grátis</span> <br/> e sem compromisso</p>
+              <p className="contentIndex2">Peça seu orçamento <span>grátis</span> <br/> e sem compromisso</p>
 
               <span className="buttonIndex2-origem">Origem:</span>
               <input type="number" className="buttonIndex2" placeholder="CEP de origem" id="cep-origin" value={cepOrigem}

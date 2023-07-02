@@ -4,6 +4,7 @@ import { ThemeContext } from "styled-components";
 import { FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import YouTube from 'react-youtube';
 import "./style.css";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
@@ -40,6 +41,12 @@ const StyledWorkWithUs = styled.div`
     .imageTrabalheConosco {
         border-radius: 15px;
         border: 0.5px solid ${props => props.theme.textColor};
+        box-shadow: 10px 10px 1px ${props => props.theme.shadowBox};
+    }
+
+    .comercial-movenow {
+        border-right: 1px solid ${props => props.theme.textColor};
+        border-bottom: 1px solid ${props => props.theme.textColor};
         box-shadow: 10px 10px 1px ${props => props.theme.shadowBox};
     }
 
@@ -83,6 +90,10 @@ return (
                 </div>
             </div>
             <img className="imageTrabalheConosco" src={image} alt="" />
+        </div>
+
+        <div className="comercial-movenow">
+            <YouTube videoId="Bc4_Lm9lTaw"/>
         </div>
 
         <div className="bottomContent">

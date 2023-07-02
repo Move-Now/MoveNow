@@ -10,8 +10,9 @@ import { BsPostcardFill } from "react-icons/bs";
 import { FaTruck } from "react-icons/fa";
 import { ImFilePicture } from "react-icons/im";
 import { BiLock } from "react-icons/bi";
-import { Link } from "react-router-dom";
 import "./SignUpDriver.css";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const StyledSignUpDriver = styled.div`
 
@@ -69,51 +70,90 @@ export function SignUpDriver() {
         setShowPassword(!showPassword);
     };
 
+    let navigate = useNavigate();
+
+    const [motorista, setMotorista] = useState({
+      nome_completo_motorista: "",
+      email_motorista: "",
+      cpf_motorista: "",
+      telefone_motorista: "",
+      cnh_motorista: "",
+      senha_motorista: "",
+    });
+
+    const { nome_completo_motorista, email_motorista, cpf_motorista, telefone_motorista, cnh_motorista, senha_motorista} = motorista;
+
+    const onInputChange = (e) => {
+      setMotorista({ ...motorista, [e.target.name]: e.target.value });
+    };
+
+    const onSubmit = async (e) => {
+      e.preventDefault();
+        const  response = await axios.post("http://localhost:8080/motorista", motorista);
+        console.log(response);
+        navigate("/login"); 
+      };
+
+
   return (
     <StyledSignUpDriver>
       <main id="mainDriver">
         <h2 className="titleSignUp">Cadastro de Motorista</h2>
-        <form action="" className="form-signup-driver">
+        <form onSubmit={(e) => onSubmit(e)} id="SignUpFormMot">
           <div className="column">
-            <Input
+            <label>Nome Completo</label>
+            <input
               title="Nome Completo"
               type="text"
               placeholder="Nome"
-              icon={<BsPersonCircle className="icon" />}
+              value={nome_completo_motorista}
+              onChange={(e) => onInputChange(e)}
             />
-            <Input
+            <label>E-mail</label>
+            <input
               title="Email"
               type="email"
               placeholder="Email"
-              icon={<BsEnvelopeFill className="icon" />}
+              value={email_motorista}
+              onChange={(e) => onInputChange(e)}
             />
-            <Input
+
+            <label>CPF</label>
+            <input
               title="CPF"
               type="number"
               placeholder="000.000.000-00"
-              icon={<BsPersonVcardFill className="icon" />}
+              value={cpf_motorista}
+              onChange={(e) => onInputChange(e)}
             />
-            <Input
+            
+            <label>Telefone</label>
+            <input
               title="Telefone"
               type="tel"
               placeholder="00 00000-0000"
-              icon={<BsTelephoneFill className="icon" />}
+              value={telefone_motorista}
+              onChange={(e) => onInputChange(e)}
             />
-            <Input
+
+            <label>Carteita de motorista</label>
+            <input
               title="Carteira de Motorista"
               type="text"
               placeholder="00000000000"
-              icon={<BsPostcardFill className="icon" />}
+              value={cnh_motorista}
+              onChange={(e) => onInputChange(e)}
             />
 
           </div>
           <div className="column">
-
-            <Input
+            <label>Placa do Veículo</label>
+            <input
               title="Placa do Veículo"
               type="text"
               placeholder="123ABC"
-              icon={<FaTruck className="icon" />}
+              value={cnh_motorista}
+              onChange={(e) => onInputChange(e)}
             />
 
             <Input
@@ -123,25 +163,23 @@ export function SignUpDriver() {
               icon={<ImFilePicture className="icon" size={40} />}
             />
 
-            <Input
+            <label>Senha</label>
+            <input
                 title="Senha"
                 type={showPassword ? "text" : "password"}
                 placeholder="Senha"
-                icon={<BiLock className="icon" />}
-                icon2={<AiFillEye 
-                  className="icon2"
-                  onClick={handleTogglePassword}
-                  style={{cursor: "pointer"}}
-                  />
-                }
+                value={senha_motorista}
+                onChange={(e) => onInputChange(e)}
             />
-            
-            <Input
+
+            <label>Confirme senha</label>
+            <input
               title="Confirmar a Senha"
               type={showPassword ? "text" : "password"}
               placeholder="Senha"
-              icon={<BiLock className="icon" />}
+              onChange={(e) => onInputChange(e)}
             />
+
             <p className="contentLinks">
               Já tem uma conta?{" "}
               <span>
@@ -150,7 +188,7 @@ export function SignUpDriver() {
             </p>
           </div>
         </form>
-        <ButtonPrimary className="cadastrar">Cadastrar como Motorista</ButtonPrimary>
+        <button className="cadastrar" form="SignUpFormMot">Cadastrar como Motorista</button>
       </main>
     </StyledSignUpDriver>
   );

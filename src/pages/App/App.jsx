@@ -88,8 +88,8 @@ export function App() {
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      {/* <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/> */}
-      <HeaderDriver action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/>
+      <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/>
+      {/* <HeaderDriver action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/> */}
       <Outlet theme={isDarkMode ? darkTheme : lightTheme}/>
     </ThemeProvider>
   );

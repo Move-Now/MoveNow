@@ -21,69 +21,69 @@ import axios from "axios";
 
 const StyledOrder = styled.div`
   #sectionOrder {
-    background-color: ${props => props.theme.glass};
-    color: ${props => props.theme.textColor};
-    transition: ${props => props.theme.transitionComponents};
+    background-color: ${(props) => props.theme.glass};
+    color: ${(props) => props.theme.textColor};
+    transition: ${(props) => props.theme.transitionComponents};
   }
 
   input {
-    background-color: ${props => props.theme.backgroundColor};
-    color: ${props => props.theme.spanColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+    color: ${(props) => props.theme.spanColor};
   }
 
   .icon {
-    color: ${props => props.theme.textColor};
+    color: ${(props) => props.theme.textColor};
   }
 
   input:focus {
     border: none;
-    outline: 1px solid ${props => props.theme.spanColor};
+    outline: 1px solid ${(props) => props.theme.spanColor};
   }
 
   .select-itens-order {
-    background-color: ${props => props.theme.backgroundColor};
-    color: ${props => props.theme.spanColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+    color: ${(props) => props.theme.spanColor};
   }
 
   .select-itens-order:focus {
-    outline: 1px solid ${props => props.theme.spanColor};
+    outline: 1px solid ${(props) => props.theme.spanColor};
   }
 
   #sectionOrder p span {
-    color: ${props => props.theme.spanColor};
+    color: ${(props) => props.theme.spanColor};
   }
 
-  .wrapper-button-order button{
-    background: ${props => props.theme.spanColor};
+  .wrapper-button-order button {
+    background: ${(props) => props.theme.spanColor};
     font-weight: 600;
-    color:  #ffffff;
+    color: #ffffff;
   }
 
   .wrapper-button-order .order-buttons-add {
     background: transparent;
-    border: 2px solid ${props => props.theme.spanColor};
-    color: ${props => props.theme.textColor};
+    border: 2px solid ${(props) => props.theme.spanColor};
+    color: ${(props) => props.theme.textColor};
   }
 
-  .order-buttons-next{
-    background: ${props => props.theme.spanColor};
+  .order-buttons-next {
+    background: ${(props) => props.theme.spanColor};
     font-weight: 600;
-    color:  #ffffff;
+    color: #ffffff;
   }
 
   th {
-    background: ${props => props.theme.spanColor};
-    color: #FFFFFF;
+    background: ${(props) => props.theme.spanColor};
+    color: #ffffff;
   }
 
   td {
-    transition: ${props => props.theme.transitionComponents};
-    color: ${props => props.theme.textColor};
-    background: ${props => props.theme.backgroundColor};
+    transition: ${(props) => props.theme.transitionComponents};
+    color: ${(props) => props.theme.textColor};
+    background: ${(props) => props.theme.backgroundColor};
   }
 
   td::before {
-    color: ${props => props.theme.spanColor};
+    color: ${(props) => props.theme.spanColor};
   }
 
   .teste {
@@ -94,10 +94,10 @@ const StyledOrder = styled.div`
 
   .teste:hover {
     transition: 0.2s;
-    background: ${props => props.theme.backgroundColor};
+    background: ${(props) => props.theme.backgroundColor};
     color: red;
   }
-  
+
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;
 
@@ -116,7 +116,6 @@ export function Order() {
     ? "../src/assets/LOGOLaranja.png"
     : "../src/assets/LOGOTransLight.png";
 
-
   // FUNCIONALIDADES DA API DO CEP, INPUTAR DIRETAMENTE NOS INPUTS
 
   const [cepOrigem, setCepOrigem] = useState("");
@@ -134,18 +133,15 @@ export function Order() {
       } else if (tipo === "destino") {
         setDetalhesDestino(detalhes);
       }
-
     } catch (error) {
-
       if (tipo === "origem") {
-
         Swal.fire({
-          color: '#000',
-          confirmButtonColor: '#000',
-          icon: 'error',
-          title: 'Oops...',
-          text: 'CEP de origem inválido!',
-        })
+          color: "#000",
+          confirmButtonColor: "#000",
+          icon: "error",
+          title: "Oops...",
+          text: "CEP de origem inválido!",
+        });
 
         setCepOrigem("");
         setDetalhesOrigem(null);
@@ -153,16 +149,14 @@ export function Order() {
         document.getElementById("cidadeOrigem").value = "";
         document.getElementById("ufOrigem").value = "";
         document.getElementById("numeroOrigem").value = "";
-
       } else if (tipo === "destino") {
-
         Swal.fire({
-          color: '#000',
-          confirmButtonColor: '#000',
-          icon: 'error',
-          title: 'Oops...',
-          text: 'CEP de destino inválido!',
-        })
+          color: "#000",
+          confirmButtonColor: "#000",
+          icon: "error",
+          title: "Oops...",
+          text: "CEP de destino inválido!",
+        });
 
         setCepDestino("");
         setDetalhesDestino(null);
@@ -170,10 +164,8 @@ export function Order() {
         document.getElementById("cidadeDestino").value = "";
         document.getElementById("ufDestino").value = "";
         document.getElementById("numeroDestino").value = "";
-
       }
     }
-
   };
 
   useEffect(() => {
@@ -222,7 +214,6 @@ export function Order() {
 
     if (event.key === "Enter") {
       event.preventDefault();
-    
 
       if (numeroInput) {
         numeroInput.focus();
@@ -250,10 +241,10 @@ export function Order() {
       detalhesDestino?.logradouro,
       document.getElementById("numeroDestino")?.value,
       detalhesDestino?.localidade,
-      detalhesDestino?.uf
+      detalhesDestino?.uf,
     ];
-  
-    const algumInputVazio = inputs.some(value => !value);
+
+    const algumInputVazio = inputs.some((value) => !value);
     return !algumInputVazio;
   };
 
@@ -267,39 +258,54 @@ export function Order() {
 
     if (verificarInputsPreenchidosCep()) {
       if (numeroInputOrigem == numeroInputDestino && cepOrigem == cepDestino) {
-
         Swal.fire({
-          color: '#000',
-          confirmButtonColor: '#000',
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Não é possível mudar para o mesmo endereço!',
-        })
+          color: "#000",
+          confirmButtonColor: "#000",
+          icon: "error",
+          title: "Oops...",
+          text: "Não é possível mudar para o mesmo endereço!",
+        });
 
-        document.querySelector("#numeroOrigem").value = ""
-        document.querySelector("#numeroDestino").value = ""
+        document.querySelector("#numeroOrigem").value = "";
+        document.querySelector("#numeroDestino").value = "";
       } else {
-        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        sectionRef.current.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-
       Swal.fire({
-        color: '#000',
-        confirmButtonColor: '#000',
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Preencha todos os campos!',
-      })
-
+        color: "#000",
+        confirmButtonColor: "#000",
+        icon: "error",
+        title: "Oops...",
+        text: "Preencha todos os campos!",
+      });
     }
   };
 
-  // FUNCIONALIDADES DE ADICIONAR ITENS NA TABELA: 
+  // FUNCIONALIDADES DE ADICIONAR ITENS NA TABELA:
 
   const listaItens = [
-    { nome: "Geladeira", peso: "60", altura: "175", largura: "65", comprimento: "65" },
-    { nome: "Sofá", peso: "80", altura: "60", largura: "60", comprimento: "220" },
-    { nome: "Mesa", peso: "15", altura: "75", largura: "80", comprimento: "120" },
+    {
+      nome: "Geladeira",
+      peso: "60",
+      altura: "175",
+      largura: "65",
+      comprimento: "65",
+    },
+    {
+      nome: "Sofá",
+      peso: "80",
+      altura: "60",
+      largura: "60",
+      comprimento: "220",
+    },
+    {
+      nome: "Mesa",
+      peso: "15",
+      altura: "75",
+      largura: "80",
+      comprimento: "120",
+    },
   ];
 
   const [inputsPreenchidos, setInputsPreenchidos] = useState(false);
@@ -347,21 +353,25 @@ export function Order() {
   const calcularTotal = () => {
     let volume = 0;
     let peso = 0;
-    
-    itensAdicionados.forEach(item => {
-      volume += parseInt(item.altura) * parseInt(item.largura) * parseInt(item.comprimento) / 1000000
+
+    itensAdicionados.forEach((item) => {
+      volume +=
+        (parseInt(item.altura) *
+          parseInt(item.largura) *
+          parseInt(item.comprimento)) /
+        1000000;
       peso += parseFloat(item.peso);
     });
 
     setVolumeTotal(volume);
     setTotalItens(itensAdicionados.length);
     setPesoTotal(peso);
-  }
-  
+  };
+
   useEffect(() => {
     calcularTotal();
   }, [itensAdicionados]);
-  
+
   // FUNCIONALIDADE DE MUDAR O VALOR DO SEGURO DE ACORDO COM OS ITENS
 
   const [seguroValor, setSeguroValor] = useState(0);
@@ -375,15 +385,15 @@ export function Order() {
       setSeguroValor(100);
     }
   }, [totalItens]);
-  
+
   // FUNCIONALIDADE DE VERIFICAR SE TODOS OS INPUTS ESTÃO PREENCHIDOS PARA INSERIR NA TABELA
-  
+
   const verificarInputsPreenchidos = () => {
     const inputs = Object.values(itemPersonalizado);
-    const inputVazio = inputs.some(value => value === "");
+    const inputVazio = inputs.some((value) => value === "");
     setInputsPreenchidos(!inputVazio);
   };
-  
+
   useEffect(() => {
     verificarInputsPreenchidos();
   }, [itemPersonalizado]);
@@ -391,24 +401,23 @@ export function Order() {
   // FUNCIONALIDADE DE ADICIONAR ITENS NA TABELA
 
   const handleAdicionarItem = () => {
-    
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 2000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-    
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
     Toast.fire({
-      color: '#000',
-      icon: 'success',
-      title: 'Item adicionado!'
-    })
+      color: "#000",
+      icon: "success",
+      title: "Item adicionado!",
+    });
 
     if (inputsPreenchidos) {
       setItensAdicionados([...itensAdicionados, itemPersonalizado]);
@@ -421,63 +430,110 @@ export function Order() {
       });
       setSelectedItemIndex("");
     } else {
-      
       Swal.fire({
-        color: '#000',
-        confirmButtonColor: '#000',
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Preencha todos os campos!',
-      })
+        color: "#000",
+        confirmButtonColor: "#000",
+        icon: "error",
+        title: "Oops...",
+        text: "Preencha todos os campos!",
+      });
     }
   };
 
   // FUNCIONALIDADE DE EXCLUIR ITENS DA TABELA E ATUALIZAR OS DADOS TOTAIS
 
   const handleExcluirItem = (index) => {
-    
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 2000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-    
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
     Toast.fire({
-      color: '#000',
-      icon: 'error',
-      title: 'Item removido!'
-    })
+      color: "#000",
+      icon: "error",
+      title: "Item removido!",
+    });
 
     const novosItens = [...itensAdicionados];
     const itemExcluido = novosItens.splice(index, 1)[0];
-  
-    const volumeItemExcluido = parseInt(itemExcluido.altura) * parseInt(itemExcluido.largura) * parseInt(itemExcluido.comprimento) / 1000000;
+
+    const volumeItemExcluido =
+      (parseInt(itemExcluido.altura) *
+        parseInt(itemExcluido.largura) *
+        parseInt(itemExcluido.comprimento)) /
+      1000000;
     setVolumeTotal(volumeTotal - volumeItemExcluido);
     setPesoTotal(pesoTotal - parseFloat(itemExcluido.peso));
-  
+
     setTotalItens(totalItens - 1);
 
     setItensAdicionados(novosItens);
   };
-  
+
+  function enviarDados() {
+    //dados de endereço
+
+    //dados dos itens
+    const [...dados] = document.querySelectorAll("tbody tr");
+    const dadosItens = dados.map((dado) => {
+      const nome = dado.querySelector("td:nth-child(1)").textContent;
+
+      const volume = dado.querySelector("td:nth-child(2)").textContent;
+
+      const peso = dado.querySelector("td:nth-child(3)").textContent;
+
+      return {
+        item: {
+          nome: nome,
+          peso: peso,
+          volume: volume,
+        },
+      };
+    });
+
+    const novoJson = {
+      itens: {}
+    };
+
+
+    dadosItens.forEach((item, index) => {
+      const nomeItem = item.item.nome;
+      const peso = parseFloat(item.item.peso);
+      const volume = parseFloat(item.item.volume);
+    
+      novoJson.itens[`item${index + 1}`] = {
+        nomeItem,
+        peso,
+        volume
+      };
+    });
+    
+    console.log(novoJson);
+    console.log(valoresConcatenadosOrigem);
+  }
   return (
     <ThemeProvider theme={theme}>
       <StyledOrder>
         <ScrollToTop />
         <div className="topOrder">
           <div className="contentTopOrder">
-            <h1 className="titletopOrder">A decisão certa é pedir agora com a MoveNow</h1>
+            <h1 className="titletopOrder">
+              A decisão certa é pedir agora com a MoveNow
+            </h1>
           </div>
         </div>
         <main id="mainOrder">
           <section id="sectionOrder">
-            <h2 className="section-order-title">Informe os dados do endereço</h2>
+            <h2 className="section-order-title">
+              Informe os dados do endereço
+            </h2>
             <p className="section-order-paragraph">
               Aperte <span>"enter"</span> para autocompletar seu CEP
             </p>
@@ -491,8 +547,9 @@ export function Order() {
                   placeholder="00000-000"
                   value={cepOrigem}
                   onKeyDown={handleCepOrigemKeyDown}
-                  onChange={event => setCepOrigem(event.target.value)}
+                  onChange={(event) => setCepOrigem(event.target.value)}
                   icon={<BiMap className="icon" />}
+                  
                 />
                 <Input
                   id="ruaOrigem"
@@ -537,7 +594,7 @@ export function Order() {
                   placeholder="00000-000"
                   value={cepDestino}
                   onKeyDown={handleCepDestinoKeyDown}
-                  onChange={event => setCepDestino(event.target.value)}
+                  onChange={(event) => setCepDestino(event.target.value)}
                   icon={<BiMap className="icon" />}
                 />
                 <Input
@@ -572,158 +629,177 @@ export function Order() {
                   value={detalhesDestino?.uf}
                   icon={<FaMapMarkedAlt className="icon" />}
                 />
-
               </div>
-
             </form>
-            <button className="order-buttons-next" onClick={scrollToSection}>Próximo {">"}</button>
+            <button className="order-buttons-next" onClick={scrollToSection}>
+              Próximo {">"}
+            </button>
           </section>
 
           <Tape img={imageTape} />
 
           <section id="sectionOrder" ref={sectionRef}>
-          <h2 className="section-order-title" >Informe os detalhes da mudança</h2>
-          <form action="" className="form-section-order">
-            <div className="column">
+            <h2 className="section-order-title">
+              Informe os detalhes da mudança
+            </h2>
+            <form action="" className="form-section-order">
+              <div className="column">
+                {/* Select com as opções pré definidas */}
 
-            {/* Select com as opções pré definidas */}
-
-            <select value={selectedItemIndex} onChange={handleSelectItem} className="select-itens-order">
-              <option value="" hidden>Tipo de item</option>
-              {listaItens.map((item, index) => (
-                <option key={index} value={index} >
-                  {item.nome}
-                </option>
-              ))}
-              <option value="outro">Outro</option>
-            </select>
-
-              <Input
-                title="Tipo de item:"
-                type="text"
-                placeholder="ex.: Geladeira"
-                icon={<MdKitchen className="icon" />}
-                value={itemPersonalizado.nome}
-                onChange={(event) =>
-                  setItemPersonalizado({
-                    ...itemPersonalizado,
-                    nome: event.target.value,
-                  })
-                }
-              />
-
-              <Input
-                title="Altura (cm)"
-                type="number"
-                placeholder="0"
-                icon={<FaRulerVertical className="icon" />}
-                value={itemPersonalizado.altura}
-                onChange={(event) =>
-                  setItemPersonalizado({
-                    ...itemPersonalizado,
-                    altura: event.target.value,
-                  })
-                }
-              />
-
-              <Input
-                title="Largura (cm)"
-                type="number"
-                placeholder="0"
-                icon={<FaRulerHorizontal className="icon" />}
-                value={itemPersonalizado.largura}
-                onChange={(event) =>
-                  setItemPersonalizado({
-                    ...itemPersonalizado,
-                    largura: event.target.value,
-                  })
-                }
-              />
-
-              <Input
-                title="Comprimento (cm)"
-                type="number"
-                placeholder="0"
-                icon={<FaArrowsAltH className="icon" />}
-                value={itemPersonalizado.comprimento}
-                onChange={(event) =>
-                  setItemPersonalizado({
-                    ...itemPersonalizado,
-                    comprimento: event.target.value,
-                  })
-                }
-              />
-
-              <Input
-                title="Peso (kg)"
-                type="number"
-                placeholder="0"
-                icon={<FaWeightHanging className="icon" />}
-                value={itemPersonalizado.peso}
-                onChange={(event) =>
-                  setItemPersonalizado({
-                    ...itemPersonalizado,
-                    peso: event.target.value,
-                  })
-                }
-              />
-
-              <Checkbox title="Seguro incluso" price={seguroValor.toFixed(2)}/>
-
-              <div className="wrapper-button-order">
-                {/* Botão para adicionar o item personalizado à tabela */}
-                <button
-                  className="order-buttons-add"
-                  type="button"
-                  onClick={handleAdicionarItem}
+                <select
+                  value={selectedItemIndex}
+                  onChange={handleSelectItem}
+                  className="select-itens-order"
                 >
-                  + Adicionar item
-                </button>
-              </div>
-            </div>
+                  <option value="" hidden>
+                    Tipo de item
+                  </option>
+                  {listaItens.map((item, index) => (
+                    <option key={index} value={index}>
+                      {item.nome}
+                    </option>
+                  ))}
+                  <option value="outro">Outro</option>
+                </select>
 
-            <div className="column">
-              <div className="table-order">
-                <table className="table-order-content">
-                  <thead className="thead-table-order">
-                    <tr>
-                      <th>Item</th>
-                      <th>Volume (m³)</th>
-                      <th>Peso (Kg)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {itensAdicionados.map((item, index) => (
-                      <tr key={index}>
-                        <td>{item.nome}</td>
-                        <td>{item.altura * item.largura * item.comprimento / 1000000}</td>
-                        <td>{item.peso}</td>
-                        <td onClick={() => handleExcluirItem(index)} className="teste"><AiOutlineClose className="teste2"/></td>
-                        
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              
-              <div className="wrapper-button-order">
-                <div className="total-details-order">
-                  <div className="total-details-content">
-                    <p>Itens: {totalItens}</p>
-                  </div>
+                <Input
+                  title="Tipo de item:"
+                  type="text"
+                  placeholder="ex.: Geladeira"
+                  icon={<MdKitchen className="icon" />}
+                  value={itemPersonalizado.nome}
+                  onChange={(event) =>
+                    setItemPersonalizado({
+                      ...itemPersonalizado,
+                      nome: event.target.value,
+                    })
+                  }
+                />
 
-                  <div className="total-details-content">
-                    <p>Volume: {volumeTotal.toFixed(2)} m³</p>
-                  </div>
+                <Input
+                  title="Altura (cm)"
+                  type="number"
+                  placeholder="0"
+                  icon={<FaRulerVertical className="icon" />}
+                  value={itemPersonalizado.altura}
+                  onChange={(event) =>
+                    setItemPersonalizado({
+                      ...itemPersonalizado,
+                      altura: event.target.value,
+                    })
+                  }
+                />
 
-                  <div className="total-details-content">
-                    <p>Peso: {pesoTotal} Kg</p>
-                  </div>
+                <Input
+                  title="Largura (cm)"
+                  type="number"
+                  placeholder="0"
+                  icon={<FaRulerHorizontal className="icon" />}
+                  value={itemPersonalizado.largura}
+                  onChange={(event) =>
+                    setItemPersonalizado({
+                      ...itemPersonalizado,
+                      largura: event.target.value,
+                    })
+                  }
+                />
+
+                <Input
+                  title="Comprimento (cm)"
+                  type="number"
+                  placeholder="0"
+                  icon={<FaArrowsAltH className="icon" />}
+                  value={itemPersonalizado.comprimento}
+                  onChange={(event) =>
+                    setItemPersonalizado({
+                      ...itemPersonalizado,
+                      comprimento: event.target.value,
+                    })
+                  }
+                />
+
+                <Input
+                  title="Peso (kg)"
+                  type="number"
+                  placeholder="0"
+                  icon={<FaWeightHanging className="icon" />}
+                  value={itemPersonalizado.peso}
+                  onChange={(event) =>
+                    setItemPersonalizado({
+                      ...itemPersonalizado,
+                      peso: event.target.value,
+                    })
+                  }
+                />
+
+                <Checkbox
+                  title="Seguro incluso"
+                  price={seguroValor.toFixed(2)}
+                />
+
+                <div className="wrapper-button-order">
+                  {/* Botão para adicionar o item personalizado à tabela */}
+                  <button
+                    className="order-buttons-add"
+                    type="button"
+                    onClick={handleAdicionarItem}
+                  >
+                    + Adicionar item
+                  </button>
                 </div>
-                <button className="order-buttons">Finalizar</button>
               </div>
-            </div>
-          </form>
+
+              <div className="column">
+                <div className="table-order">
+                  <table className="table-order-content">
+                    <thead className="thead-table-order">
+                      <tr>
+                        <th>Item</th>
+                        <th>Volume (m³)</th>
+                        <th>Peso (Kg)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {itensAdicionados.map((item, index) => (
+                        <tr key={index}>
+                          <td>{item.nome}</td>
+                          <td>
+                            {(item.altura * item.largura * item.comprimento) /
+                              1000000}
+                          </td>
+                          <td>{item.peso}</td>
+                          <td
+                            onClick={() => handleExcluirItem(index)}
+                            className="teste"
+                          >
+                            <AiOutlineClose className="teste2" />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="wrapper-button-order">
+                  <div className="total-details-order">
+                    <div className="total-details-content">
+                      <p>Itens: {totalItens}</p>
+                    </div>
+
+                    <div className="total-details-content">
+                      <p>Volume: {volumeTotal.toFixed(2)} m³</p>
+                    </div>
+
+                    <div className="total-details-content">
+                      <p>Peso: {pesoTotal} Kg</p>
+                    </div>
+                  </div>
+                  <button className="order-buttons" onMouseEnter={enviarDados}>
+                    Finalizar
+                  </button>
+                </div>
+              </div>
+            </form>
           </section>
         </main>
         <Footer />

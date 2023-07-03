@@ -112,12 +112,6 @@ export function SignUpClient() {
     setUsuario({ ...usuario, [e.target.name]: e.target.value });
   };
 
-  // email valido
-  const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
   //Algoritimo que valida se o CPF existe
   const isValidCPF = (cpf) => {
     cpf = cpf.replace(/\D/g, ''); // Remove os caracteres não numéricos do CPF
@@ -230,21 +224,6 @@ export function SignUpClient() {
       }
     }
 
-    //Valida email valido
-    if (formValido) {
-      const email = usuario["email"];
-      if (!isValidEmail(email)) {
-        Swal.fire({
-          color: '#000',
-          confirmButtonColor: '#000',
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Digite um e-mail válido',
-        })
-        formValido = false;
-      }
-    }
-
     //valida se o CPF existe
     if (formValido) {
       const cpf = usuario["cpf"];
@@ -279,6 +258,7 @@ export function SignUpClient() {
 
       }
     }
+    return formValido;
   };
 
 

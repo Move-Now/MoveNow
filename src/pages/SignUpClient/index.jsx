@@ -218,8 +218,8 @@ export function SignUpClient() {
       if (!formValido) {
         return;
       }
-  
-      const response = await axios.post("http://localhost:8080/usuario", usuario);
+
+      const  response = await axios.post("http://localhost:8080/usuario", usuario);
       console.log(response);
       navigate("/login"); 
     } catch (error) {

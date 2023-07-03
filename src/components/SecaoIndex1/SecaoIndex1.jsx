@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./SecaoIndex1.css";
+import { Link } from "react-router-dom";
 
 const StyledSecaoIndex1 = styled.div`
   transition: ${props => props.theme.transitionComponents};
@@ -17,6 +18,14 @@ const StyledSecaoIndex1 = styled.div`
     transition: ${props => props.theme.transitionComponents};
   }
 
+  .button-one:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+    background: ${props => props.theme.corFraca};
+  }
+
+  .button-two:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+  }
   /* Adicione outros estilos aqui */
 `;
 
@@ -51,8 +60,13 @@ export function SecaoIndex1(props) {
           </p>
 
           <div className="wrapperButtons">
-            <ButtonPrimary>Solicite um carreto</ButtonPrimary>
-            <ButtonSecondary>Seja um motorista</ButtonSecondary>
+            <Link to={"/login"}>
+              <ButtonPrimary className="button-one">Solicite um carreto</ButtonPrimary>
+            </Link>
+
+            <Link to={"/trabalheConosco"}>
+              <ButtonSecondary className="button-two">Seja um motorista</ButtonSecondary>
+            </Link>
           </div>
         </div>
 

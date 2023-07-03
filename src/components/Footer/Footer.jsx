@@ -5,6 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";    
 import { FaGithub } from "react-icons/fa";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledFooter = styled.div`
     .top-mobile {
@@ -13,7 +14,6 @@ const StyledFooter = styled.div`
     }
 
     .top-mobile button{
-      transition: ${props => props.theme.transitionComponents};
       background: ${props => props.theme.buttonBackgroundPrimaryColor};
     }
 
@@ -35,6 +35,11 @@ const StyledFooter = styled.div`
   .Socials {
     transition: ${props => props.theme.transitionComponents};
     color: ${props => props.theme.textColor};
+  }
+
+  button:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+    background: ${props => props.theme.corFraca};
   }
   
   /* Adicione outros estilos personalizados específicos do componente aqui */
@@ -75,26 +80,24 @@ export function Footer() {
                 <div id="content-empresa" className="bottom-content">
                     <ul>
                         <li className="bottom-content-title">Empresa</li>
-                        <li className="bottom-click">Sobre Nós</li>
-                        <li className="bottom-click">Fale Conosco</li>
+                        <Link to={"/sobreNos"}><li className="bottom-click">Sobre Nós</li></Link>
                     </ul>
                 </div>
 
                 <div className="bottom-content">
                     <ul>
                         <li className="bottom-content-title">Ajuda</li>
-                        <li className="bottom-click">Motoristas</li>
-                        <li className="bottom-click">Empresas</li>
-                        <li className="bottom-click">Usuários</li>
+                        <Link to={"/faq"}><li className="bottom-click">Perguntas<br/>
+                         Frequentes</li></Link>
                     </ul>
                 </div>
 
                 <div className="bottom-content">
                     <ul>
                         <li className="bottom-content-title">Contate-nos</li>
-                        <li className="bottom-click"> <FaLinkedin className="Socials" /> @MoveNow</li>
+                        <a href="https://www.linkedin.com/company/move-now-demoday/" target="_blank"><li className="bottom-click"> <FaLinkedin className="Socials" /> @MoveNow</li></a>
                         <li className="bottom-click"> <FaWhatsapp className="Socials" /> (11)00000-0000</li>
-                        <li className="bottom-click"> <FaGithub className="Socials" /> @MoveNow</li>
+                        <a href="https://github.com/Move-Now/MoveNow" target="_blank"><li className="bottom-click"> <FaGithub className="Socials" /> @MoveNow</li></a>
                     </ul>
                 </div>
             </div>

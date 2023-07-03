@@ -39,6 +39,11 @@ const StyledAbout = styled.div`
   .subtitleContainers {
     color: ${props => props.theme.textColor};
   }
+
+  button:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+    background: ${props => props.theme.corFraca};
+  }
 `;
 
 export function About() {
@@ -137,7 +142,7 @@ export function About() {
               <div className="aboutContainers">
                 <img src="../../src/assets/diversidadeMoveNow.png" className="containersImages"/>
                 <p className="subtitleContainers">Diversidade</p>
-                <p className="paragraphsAbout">Na nossa empresa, valorizamos a diversidade em todos os aspectos. Acreditamos que equipes diversas trazem uma variedade de perspectivas e ideias inovadoras. Buscamos promover um ambiente inclusivo, onde todas as pessoas são respeitadas e têm oportunidades iguais. #GeralMove com a MoveNow!</p>
+                <p className="paragraphsAbout">Na nossa empresa, valorizamos a diversidade em todos os aspectos. Acreditamos que equipes diversas trazem uma variedade de perspectivas e ideias inovadoras. Buscamos promover um ambiente inclusivo, onde todas as pessoas são respeitadas e têm oportunidades iguais. #GeralMove</p>
               </div>
 
             </div>

@@ -16,12 +16,15 @@ const StyledSecaoIndex5 = styled.div`
     }
 
     button {
-        transition: ${props => props.theme.transitionComponents};
         color: #FFFFFF;
         font-weight: 600;
         background: ${props => props.theme.buttonBackgroundPrimaryColor};
     }
-    
+
+    button:hover {
+        box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+        background: ${props => props.theme.corFraca};
+      }
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;
 

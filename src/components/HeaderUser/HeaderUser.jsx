@@ -72,18 +72,19 @@ export function HeaderUser(props) {
     <StyledHeaderUser>
       <header>
 
-      <Link to={"/"}><img src={props.img} alt="" className="imagemLogo" onClick={hide}/></Link>
+        <Link to={"/user"}><img src={props.img} alt="" className="imagemLogo" onClick={hide} /></Link>
         <nav className={toggle && "navDisabled"}>
           <ul>
-           <Link to={"/driver"}>
-              <li>INDEX MOTORISTA</li>
-           </Link>
 
-           <Link to={"/user"}>
-              <li>INDEX USER</li>
-           </Link>
+            <Link to={"/user"} onClick={hide}>
+              <li onClick={hide}>Página inicial</li>
+            </Link>
 
-           <Link to={"/orcamento"} onClick={hide}>
+            <Link to={"/orcamentos"} onClick={hide}>
+              <li onClick={hide}>Orçamentos recebidos</li>
+            </Link>
+
+            <Link to={"/orcamento"} onClick={hide}>
               <li onClick={hide}>Solicite um carreto</li>
            </Link>
 
@@ -96,35 +97,19 @@ export function HeaderUser(props) {
                 ajuda
               </li>
             </Link>
-            
+
             <li className="divider">|</li>
-            <Link to="/trabalheConosco" onClick={hide}>
-              <li onClick={hide}>trabalhe conosco</li>
-            </Link>
-              <li
-                onClick={entrar}
-              >
-                entrar
-                <FaAngleDown className="arrowIcon" />
-                {showDropdownEntrar && (
-                  <div className="dropdown">
-                    {/* Conteúdo do dropdown */}
-                    <ul className="dropdownContent">
-                      <Link to={"/cadastroMotorista"}><li>Seja Motorista</li></Link>
-                      <Link to={"/cadastro"}><li>Cadastra-se</li></Link>
-                      <Link to="/login"><li>Entrar</li></Link>
-                    </ul>
-                  </div>
-                )}
+
+            <Link to={"/profileUser"} onClick={hide}>
+              <li onClick={hide}>
+                Meu perfil
               </li>
-              {showDropdownEntrar && (
-                <div className="dropdownMobile" onClick={() => setShowDropdownEntrar(!showDropdownEntrar)}>
-                  <Link to={"/cadastroMotorista"}><li onClick={hide}>Seja Motorista</li></Link>
-                    <Link to={"/cadastro"}><li onClick={hide}>Cadastra-se</li></Link>
-                    <Link to="/login"><li onClick={hide}>Entrar</li></Link>
-                </div>
-              )}
-            
+            </Link>
+
+            <li onClick={hide}>
+              Sair
+            </li>
+
           </ul>
         </nav>
 

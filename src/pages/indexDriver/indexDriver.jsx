@@ -4,13 +4,12 @@ import { Footer } from "../../components/Footer/Footer";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import "./style.css";
 import { GoogleMapComponent } from "../../components/GoogleMap/GoogleMap";
-import axios from "axios";
 
 const StyledDriver = styled.div`
   color: ${(props) => props.theme.textColor};
 
   .title-top-index-driver-content {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.50);
   }
 
   .index-driver-content-orders {
@@ -32,6 +31,11 @@ const StyledDriver = styled.div`
 
   .division-vertical {
     border-color: ${(props) => props.theme.textColor};
+  }
+
+  button:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+    background: ${props => props.theme.corFraca};
   }
 `;
 

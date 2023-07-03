@@ -96,7 +96,7 @@ export function HeaderDriver(props) {
             
             <li className="divider">|</li>
 
-            <Link to={"/profile"} onClick={hide}>
+            <Link to={"/profileDriver"} onClick={hide}>
               <li onClick={hide}>
                 Meu perfil
               </li>

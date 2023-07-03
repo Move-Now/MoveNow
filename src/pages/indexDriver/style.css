@@ -135,6 +135,8 @@
 .details-button-content {
     width: 45%;
     padding: 10px;
+    font-weight: 600;
+    color: #fff;
     border-radius: 20px;
 }
 

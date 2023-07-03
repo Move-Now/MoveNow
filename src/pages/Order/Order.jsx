@@ -86,16 +86,21 @@ const StyledOrder = styled.div`
     color: ${(props) => props.theme.spanColor};
   }
 
-  .teste {
+  .icon-delete {
     background: transparent;
     cursor: pointer;
     border: none;
   }
 
-  .teste:hover {
+  .icon-delete:hover {
     transition: 0.2s;
-    background: ${(props) => props.theme.backgroundColor};
+    background: ${props => props.theme.backgroundColor};
     color: red;
+  }
+
+  button:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+    background: ${props => props.theme.corFraca};
   }
 
   /* Adicione outros estilos personalizados específicos do componente aqui */
@@ -796,12 +801,13 @@ export function Order() {
                               1000000}
                           </td>
                           <td>{item.peso}</td>
-                          <td
-                            onClick={() => handleExcluirItem(index)}
-                            className="teste"
-                          >
-                            <AiOutlineClose className="teste2" />
-                          </td>
+                          <td 
+                            onClick={() => handleExcluirItem(index)} 
+                            
+                            className="icon-delete">
+
+                            <AiOutlineClose className="icon-delete-content"/>
+                            </td>
                         </tr>
                       ))}
                     </tbody>

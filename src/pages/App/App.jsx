@@ -5,6 +5,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { BsFillSunFill } from "react-icons/bs";
 import { FaRegMoon } from "react-icons/fa";
 import { HeaderDriver } from "../../components/HeaderDriver/HeaderDriver";
+import { HeaderUser } from "../../components/HeaderUser/HeaderUser";
 
 const lightTheme = {
   shadow: "0px 2px 4px rgba(0, 0, 0, 0.2);",
@@ -16,6 +17,7 @@ const lightTheme = {
   hoverBackground: "rgba(0, 0, 0, 0.1)",
   textColor: "#000",
   spanColor: "#3066BE",
+  corFraca: "#5084D8",
   iconsColor: "#3066BE",
   buttonPrimaryColor: "#FFFFFF",
   buttonSecondaryColor: "#3066BE",
@@ -38,6 +40,7 @@ const darkTheme = {
   hoverBackground: "rgba(255, 255, 255, 0.05)",
   textColor: "#fff",
   spanColor: "#FB6730",
+  corFraca: "#FF7542",
   iconsColor: "#FB6730",
   buttonPrimaryColor: "#000000",
   buttonSecondaryColor: "#FFFFFF",
@@ -86,11 +89,14 @@ export function App() {
   ? <BsFillSunFill className="modeIcon" onClick={toggleTheme}/>
   : <FaRegMoon className="modeIcon" onClick={toggleTheme}/>;
 
+
+
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/>
-      {/* <HeaderDriver action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/> */}
-      <Outlet theme={isDarkMode ? darkTheme : lightTheme}/>
+        <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/>
+        {/* <HeaderDriver action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/> */}
+        {/* <HeaderUser action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/> */}
+        <Outlet theme={isDarkMode ? darkTheme : lightTheme}/>
     </ThemeProvider>
   );
 }

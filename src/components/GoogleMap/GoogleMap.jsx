@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, DirectionsRenderer } from '@react-google-maps/api';
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
 
-export function GoogleMapComponent({ origin, destination, id_carreto}) {
+export function GoogleMapComponent({ origin, destination}) {
   const navigate = useNavigate();
   const [directions, setDirections] = useState(null);
   const [directionsLoaded, setDirectionsLoaded] = useState(false);
   const [distance, setDistance] = useState(null);
   const [mapKey, setMapKey] = useState(0);
-  let quantidadeItens;
-  const idCarreto = id_carreto;
 
   const handleDirectionsResult = (result, status) => {
     if (status === 'OK') {
@@ -42,18 +39,6 @@ export function GoogleMapComponent({ origin, destination, id_carreto}) {
       setDirectionsLoaded(false);
       setMapKey((prevKey) => prevKey + 1);
     };
-  }, []);
-
-  useEffect(()=>{
-    async function pegarItens(id_carreto){
-      const result = await axios.get(`http://localhost:8800/orcamentos/${id_carreto}`);
-
-      
-     return quantidadeItens = result.data.length
-      console.log(quantidadeItens)
-    }
-    pegarItens(idCarreto)
-    
   }, []);
 
   const RedirectDetailsOrder = () => {
@@ -107,7 +92,7 @@ export function GoogleMapComponent({ origin, destination, id_carreto}) {
             <p className="details-title">Distância:</p>
             <p className="details-paragraph">{distance}</p>
             <p className="details-title">Total de itens:</p>
-            <p className="details-paragraph">{quantidadeItens}</p>
+            <p className="details-paragraph">15</p>
           </div>
         </div>
         <div className="details-button">

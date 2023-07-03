@@ -20,6 +20,8 @@ import AddUsuario from "./pages/SignUpClient/AddUsuario";
 import { LandingPageUser } from "./pages/LandingPageUser";
 import { Ranqueamento } from "./pages/RankingDriver/Ranqueamento";
 import { ProfileDriver } from "./pages/ProfileDriver/ProfileDriver";
+import { OrdersReceived } from "./pages/OrdersReceived/OrdersReceived";
+import { ProfileUser } from "./pages/ProfileUser/ProfileUser";
 
 
 //Configurando o React Router
@@ -66,6 +68,10 @@ const router = createBrowserRouter([
         element: <IndexDriver />,
       },
       {
+        path: "orcamentos",
+        element: <OrdersReceived />,
+      },
+      {
         path: "user",
         element: <LandingPageUser />,
       },
@@ -82,8 +88,12 @@ const router = createBrowserRouter([
         element: <Ranqueamento />,
       },
       {
-        path: "profile",
+        path: "profileDriver",
         element: <ProfileDriver />,
+      },
+      {
+        path: "profileUser",
+        element: <ProfileUser />,
       },
     ],
   },

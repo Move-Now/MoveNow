@@ -97,11 +97,6 @@ export function SignUpClient() {
   };
 
 
-  // email valido
-  const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
 
   //Algoritimo que valida se o CPF existe
   const isValidCPF = (cpf) => {
@@ -175,13 +170,6 @@ export function SignUpClient() {
         break; 
       }
     }
-     //Valida email valido
-     if (formValido) {
-      const email = usuario["email"];
-      if (!isValidEmail(email)) {
-       alert("Digite um e-mail válido.");
-         formValido = false;
-    }}
 
     //valida se o CPF existe
     if (formValido) {
@@ -283,7 +271,7 @@ export function SignUpClient() {
             <label>E-mail</label>
             <input
               title="Email"
-              type={"mail"}
+              type={"email"}
               name="email"
               value={email}
               onChange={(e) => onInputChange(e)}

@@ -79,9 +79,12 @@ export function SignUpDriver() {
       telefone_motorista: "",
       cnh_motorista: "",
       senha_motorista: "",
+      data_nasc_motorista: "",
+      endereco_motorista: "",
+      placa_motorista: "",
     });
 
-    const { nome_completo_motorista, email_motorista, cpf_motorista, telefone_motorista, cnh_motorista, senha_motorista} = motorista;
+    const { nome_completo_motorista, email_motorista, cpf_motorista, telefone_motorista, cnh_motorista, senha_motorista,data_nasc_motorista,endereco_motorista,placa_motorista} = motorista;
 
     const onInputChange = (e) => {
       setMotorista({ ...motorista, [e.target.name]: e.target.value });
@@ -106,15 +109,8 @@ export function SignUpDriver() {
               title="Nome Completo"
               type="text"
               placeholder="Nome"
+              name="nome_completo_motorista"
               value={nome_completo_motorista}
-              onChange={(e) => onInputChange(e)}
-            />
-            <label>E-mail</label>
-            <input
-              title="Email"
-              type="email"
-              placeholder="Email"
-              value={email_motorista}
               onChange={(e) => onInputChange(e)}
             />
 
@@ -123,15 +119,27 @@ export function SignUpDriver() {
               title="CPF"
               type="number"
               placeholder="000.000.000-00"
+              name="cpf_motorista"
               value={cpf_motorista}
               onChange={(e) => onInputChange(e)}
             />
-            
+
+            <label>Data nascimento</label>
+              <input
+              title="data"
+              type="date"
+              placeholder="data"
+              name="data_nasc_motorista"
+              value={data_nasc_motorista}
+              onChange={(e) => onInputChange(e)}
+            />
+
             <label>Telefone</label>
             <input
               title="Telefone"
               type="tel"
               placeholder="00 00000-0000"
+              name="telefone_motorista"
               value={telefone_motorista}
               onChange={(e) => onInputChange(e)}
             />
@@ -141,10 +149,21 @@ export function SignUpDriver() {
               title="Carteira de Motorista"
               type="text"
               placeholder="00000000000"
+              name="cnh_motorista"
               value={cnh_motorista}
               onChange={(e) => onInputChange(e)}
             />
 
+            <label>CEP</label>
+            <input
+              title="CEP"
+              type="text"
+              placeholder="00000000000"
+              name="endereco_motorista"
+              value={endereco_motorista}
+              onChange={(e) => onInputChange(e)}
+            />
+            
           </div>
           <div className="column">
             <label>Placa do Veículo</label>
@@ -152,7 +171,8 @@ export function SignUpDriver() {
               title="Placa do Veículo"
               type="text"
               placeholder="123ABC"
-              value={cnh_motorista}
+              name="placa_motorista"
+              value={placa_motorista}
               onChange={(e) => onInputChange(e)}
             />
 
@@ -163,11 +183,22 @@ export function SignUpDriver() {
               icon={<ImFilePicture className="icon" size={40} />}
             />
 
+            <label>E-mail</label>
+            <input
+              title="Email"
+              type="email"
+              placeholder="Email"
+              name="email_motorista"
+              value={email_motorista}
+              onChange={(e) => onInputChange(e)}
+            />
+
             <label>Senha</label>
             <input
                 title="Senha"
                 type={showPassword ? "text" : "password"}
                 placeholder="Senha"
+                name="senha_motorista"
                 value={senha_motorista}
                 onChange={(e) => onInputChange(e)}
             />

@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Input } from "../../components/Input/Input";
-import { BsPersonCircle } from "react-icons/bs";
-import { AiFillEye } from "react-icons/ai";
-import { BiLock } from "react-icons/bi";
 import "./style.css";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const StyledLogin = styled.div`
   #loginMain {
@@ -60,6 +57,47 @@ export function Login() {
     setShowPassword(!showPassword);
   };
 
+  let navigate = useNavigate();
+
+  const [loggedInUserId, setLoggedInUserId] = useState(null);
+  const [login, setLogin] = useState({
+      user: "",
+      senha: "",
+      
+  });
+
+  const {user, senha} = login;
+
+  const onInputChange = (e) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
+  };
+
+    const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8080/login", login);
+      const responseData = response.data;
+
+      if (responseData.message === "LogadoUser") {
+        setLoggedInUserId(responseData.id); // Salvando o ID na variável loggedInUserId
+        console.log("ID do usuário logado:", responseData.id);
+        navigate("/user");
+      } else if (responseData.message === "LogadoMot") {
+        setLoggedInUserId(responseData.id); // Salvando o ID na variável loggedInUserId
+        navigate("/driver");
+        console.log("ID do motorista logado:", responseData.id);
+      } else {
+        // Login falhou, exibir mensagem de erro no front-end
+        alert("Credenciais inválidas. Verifique seu login e senha.");
+        console.log(responseData.message);
+      }
+    } catch (error) {
+      // Tratar erros de conexão ou outros erros
+      console.log("Erro ao fazer login:", error);
+    }
+  };
+  
+
   return (
     <StyledLogin>
       <main id="loginMain">
@@ -69,27 +107,28 @@ export function Login() {
             <button className="buttonCadastrar">Cadastrar</button>
           </Link>
         </div>
-        <form action="">
+        <form onSubmit={(e) => onSubmit(e)} id="Login">
           <div className="column">
-            <Input
+            <label>Login</label>
+            <input
               title="Usuário"
               type="text"
+              name="user"
+              value={user}
+              onChange={(e) => onInputChange(e)}
               placeholder="Nome | CPF | E-mail"
-              icon={<BsPersonCircle className="icon" />}
             />
-            <Input
+
+            <label>Senha</label>
+            <input
               title="Senha"
+              name="senha"
+              value={senha}
+              onChange={(e) => onInputChange(e)}
               type={showPassword ? "text" : "password"}
               placeholder="Senha"
-              icon={<BiLock className="icon" />}
-              icon2={
-                <AiFillEye
-                  className="icon2"
-                  onClick={handleTogglePassword}
-                  style={{ cursor: "pointer" }}
-                />
-              }
             />
+
             <p className="contentLinks">
               Não possui uma conta?{" "}
               <Link to={"/cadastro"}>
@@ -98,7 +137,7 @@ export function Login() {
             </p>
           </div>
         </form>
-        <ButtonPrimary>Entrar</ButtonPrimary>
+        <button form="Login">Entrar</button>
       </main>
     </StyledLogin>
   );

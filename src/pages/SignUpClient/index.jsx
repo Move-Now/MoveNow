@@ -96,8 +96,6 @@ export function SignUpClient() {
     setUsuario({ ...usuario, [e.target.name]: e.target.value });
   };
 
-
-
   //Algoritimo que valida se o CPF existe
   const isValidCPF = (cpf) => {
     cpf = cpf.replace(/\D/g, ''); // Remove os caracteres não numéricos do CPF

@@ -74,8 +74,8 @@ export function SignUpDriver() {
 
     const [motorista, setMotorista] = useState({
       nome_completo_motorista: "",
-      email_motorista: "",
       cpf_motorista: "",
+      email_motorista: "",
       telefone_motorista: "",
       cnh_motorista: "",
       senha_motorista: "",
@@ -84,19 +84,125 @@ export function SignUpDriver() {
       placa_motorista: "",
     });
 
-    const { nome_completo_motorista, email_motorista, cpf_motorista, telefone_motorista, cnh_motorista, senha_motorista,data_nasc_motorista,endereco_motorista,placa_motorista} = motorista;
+    const { nome_completo_motorista, cpf_motorista, email_motorista,  telefone_motorista, cnh_motorista, senha_motorista,data_nasc_motorista,endereco_motorista,placa_motorista} = motorista;
 
     const onInputChange = (e) => {
       setMotorista({ ...motorista, [e.target.name]: e.target.value });
     };
 
+    //Algoritimo que valida se o CPF existe
+  const isValidCPF = (cpf) => {
+    cpf = cpf.replace(/\D/g, ''); // Remove os caracteres não numéricos do CPF
+  
+    const cpfRegex = /^(\d{3}\.?\d{3}\.?\d{3}-?\d{2})$/;
+    if (!cpfRegex.test(cpf)) {
+      return false;
+    }
+  
+    let sum = 0;
+    let remainder;
+  
+    // Verifica se todos os dígitos são iguais; se sim, o CPF é inválido
+    if (/^(\d)\1+$/.test(cpf)) {
+      return false;
+    }
+  
+    // Completa o CPF com zeros à esquerda para facilitar os cálculos
+    cpf = cpf.padStart(11, '0');
+  
+    // Calcula o primeiro dígito verificador
+    for (let i = 1; i <= 9; i++) {
+      sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+    }
+    remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) {
+      remainder = 0;
+    }
+    if (remainder !== parseInt(cpf.substring(9, 10))) {
+      return false;
+    }
+  
+    sum = 0;
+    // Calcula o segundo dígito verificador
+    for (let i = 1; i <= 10; i++) {
+      sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+    }
+    remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) {
+      remainder = 0;
+    }
+    if (remainder !== parseInt(cpf.substring(10, 11))) {
+      return false;
+    }
+  
+    return true;
+  };
+
+    const validaForm = async () => {
+      const listaCampos = ["nome_completo_motorista", "cpf_motorista", "data_nasc_motorista", "telefone_motorista", "cnh_motorista", "endereco_motorista", "email_motorista",  "cnh_motorista",   "senha_motorista"];
+      const nomeCampo = {
+        nome_completo_motorista: "Nome completo",
+        cpf_motorista: "CPF",
+        data_nasc_motorista: "Data de nascimento",
+        email_motorista: "Endereço de e-mail",
+        cnh_motorista: "CNH",
+        telefone_motorista: "Telefone",
+        senha_motorista: "Senha",
+        endereco_motorista: "CEP"
+      };
+  
+      let formValido = true;
+      
+      // Valida se tem algum campo vazio
+      for (const campo of listaCampos) {
+        if (!motorista[campo]) {
+          alert(`Preencha o campo ${nomeCampo[campo]}`);
+          formValido = false;
+          break; 
+        }
+      }
+  
+      //valida se o CPF existe
+      if (formValido) {
+        const cpf = motorista["cpf_motorista"];
+        if (!isValidCPF(cpf)) {
+          alert("Digite um CPF válido.");
+          formValido = false;
+        }
+      }
+  
+      // Valida se a senha e confirmação são iguais 
+      if (formValido) {
+        const senha = motorista["senha_motorista"];
+        const confirsenha = document.getElementsByName("confirsenhaMot")[0].value;
+  
+        if (senha !== confirsenha) {
+          alert("A senha e a confirmação devem ser iguais.");
+          formValido = false;
+      }}
+  
+      if (formValido) {
+        //Valida Cep
+      }
+        return formValido;
+    };
+
     const onSubmit = async (e) => {
       e.preventDefault();
-        const  response = await axios.post("http://localhost:8080/motorista", motorista);
-        console.log(response);
-        navigate("/login"); 
-      };
-
+  
+      const formValido = await validaForm();
+  
+      if (formValido) {
+        try {
+          const response = await axios.post("http://localhost:8080/motorista", motorista);
+          console.log(response);
+          navigate("/login");
+        } catch (error) {
+          console.error("Erro ao enviar formulário:", error);
+          // Tratar o erro, exibir mensagem de erro, etc.
+        }
+      }
+    };
 
   return (
     <StyledSignUpDriver>
@@ -208,7 +314,7 @@ export function SignUpDriver() {
               title="Confirmar a Senha"
               type={showPassword ? "text" : "password"}
               placeholder="Senha"
-              onChange={(e) => onInputChange(e)}
+              name="confirsenhaMot"
             />
 
             <p className="contentLinks">

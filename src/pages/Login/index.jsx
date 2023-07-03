@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Swal from "sweetalert2";
 import { Input } from "../../components/Input/Input";
 import { BsPersonCircle } from "react-icons/bs";
 import { AiFillEye } from "react-icons/ai";

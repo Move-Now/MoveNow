@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Input } from "../../components/Input/Input";
-import { AiFillEye } from "react-icons/ai";
-import { BsPersonCircle } from "react-icons/bs";
-import { BsEnvelopeFill } from "react-icons/bs";
-import { BsPersonVcardFill } from "react-icons/bs";
-import { BsTelephoneFill } from "react-icons/bs";
-import { BsPostcardFill } from "react-icons/bs";
-import { FaTruck } from "react-icons/fa";
 import { ImFilePicture } from "react-icons/im";
-import { BiLock } from "react-icons/bi";
+import Swal from "sweetalert2";
 import "./SignUpDriver.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -51,6 +44,17 @@ const StyledSignUpDriver = styled.div`
 
   .icon2 {
     right: 10%;
+  }
+
+  .buttonCadastrarDriver {
+    color: #fff;
+    font-weight: 600;
+    background-color: ${(props) => props.theme.spanColor};
+  }
+
+  .buttonCadastrarDriver:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+    background-color: ${(props) => props.theme.corFraca};
   }
 
   /* Adicione outros estilos personalizados específicos do componente aqui */
@@ -138,6 +142,22 @@ export function SignUpDriver() {
     return true;
   };
 
+   const validarCEP = async (cep) => {
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      const { erro } = response.data;
+
+      if (erro) {
+        // CEP inválido
+        return false;
+      }
+      // CEP válido
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
   const validaForm = async () => {
     const listaCampos = ["nome_completo_motorista", "cpf_motorista", "data_nasc_motorista", "telefone_motorista", "cnh_motorista", "endereco_motorista", "email_motorista", "cnh_motorista", "senha_motorista"];
     const nomeCampo = {
@@ -156,17 +176,47 @@ export function SignUpDriver() {
     // Valida se tem algum campo vazio
     for (const campo of listaCampos) {
       if (!motorista[campo]) {
-        alert(`Preencha o campo ${nomeCampo[campo]}`);
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: `Preencha o campo ${nomeCampo[campo]}`,
+        })
         formValido = false;
         break;
       }
     }
 
+       // Valida se o CEP é válido
+       if (formValido) {
+        const cep = motorista["endereco_motorista"];
+        const cepValido = await validarCEP(cep);
+  
+        if (!cepValido) {
+          Swal.fire({
+            color: '#000',
+            confirmButtonColor: '#000',
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Digite um CEP válido',
+          });
+  
+          formValido = false;
+        }
+      }
+
     //valida se o CPF existe
     if (formValido) {
       const cpf = motorista["cpf_motorista"];
       if (!isValidCPF(cpf)) {
-        alert("Digite um CPF válido.");
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Digite um CPF válido',
+        })
         formValido = false;
       }
     }
@@ -177,7 +227,13 @@ export function SignUpDriver() {
       const confirsenha = document.getElementsByName("confirsenhaMot")[0].value;
 
       if (senha !== confirsenha) {
-        alert("A senha e a confirmação devem ser iguais.");
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'As senhas devem ser iguais',
+        })
         formValido = false;
       }
     }
@@ -329,7 +385,7 @@ export function SignUpDriver() {
             </p>
           </div>
         </form>
-        <button className="cadastrar" form="SignUpFormMot">Cadastrar como Motorista</button>
+        <button className="cadastrar" form="SignUpFormMot" className="buttonCadastrarDriver">Cadastrar como Motorista</button>
       </main>
     </StyledSignUpDriver>
   );

@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Footer } from "../../components/Footer/Footer";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import "./style.css";
 import { GoogleMapComponent } from "../../components/GoogleMap/GoogleMap";
+import axios from "axios";
 
 const StyledDriver = styled.div`
   color: ${(props) => props.theme.textColor};
 
   .title-top-index-driver-content {
-    background-color: rgba(0, 0, 0, 0.50);
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   .index-driver-content-orders {
@@ -35,12 +36,31 @@ const StyledDriver = styled.div`
 `;
 
 export function IndexDriver() {
-
   // FAZER A API DO BACK-END, PARA RETORNAR O COMPONENTE 'GoogleMapComponent' NELE JA CONTEM A DIV 'client-order' QUE ESTA ESTILIZADA NO CSS DESSE COMPONENTE, DENTRO DESSA API TER VARIAVEL QUE ARMAZENE A ORIGEM E DESTINO QUE NEM O EXEMPLO ABAIXO...
 
-  const origem = "R. Sírius, 140 - Jardim Antares, São Bernardo do Campo - SP, 09606-100";
-  const destino = "Senac Lapa Tito, R. Tito, 54 - Vila Romana, São Paulo - SP, 05051-000";
-  
+  useEffect(() => {
+    console.log('executed')
+    const pegarOrcamentos = async () => {
+      let dadosRota = [];
+      try {
+      const result = await axios.get("http://localhost:8800/orcamentos");
+      dadosRota = result.data;
+      } catch (error) {
+        console.log(error);
+      }
+
+      const ultimosCincoOrcamentos = dadosRota.slice(-5)
+      console.log(ultimosCincoOrcamentos)
+    };
+
+    pegarOrcamentos();
+  }, []);
+
+  const origem =
+    "R. Sírius, 140 - Jardim Antares, São Bernardo do Campo - SP, 09606-100";
+  const destino =
+    "Senac Lapa Tito, R. Tito, 54 - Vila Romana, São Paulo - SP, 05051-000";
+
   return (
     <StyledDriver>
       <ScrollToTop />
@@ -60,15 +80,19 @@ export function IndexDriver() {
         </div>
         <div className="index-driver-content-orders">
           <div className="driver-orders-content">
+            {/* RETORNAR A API DO BACK NESSE ESPAÇO */}
 
-          {/* RETORNAR A API DO BACK NESSE ESPAÇO */}
+            <GoogleMapComponent origin={origem} destination={destino} />
 
-          <GoogleMapComponent origin={origem} destination={destino} />
+            <GoogleMapComponent
+              origin="Rua Santa Catarina - Cidade São Jorge, Santo André - SP, 09111-520"
+              destination="R. Sírius, 140 - Jardim Antares, São Bernardo do Campo - SP, 09606-100"
+            />
 
-          <GoogleMapComponent origin="Rua Santa Catarina - Cidade São Jorge, Santo André - SP, 09111-520" destination="R. Sírius, 140 - Jardim Antares, São Bernardo do Campo - SP, 09606-100" />
-
-          <GoogleMapComponent origin="Neo Química Arena - Artur Alvim, São Paulo - SP" destination="Jardim Antares, São Bernardo do Campo - SP, 09606-100" />
-
+            <GoogleMapComponent
+              origin="Neo Química Arena - Artur Alvim, São Paulo - SP"
+              destination="Jardim Antares, São Bernardo do Campo - SP, 09606-100"
+            />
           </div>
         </div>
       </div>

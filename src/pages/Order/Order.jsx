@@ -477,8 +477,33 @@ export function Order() {
     setItensAdicionados(novosItens);
   };
 
-  function enviarDados() {
+  async function enviarDados(dados){
+    
+    try {
+      const response = await  axios.post('http://localhost:8800/orcamento/enviar', dados);
+      console.log(response.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  function pegarDados() {
     //dados de endereço
+    const cepOrigem = document.querySelector('#cepOrigem').value;
+    const ruaOrigem = document.querySelector('#ruaOrigem').value;
+    const numeroOrigem = document.querySelector('#numeroOrigem').value;
+    const cidadeOrigem = document.querySelector('#cidadeOrigem').value;
+    const ufOrigem = document.querySelector('#ufOrigem').value;
+
+    const valorConcatenadoOrigem = ruaOrigem + " " + numeroOrigem + " " + cidadeOrigem + " " + ufOrigem + " " + cepOrigem
+
+    const cepDestino = document.querySelector('#cepDestino').value;
+    const ruaDestino = document.querySelector('#ruaDestino').value;
+    const numeroDestino = document.querySelector('#numeroDestino').value;
+    const cidadeDestino = document.querySelector('#cidadeDestino').value;
+    const ufDestino = document.querySelector('#ufDestino').value;
+
+    const valorConcatenadoDestino = ruaDestino + " " + numeroDestino + " " + cidadeDestino + " " + ufDestino + " " + cepDestino
 
     //dados dos itens
     const [...dados] = document.querySelectorAll("tbody tr");
@@ -498,7 +523,9 @@ export function Order() {
       };
     });
 
-    const novoJson = {
+    const jsonOrcamento = {
+      origem: valorConcatenadoOrigem,
+      destino: valorConcatenadoDestino,
       itens: {}
     };
 
@@ -508,16 +535,17 @@ export function Order() {
       const peso = parseFloat(item.item.peso);
       const volume = parseFloat(item.item.volume);
     
-      novoJson.itens[`item${index + 1}`] = {
+      jsonOrcamento.itens[`item${index + 1}`] = {
         nomeItem,
         peso,
         volume
       };
     });
     
-    console.log(novoJson);
-    console.log(valoresConcatenadosOrigem);
+    enviarDados(jsonOrcamento)
   }
+
+
   return (
     <ThemeProvider theme={theme}>
       <StyledOrder>
@@ -794,7 +822,7 @@ export function Order() {
                       <p>Peso: {pesoTotal} Kg</p>
                     </div>
                   </div>
-                  <button className="order-buttons" onMouseEnter={enviarDados}>
+                  <button className="order-buttons" onMouseEnter={pegarDados}>
                     Finalizar
                   </button>
                 </div>

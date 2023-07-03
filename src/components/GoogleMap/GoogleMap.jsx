@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { GoogleMap, LoadScript, DirectionsRenderer } from '@react-google-maps/api';
-import { useNavigate } from 'react-router-dom';
+import {
+  GoogleMap,
+  LoadScript,
+  DirectionsRenderer,
+} from "@react-google-maps/api";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export function GoogleMapComponent({ origin, destination}) {
+export function GoogleMapComponent({ origin, destination, id_carreto, id }) {
   const navigate = useNavigate();
   const [directions, setDirections] = useState(null);
   const [directionsLoaded, setDirectionsLoaded] = useState(false);
   const [distance, setDistance] = useState(null);
   const [mapKey, setMapKey] = useState(0);
-
+  const idCarreto = id_carreto;
+console.log(id)
   const handleDirectionsResult = (result, status) => {
-    if (status === 'OK') {
+    if (status === "OK") {
       setDirections(result);
       const totalDistance = result.routes[0].legs[0].distance.text;
       setDistance(totalDistance);
@@ -27,7 +33,7 @@ export function GoogleMapComponent({ origin, destination}) {
         {
           origin: origin,
           destination: destination,
-          travelMode: 'DRIVING',
+          travelMode: "DRIVING",
         },
         handleDirectionsResult
       );
@@ -42,9 +48,29 @@ export function GoogleMapComponent({ origin, destination}) {
   }, []);
 
   const RedirectDetailsOrder = () => {
-    navigate('/orderDetails');
+    navigate("/orderDetails");
   };
 
+  useEffect(() => {
+    async function pegarItens(idCarreto, id) {
+      try {
+        const result = await axios.get(
+          `http://localhost:8800/orcamentos/${idCarreto}`
+        );
+
+        const quantidadeItens = result.data.length;
+        const elementos = document.querySelector(`#${id}`);
+
+        elementos.forEach((elemento) => {
+          elemento.textContent = quantidadeItens;
+        });
+        
+      } catch (error) {}
+
+    }
+
+    pegarItens(idCarreto, id);
+  }, []);
   return (
     <div className="client-order">
       <div className="order-map">
@@ -54,7 +80,12 @@ export function GoogleMapComponent({ origin, destination}) {
           googleMapsApiKey="AIzaSyByBrJO4UaLMh_0B8nLzKxVjbhg14WF5Bs"
         >
           <GoogleMap
-            mapContainerStyle={{ width: '100%', height: '100%', borderRadius: '20px', boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.2)' }}
+            mapContainerStyle={{
+              width: "100%",
+              height: "100%",
+              borderRadius: "20px",
+              boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.2)",
+            }}
             zoom={15}
             onLoad={handleLoadMap}
             streetView={0}
@@ -67,7 +98,7 @@ export function GoogleMapComponent({ origin, destination}) {
             {directions && (
               <DirectionsRenderer
                 options={{
-                  directions: directions
+                  directions: directions,
                 }}
               />
             )}
@@ -92,11 +123,16 @@ export function GoogleMapComponent({ origin, destination}) {
             <p className="details-title">Distância:</p>
             <p className="details-paragraph">{distance}</p>
             <p className="details-title">Total de itens:</p>
-            <p className="details-paragraph">15</p>
+            <p className="details-paragraph" id={id}></p>
           </div>
         </div>
         <div className="details-button">
-          <button className="details-button-content" onClick={RedirectDetailsOrder}>Veja mais</button>
+          <button
+            className="details-button-content"
+            onClick={RedirectDetailsOrder}
+          >
+            Veja mais
+          </button>
           <p className="details-post-data">Data de postagem: 23/06</p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
 import { Footer } from "../../components/Footer/Footer";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
@@ -86,6 +87,7 @@ export function IndexDriver() {
             ) : (
               orcamentos.map((item, index) => (
                 <GoogleMapComponent
+                  id={item.id_carreto}
                   key={index}
                   id_carreto={item.id_carreto}
                   origin={item.origem}

@@ -385,7 +385,7 @@ export function SignUpDriver() {
             </p>
           </div>
         </form>
-        <button className="cadastrar" form="SignUpFormMot" className="buttonCadastrarDriver">Cadastrar como Motorista</button>
+        <button form="SignUpFormMot" className="buttonCadastrarDriver">Cadastrar como Motorista</button>
       </main>
     </StyledSignUpDriver>
   );

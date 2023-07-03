@@ -1,0 +1,364 @@
+.profile-driver {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-driver-content {
+    width: 1280px;
+    padding: 64px 0;
+}
+
+.details-profile-total {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 64px;
+}
+
+.details-profile {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.left-details-profiles {
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-circle {
+    background-image: url(../../assets/equipeMoveNow.jpg);
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+}
+
+.right-details-profiles {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 20px;
+    gap: 20px;
+}
+
+.details-profiles-content {
+    display: flex;
+    border-bottom: 1px solid #000;
+    border-radius: 20px 0;
+}
+
+.details-profiles-data-personal-title {
+    width: 50%;
+    border-right: 1px solid #000;
+}
+
+.data-personal-title-content {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.data-personal-paragraphs-content {
+    text-align: center;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.details-profiles-data-personal-paragraphs {
+    width: 50%;
+}
+
+.button-edit-profile {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.button-edit-profile-content {
+    width: 200px;
+    align-items: center;
+    text-align: center;
+}
+
+.button-edit-profile-content-cancel {
+    width: 200px;
+    align-items: center;
+    text-align: center;
+}
+
+.edit-profile {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin: auto;
+    gap: 20px;
+}
+
+.details-profiles-content-edit {
+    display: flex;
+    border-radius: 20px 0;
+}
+
+.details-profiles-data-personal-title-edit {
+    width: 50%;
+}
+
+.data-personal-title-content-edit {
+    text-align: center;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.assessment-driver {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+}
+
+.assessment-driver-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    width: 50%;
+    border-right: 1px solid #000;
+}
+
+.assessment-driver-subtitle {
+    font-size: 36px;
+    margin: 0;
+}
+
+.help-assessment {
+    width: 50%;
+    padding: 12px;
+    border-radius: 20px;
+}
+
+.assessment-driver-right {
+    text-align: center;
+    width: 50%;
+}
+
+.pending-budgets {
+    width: 100%;
+    padding: 20px;
+}
+
+.registered-vehicle {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+.registered-vehicle-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.imagem-truck {
+    background-image: url(../../assets/indexDriver2.png);
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    width: 80%;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.details-truck-driver {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.details-truck-driver-content {
+    width: 80%;
+    margin: auto;
+}
+
+.registered-payment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.method-payment {
+    border-radius: 20px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 1300px){
+    .profile-driver-content {
+        width: 100%;
+    }
+
+    .title-profile {
+        width: 100%;
+    }
+
+    .details-profile-total {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1180px){
+    .data-personal-title-content {
+        width: 100%;
+    }
+
+    .details-profiles-data-personal-title {
+        width: 25%;
+    }
+
+    .details-profiles-data-personal-paragraphs {
+        width: 75%;
+    }
+
+    .photo-circle {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 850px){
+    .details-profile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-details-profiles {
+        width: 100%;
+    }
+
+    .right-details-profiles {
+        width: 100%;
+    }
+
+    .assessment-driver {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .assessment-driver-left {
+        width: 100%;
+        border: none;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #000;
+    }
+
+    .assessment-driver-right {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .details-profile-total {
+        padding: 20px;
+    }
+
+    .details-title {
+        text-align: center;
+    }
+
+    .details-truck-driver-content {
+        text-align: center;
+    }
+
+    .title-profile {
+        font-size: 40px;
+    }
+
+    .assessment-driver-subtitle {
+        font-size: 30px;
+    }
+
+    .edit-profile {
+        margin: 0;
+        width: 100%;
+    }
+
+    .details-profiles-content {
+        flex-direction: column;
+    }
+
+    .details-profiles-data-personal-title{
+        width: 100%;
+        border: none;
+    }
+
+    .details-profiles-data-personal-paragraphs {
+        width: 100%;
+    }
+
+    .details-profiles-content-edit {
+        flex-direction: column;
+    }
+
+    .data-personal-title-content-edit {
+        text-align: start;
+    }
+
+    .button-edit-profile {
+        justify-content: center;
+    }
+
+    .imagem-truck {
+        margin: 0;
+        width: 100%;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .data-personal-paragraphs-content {
+        font-size: 18px;
+    }
+
+    .assessment-driver-subtitle {
+        line-height: normal;
+    }
+
+    .truck-details-content {
+        font-size: 17px;
+    }
+
+    .button-edit-profile-content {  
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .button-edit-profile-content-cancel {  
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 350px){
+    .details-profile-total {
+        padding: 0;
+    }
+
+    .data-personal-paragraphs-content {
+        font-size: 16px;
+    }
+}

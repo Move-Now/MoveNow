@@ -5,7 +5,8 @@ import { BsPersonCircle } from "react-icons/bs";
 import { AiFillEye } from "react-icons/ai";
 import { BiLock } from "react-icons/bi";
 import "./style.css";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const StyledLogin = styled.div`
   #loginMain {
@@ -44,6 +45,19 @@ const StyledLogin = styled.div`
     right: 6%;
   }
 
+  .buttonCadastrar:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+  }
+
+  .loginButton {
+    color: #fff;
+    background-color: ${(props) => props.theme.spanColor};
+  }
+
+  .loginButton:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+  }
+
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;
 
@@ -54,11 +68,91 @@ const ButtonPrimary = styled.button`
 `;
 
 export function Login() {
-  const [showPassword, setShowPassword] = useState(false);
 
-  const handleTogglePassword = () => {
-    setShowPassword(!showPassword);
+  let navigate = useNavigate();
+
+  const [loggedInUserId, setLoggedInUserId] = useState(null);
+  const [login, setLogin] = useState({
+      user: "",
+      senha: "",
+
+  });
+
+  const {user, senha} = login;
+
+  const onInputChange = (e) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
   };
+
+    const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8080/login", login);
+      const responseData = response.data;
+
+      if (responseData.message === "LogadoUser") {
+        setLoggedInUserId(responseData.id); // Salvando o ID na variável loggedInUserId
+        console.log("ID do usuário logado:", responseData.id);
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          color: '#000',
+          icon: 'success',
+          title: 'Logado com sucesso!'
+        })
+
+        navigate("/user");
+      } else if (responseData.message === "LogadoMot") {
+        setLoggedInUserId(responseData.id); // Salvando o ID na variável loggedInUserId
+        navigate("/driver");
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          color: '#000',
+          icon: 'success',
+          title: 'Logado com sucesso!'
+        })
+
+        console.log("ID do motorista logado:", responseData.id);
+      } else {
+        // Login falhou, exibir mensagem de erro no front-end
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: "Credenciais inválidas. Verifique login e senha!",
+        })
+        console.log(responseData.message);
+      }
+    } catch (error) {
+      // Tratar erros de conexão ou outros erros
+      console.log("Erro ao fazer login:", error);
+    }
+  };
+
 
   return (
     <StyledLogin>
@@ -69,26 +163,24 @@ export function Login() {
             <button className="buttonCadastrar">Cadastrar</button>
           </Link>
         </div>
-        <form action="">
+        <form onSubmit={(e) => onSubmit(e)} id="Login">
           <div className="column">
-            <Input
+          <label>Login</label>
+            <input
               title="Usuário"
               type="text"
+              name="user"
               placeholder="Nome | CPF | E-mail"
-              icon={<BsPersonCircle className="icon" />}
+              value={user}
+              onChange={(e) => onInputChange(e)}
             />
-            <Input
+            <label>Senha</label>
+            <input
               title="Senha"
-              type={showPassword ? "text" : "password"}
+              name="senha"
+              value={senha}
               placeholder="Senha"
-              icon={<BiLock className="icon" />}
-              icon2={
-                <AiFillEye
-                  className="icon2"
-                  onClick={handleTogglePassword}
-                  style={{ cursor: "pointer" }}
-                />
-              }
+              onChange={(e) => onInputChange(e)}
             />
             <p className="contentLinks">
               Não possui uma conta?{" "}
@@ -98,7 +190,7 @@ export function Login() {
             </p>
           </div>
         </form>
-        <ButtonPrimary>Entrar</ButtonPrimary>
+        <button form="Login" className="loginButton">Entrar</button>
       </main>
     </StyledLogin>
   );

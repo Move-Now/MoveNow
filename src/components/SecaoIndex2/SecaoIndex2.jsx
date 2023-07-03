@@ -38,6 +38,11 @@ const StyledSecaoIndex2 = styled.div`
     color: ${props => props.theme.spanColor};
   }
 
+  button:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+    background: ${props => props.theme.corFraca};
+  }
+
   /* Adicione outros estilos personalizados específicos do componente aqui */
 `;
 
@@ -81,7 +86,6 @@ export function SecaoIndex2(props) {
         // DENTRO DESSA CHAMADA, VERIFICAR SE TA LOGADO OU NAO COMO USUARIO, SE SIM IR PARA /ORCAMENTO SE NAO IR PARA LOGIN...
 
         const Toast = Swal.mixin({
-          
           toast: true,
           position: 'top-end',
           showConfirmButton: false,

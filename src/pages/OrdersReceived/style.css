@@ -68,8 +68,8 @@
     width: 40%;
 }
 
-.order-details {
-    width: 60%;
+.order-details-driver {
+    width: 100%;
     display: flex;
 
     flex-direction: column;
@@ -84,6 +84,8 @@
 .details-title {
     font-size: 22px;
     font-weight: 700;
+    line-height: normal;
+    margin: 0;
 }
 
 .details-paragraph {
@@ -92,10 +94,12 @@
     font-weight: 400;
 }
 
-.details-content-left {
+.details-content-left-orders-received {
     width: 45%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     padding: 12px;
 }
@@ -133,10 +137,51 @@
 }
 
 .details-button-content {
-    width: 45%;
+    width: 25%;
     padding: 10px;
     font-weight: 600;
     color: #fff;
+    border-radius: 20px;
+}
+
+.details-button-buttons {
+    width: 60%;
+    display: flex;
+    gap: 20px;
+}
+
+.stars-orders-received {
+    display: flex;
+    gap: 5px;
+}
+
+.stars-orders-received svg{
+    font-size: 20px;
+}
+
+.assessment-driver-payment {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.payment-driver-details {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.truck3d {
     border-radius: 20px;
 }
 
@@ -192,7 +237,7 @@
         width: 100%;
     }
 
-    .details-content-left {
+    .details-content-left-orders-received {
         width: 100%;
     }
 
@@ -228,6 +273,15 @@
 
     .title-top-index-driver-content {
         width: 100%;
+    }
+
+    .stars-orders-received {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .details-paragraph {
+        text-align: center;
     }
 }
 

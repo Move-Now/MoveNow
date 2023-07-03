@@ -62,6 +62,11 @@ const StyledIndexDriverDetails = styled.div`
         font-weight: 600;
         background: ${props => props.theme.spanColor};
     }
+
+    button:hover {
+        box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+        background: ${props => props.theme.corFraca};
+      }
 `;
 
 export function IndexDriverDetails() {

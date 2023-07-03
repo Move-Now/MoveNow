@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AiFillEye } from "react-icons/ai";
-import { BsPersonCircle } from "react-icons/bs";
-import { BsEnvelopeFill } from "react-icons/bs";
-import { BsTelephoneFill } from "react-icons/bs";
-import { BsPersonVcardFill } from "react-icons/bs";
-import { BiLock } from "react-icons/bi";
+import Swal from "sweetalert2";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -48,6 +44,12 @@ const StyledSignUp = styled.div`
     color: #ccc;
   }
 
+  .buttonCadastrar {
+    background-color: ${(props) => props.theme.spanColor};
+    color: #fff;
+    font-weight: 600;
+  }
+
   span {
     color: ${(props) => props.theme.spanColor};
     font-weight: 500;
@@ -59,6 +61,20 @@ const StyledSignUp = styled.div`
 
   .contentLinks {
     text-align: center;
+  }
+
+  .buttonEntrar:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+  }
+
+  .buttonCadastrar:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+    background-color: ${(props) => props.theme.corFraca};
+    color: #fff;
+  }
+
+  .contentLinks {
+    text-align: start;
   }
 
   /* Adicione outros estilos personalizados específicos do componente aqui */
@@ -76,9 +92,9 @@ export function SignUpClient() {
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
-  
+
   let navigate = useNavigate();
-  
+
   const [usuario, setUsuario] = useState({
     username: "",
     senha: "",
@@ -96,7 +112,6 @@ export function SignUpClient() {
     setUsuario({ ...usuario, [e.target.name]: e.target.value });
   };
 
-
   // email valido
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -106,23 +121,23 @@ export function SignUpClient() {
   //Algoritimo que valida se o CPF existe
   const isValidCPF = (cpf) => {
     cpf = cpf.replace(/\D/g, ''); // Remove os caracteres não numéricos do CPF
-  
+
     const cpfRegex = /^(\d{3}\.?\d{3}\.?\d{3}-?\d{2})$/;
     if (!cpfRegex.test(cpf)) {
       return false;
     }
-  
+
     let sum = 0;
     let remainder;
-  
+
     // Verifica se todos os dígitos são iguais; se sim, o CPF é inválido
     if (/^(\d)\1+$/.test(cpf)) {
       return false;
     }
-  
+
     // Completa o CPF com zeros à esquerda para facilitar os cálculos
     cpf = cpf.padStart(11, '0');
-  
+
     // Calcula o primeiro dígito verificador
     for (let i = 1; i <= 9; i++) {
       sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
@@ -134,7 +149,7 @@ export function SignUpClient() {
     if (remainder !== parseInt(cpf.substring(9, 10))) {
       return false;
     }
-  
+
     sum = 0;
     // Calcula o segundo dígito verificador
     for (let i = 1; i <= 10; i++) {
@@ -147,11 +162,26 @@ export function SignUpClient() {
     if (remainder !== parseInt(cpf.substring(10, 11))) {
       return false;
     }
-  
+
     return true;
   };
-  
-    
+
+  const validarCEP = async (cep) => {
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      const { erro } = response.data;
+
+      if (erro) {
+        // CEP inválido
+        return false;
+      }
+      // CEP válido
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
   const validaForm = async () => {
     const listaCampos = ["username", "nome_completo", "endereco", "data_nasc", "email", "cpf", "telefone", "senha"];
     const nomeCampo = {
@@ -166,28 +196,66 @@ export function SignUpClient() {
     };
 
     let formValido = true;
-    
+
     // Valida se tem algum campo vazio
     for (const campo of listaCampos) {
       if (!usuario[campo]) {
-        alert(`Preencha o campo ${nomeCampo[campo]}`);
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: `Preencha o campo ${nomeCampo[campo]}`,
+        })
         formValido = false;
-        break; 
+        break;
       }
     }
-     //Valida email valido
-     if (formValido) {
+
+    // Valida se o CEP é válido
+    if (formValido) {
+      const cep = usuario["endereco"];
+      const cepValido = await validarCEP(cep);
+
+      if (!cepValido) {
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Digite um CEP válido',
+        });
+
+        formValido = false;
+      }
+    }
+
+    //Valida email valido
+    if (formValido) {
       const email = usuario["email"];
       if (!isValidEmail(email)) {
-       alert("Digite um e-mail válido.");
-         formValido = false;
-    }}
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Digite um e-mail válido',
+        })
+        formValido = false;
+      }
+    }
 
     //valida se o CPF existe
     if (formValido) {
       const cpf = usuario["cpf"];
       if (!isValidCPF(cpf)) {
-        alert("Digite um CPF válido.");
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Digite um CPF válido',
+        })
         formValido = false;
       }
     }
@@ -198,36 +266,41 @@ export function SignUpClient() {
       const confirsenha = document.getElementsByName("confirsenha")[0].value;
 
       if (senha !== confirsenha) {
-        alert("A senha e a confirmação devem ser iguais.");
-        formValido = false;
-    }}
 
-    if (formValido) {
-      //Valida Cep
+        Swal.fire({
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'As senhas devem ser iguais!',
+        })
+
+        formValido = false
+
+      }
     }
-      return formValido;
   };
 
 
   const onSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const formValido = await validaForm();
-  
+
       if (!formValido) {
         return;
       }
 
-      const  response = await axios.post("http://localhost:8080/usuario", usuario);
+      const response = await axios.post("http://localhost:8080/usuario", usuario);
       console.log(response);
-      navigate("/login"); 
+      navigate("/login");
     } catch (error) {
       console.error("Erro ao enviar formulário:", error);
       // Tratar o erro, exibir mensagem de erro, etc.
     }
   };
-  
+
 
   return (
     <StyledSignUp>
@@ -253,7 +326,7 @@ export function SignUpClient() {
             <label>Nome Completo</label>
             <input
               title="Nome Completo"
-              type={"text"} 
+              type={"text"}
               name="nome_completo"
               value={nome_completo}
               onChange={(e) => onInputChange(e)}
@@ -267,7 +340,7 @@ export function SignUpClient() {
               name="endereco"
               value={endereco}
               onChange={(e) => onInputChange(e)}
-              placeholder="Endereço"
+              placeholder="CEP"
             />
 
             <label>Data de Nascimento</label>
@@ -289,13 +362,6 @@ export function SignUpClient() {
               onChange={(e) => onInputChange(e)}
               placeholder="Email"
             />
-
-            <p className="contentLinks">
-              Já possui uma conta?{" "}
-              <Link to={"/login"}>
-                <span>Entre aqui!</span>
-              </Link>
-            </p>
 
           </div>
           <div className="column">
@@ -350,11 +416,17 @@ export function SignUpClient() {
               <Link to={"/cadastroMotorista"}>
                 <span>Clique aqui!</span>
               </Link>
+              <p className="contentLinks">
+                Já possui uma conta?{" "}
+                <Link to={"/login"}>
+                  <span>Entre aqui!</span>
+                </Link>
+              </p>
             </p>
 
           </div>
         </form>
-        <button type="submit" form="SignUpForm">
+        <button type="submit" form="SignUpForm" className="buttonCadastrar">
           Cadastrar
         </button>
       </main>

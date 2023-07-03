@@ -86,6 +86,11 @@ const StyledFaq = styled.div`
     font-weight: 600;
     background-color: ${props => props.theme.spanColor};
   }
+
+  button:hover {
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
+    background: ${props => props.theme.corFraca};
+  }
   `;
   
   export function Faq() {

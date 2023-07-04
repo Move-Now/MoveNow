@@ -8,7 +8,8 @@ import { BiLock } from "react-icons/bi";
 import "./style.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { setIsLoggedin, getIsLoggedin } from "../App/App";
+import { Checkbox } from "../../components/Checkbox/Checkbox";
+
 const StyledLogin = styled.div`
   #loginMain {
     background-color: ${(props) => props.theme.glass};
@@ -47,7 +48,7 @@ const StyledLogin = styled.div`
   }
 
   .buttonCadastrar:hover {
-    box-shadow: 0px 1px 10px ${(props) => props.theme.textColor};
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
   }
 
   .loginButton {
@@ -56,7 +57,7 @@ const StyledLogin = styled.div`
   }
 
   .loginButton:hover {
-    box-shadow: 0px 1px 10px ${(props) => props.theme.textColor};
+    box-shadow: 0px 1px 10px ${props => props.theme.textColor};
   }
 
   /* Adicione outros estilos personalizados específicos do componente aqui */
@@ -69,12 +70,20 @@ const ButtonPrimary = styled.button`
 `;
 
 export function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+
   let navigate = useNavigate();
 
   const [loggedInUserId, setLoggedInUserId] = useState(null);
   const [login, setLogin] = useState({
     user: "",
     senha: "",
+
   });
 
   const { user, senha } = login;
@@ -92,28 +101,24 @@ export function Login() {
       if (responseData.message === "LogadoUser") {
         setLoggedInUserId(responseData.id); // Salvando o ID na variável loggedInUserId
         console.log("ID do usuário logado:", responseData.id);
-        console.log(getIsLoggedin()); // Acesso ao valor atual
 
-        setIsLoggedin(true); // Modificação do valor
-
-        console.log(getIsLoggedin()); // Acesso ao novo valor
         const Toast = Swal.mixin({
           toast: true,
-          position: "top-end",
+          position: 'top-end',
           showConfirmButton: false,
           timer: 2000,
           timerProgressBar: true,
           didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
 
         Toast.fire({
-          color: "#000",
-          icon: "success",
-          title: "Logado com sucesso!",
-        });
+          color: '#000',
+          icon: 'success',
+          title: 'Logado com sucesso!'
+        })
 
         navigate("/user");
       } else if (responseData.message === "LogadoMot") {
@@ -122,32 +127,32 @@ export function Login() {
 
         const Toast = Swal.mixin({
           toast: true,
-          position: "top-end",
+          position: 'top-end',
           showConfirmButton: false,
           timer: 2000,
           timerProgressBar: true,
           didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
 
         Toast.fire({
-          color: "#000",
-          icon: "success",
-          title: "Logado com sucesso!",
-        });
+          color: '#000',
+          icon: 'success',
+          title: 'Logado com sucesso!'
+        })
 
         console.log("ID do motorista logado:", responseData.id);
       } else {
         // Login falhou, exibir mensagem de erro no front-end
         Swal.fire({
-          color: "#000",
-          confirmButtonColor: "#000",
-          icon: "error",
-          title: "Oops...",
+          color: '#000',
+          confirmButtonColor: '#000',
+          icon: 'error',
+          title: 'Oops...',
           text: "Credenciais inválidas. Verifique login e senha!",
-        });
+        })
         console.log(responseData.message);
       }
     } catch (error) {
@@ -155,6 +160,7 @@ export function Login() {
       console.log("Erro ao fazer login:", error);
     }
   };
+
 
   return (
     <StyledLogin>
@@ -179,11 +185,18 @@ export function Login() {
             <label>Senha</label>
             <input
               title="Senha"
+              type={showPassword ? "text" : "password"}
               name="senha"
               value={senha}
               placeholder="Senha"
               onChange={(e) => onInputChange(e)}
             />
+
+            <Checkbox
+              title={"Mostrar senha"}
+              onClick={handleTogglePassword}
+            />
+
             <p className="contentLinks">
               Não possui uma conta?{" "}
               <Link to={"/cadastro"}>
@@ -192,9 +205,7 @@ export function Login() {
             </p>
           </div>
         </form>
-        <button form="Login" className="loginButton">
-          Entrar
-        </button>
+        <button form="Login" className="loginButton">Entrar</button>
       </main>
     </StyledLogin>
   );

@@ -80,10 +80,6 @@ const router = createBrowserRouter([
         element: <IndexDriverDetails />,
       },
       {
-        path: "addUsuario",
-        element: <AddUsuario />,
-      },
-      {
         path: "ranking",
         element: <Ranqueamento />,
       },

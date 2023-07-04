@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AiFillEye } from "react-icons/ai";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Checkbox } from "../../components/Checkbox/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
 
 const StyledSignUp = styled.div`
@@ -60,7 +60,9 @@ const StyledSignUp = styled.div`
   }
 
   .contentLinks {
-    text-align: center;
+    text-align: start;
+    font-size: 15px;
+    font-weight: 500;
   }
 
   .buttonEntrar:hover {
@@ -71,10 +73,6 @@ const StyledSignUp = styled.div`
     box-shadow: 0px 1px 10px ${props => props.theme.textColor};
     background-color: ${(props) => props.theme.corFraca};
     color: #fff;
-  }
-
-  .contentLinks {
-    text-align: start;
   }
 
   /* Adicione outros estilos personalizados específicos do componente aqui */
@@ -372,15 +370,8 @@ export function SignUpClient() {
               type={showPassword ? "text" : "password"}
               name="senha"
               value={senha}
-              onChange={(e) => onInputChange(e)}
               placeholder="Senha"
-              icon2={
-                <AiFillEye
-                  className="icon2"
-                  onClick={handleTogglePassword}
-                  style={{ cursor: "pointer" }}
-                />
-              }
+              onChange={(e) => onInputChange(e)}
             />
 
             <label>Confirme Senha</label>
@@ -389,6 +380,11 @@ export function SignUpClient() {
               name="confirsenha"
               type={showPassword ? "text" : "password"}
               placeholder="Confirme a senha..."
+            />
+
+            <Checkbox 
+              title={"Mostrar senhas"}
+              onClick={handleTogglePassword}
             />
 
             <p className="contentLinks">

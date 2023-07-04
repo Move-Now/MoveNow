@@ -5,7 +5,7 @@ export function Checkbox(props) {
     <div id="wrapperCheckbox">
       <input type="checkbox" onClick={props.onClick}/>
       <label>{props.title}</label>
-      <span>R$ {props.price}</span>
+      <span>{props.price}</span>
     </div>
   );
 }

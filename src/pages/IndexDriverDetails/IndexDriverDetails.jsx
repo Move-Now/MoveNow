@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
+import { useLocation } from 'react-router-dom';
 import { GoogleMap, LoadScript, DirectionsRenderer } from '@react-google-maps/api';
 import { Footer } from "../../components/Footer/Footer";
 import { BsPersonCircle } from "react-icons/bs";
@@ -186,9 +187,9 @@ export function IndexDriverDetails() {
 
                                 <div className="budget-value-order">
                                     <div className="icon-budget-value">
-                                        <p className="form-input-name"><RiMoneyDollarCircleLine className="icon-budget-content"/>Valor</p>
+                                        <p className="form-input-name"><RiMoneyDollarCircleLine className="icon-budget-content" />Valor</p>
                                     </div>
-                                    
+
                                     <div className="budget-form-value-content">
                                         <div className="budget-form-inputs-content">
                                             <input type="text" className="input-budget-send" placeholder="R$ 00,00" />
@@ -198,9 +199,9 @@ export function IndexDriverDetails() {
                                             <input type="text" className="input-budget-send" placeholder="Confirmar o valor" />
                                         </div>
                                     </div>
-                                    
+
                                 </div>
-                                    <button className="button-budget-send">Enviar orçamento</button>
+                                <button className="button-budget-send">Enviar orçamento</button>
                             </div>
                         </div>
                     </div>

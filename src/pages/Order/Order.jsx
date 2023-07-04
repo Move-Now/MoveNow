@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import styled, { ThemeProvider } from "styled-components";
+import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from "styled-components";
 import { Input } from "../../components/Input/Input";
 import { Footer } from "../../components/Footer/Footer";
@@ -107,6 +108,7 @@ const StyledOrder = styled.div`
 `;
 
 export function Order() {
+  const navigate = useNavigate();
   const theme = useContext(ThemeContext);
   const storedTheme = localStorage.getItem("theme");
   const [isDarkMode, setIsDarkMode] = useState(storedTheme === "dark");
@@ -311,6 +313,48 @@ export function Order() {
       largura: "80",
       comprimento: "120",
     },
+    {
+      nome: "Cama",
+      peso: "40",
+      altura: "50",
+      largura: "160",
+      comprimento: "200",
+    },
+    {
+      nome: "Armário",
+      peso: "70",
+      altura: "200",
+      largura: "100",
+      comprimento: "50",
+    },
+    {
+      nome: "Escrivaninha",
+      peso: "25",
+      altura: "80",
+      largura: "120",
+      comprimento: "60",
+    },
+    {
+      nome: "Poltrona",
+      peso: "30",
+      altura: "90",
+      largura: "80",
+      comprimento: "100",
+    },
+    {
+      nome: "Cadeira",
+      peso: "10",
+      altura: "95",
+      largura: "45",
+      comprimento: "50",
+    },
+    {
+      nome: "Tapete",
+      peso: "5",
+      altura: "2",
+      largura: "150",
+      comprimento: "200",
+    },
   ];
 
   const [inputsPreenchidos, setInputsPreenchidos] = useState(false);
@@ -500,7 +544,7 @@ export function Order() {
     const cidadeOrigem = document.querySelector('#cidadeOrigem').value;
     const ufOrigem = document.querySelector('#ufOrigem').value;
 
-    const valorConcatenadoOrigem = ruaOrigem + " " + numeroOrigem + " " + cidadeOrigem + " " + ufOrigem + " " + cepOrigem
+    const valorConcatenadoOrigem = ruaOrigem + ", " + numeroOrigem + " - " + cidadeOrigem + " - " + ufOrigem + ", " + cepOrigem
 
     const cepDestino = document.querySelector('#cepDestino').value;
     const ruaDestino = document.querySelector('#ruaDestino').value;
@@ -508,7 +552,7 @@ export function Order() {
     const cidadeDestino = document.querySelector('#cidadeDestino').value;
     const ufDestino = document.querySelector('#ufDestino').value;
 
-    const valorConcatenadoDestino = ruaDestino + " " + numeroDestino + " " + cidadeDestino + " " + ufDestino + " " + cepDestino
+    const valorConcatenadoDestino = ruaDestino + ", " + numeroDestino + " - " + cidadeDestino + " - " + ufDestino + ", " + cepDestino
 
     //dados dos itens
     const [...dados] = document.querySelectorAll("tbody tr");
@@ -548,6 +592,7 @@ export function Order() {
     });
     
     enviarDados(jsonOrcamento)
+  
   }
 
 
@@ -828,7 +873,7 @@ export function Order() {
                       <p>Peso: {pesoTotal} Kg</p>
                     </div>
                   </div>
-                  <button className="order-buttons" onMouseEnter={pegarDados}>
+                  <button className="order-buttons" onMouseEnter={pegarDados} >
                     Finalizar
                   </button>
                 </div>

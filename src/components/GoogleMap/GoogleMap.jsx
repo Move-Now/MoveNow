@@ -5,16 +5,29 @@ import {
   DirectionsRenderer,
 } from "@react-google-maps/api";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
-export function GoogleMapComponent({ origin, destination, id_carreto, id }) {
+
+export function GoogleMapComponent({ origin, destination, quantidadeItens }) {
+
+  const [currentDate, setCurrentDate] = useState("");
   const navigate = useNavigate();
   const [directions, setDirections] = useState(null);
   const [directionsLoaded, setDirectionsLoaded] = useState(false);
   const [distance, setDistance] = useState(null);
   const [mapKey, setMapKey] = useState(0);
-  const idCarreto = id_carreto;
-console.log(id)
+
+  const getCurrentDate = () => {
+    const date = new Date();
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const formattedDate = `${day}/${month}`;
+    setCurrentDate(formattedDate);
+  };
+
+  useEffect(() => {
+    getCurrentDate();
+  }, []);
+
   const handleDirectionsResult = (result, status) => {
     if (status === "OK") {
       setDirections(result);
@@ -51,26 +64,6 @@ console.log(id)
     navigate("/orderDetails");
   };
 
-  useEffect(() => {
-    async function pegarItens(idCarreto, id) {
-      try {
-        const result = await axios.get(
-          `http://localhost:8800/orcamentos/${idCarreto}`
-        );
-
-        const quantidadeItens = result.data.length;
-        const elementos = document.querySelector(`#${id}`);
-
-        elementos.forEach((elemento) => {
-          elemento.textContent = quantidadeItens;
-        });
-        
-      } catch (error) {}
-
-    }
-
-    pegarItens(idCarreto, id);
-  }, []);
   return (
     <div className="client-order">
       <div className="order-map">
@@ -123,7 +116,7 @@ console.log(id)
             <p className="details-title">Distância:</p>
             <p className="details-paragraph">{distance}</p>
             <p className="details-title">Total de itens:</p>
-            <p className="details-paragraph" id={id}></p>
+            <p className="details-paragraph">{quantidadeItens}</p>
           </div>
         </div>
         <div className="details-button">
@@ -133,7 +126,7 @@ console.log(id)
           >
             Veja mais
           </button>
-          <p className="details-post-data">Data de postagem: 23/06</p>
+          <p className="details-post-data">Data de postagem: {currentDate}</p>
         </div>
       </div>
     </div>

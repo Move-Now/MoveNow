@@ -1,7 +1,6 @@
 @import url("../../index.css");
 
 #wrapperCheckbox {
-    margin-top: 10px;
     display: flex;
     gap: 10px;
     align-items: center;

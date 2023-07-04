@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import "./SignUpDriver.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { Checkbox } from "../../components/Checkbox/Checkbox";
 
 const StyledSignUpDriver = styled.div`
 
@@ -58,12 +59,6 @@ const StyledSignUpDriver = styled.div`
   }
 
   /* Adicione outros estilos personalizados específicos do componente aqui */
-`;
-
-const ButtonPrimary = styled.button` 
-  font-weight: ${props => props.theme.buttonFontWeight};
-  color: ${props => props.theme.buttonPrimaryColor};
-  background-color: ${props => props.theme.buttonBackgroundPrimaryColor};
 `;
 
 export function SignUpDriver() {
@@ -375,6 +370,11 @@ export function SignUpDriver() {
               type={showPassword ? "text" : "password"}
               placeholder="Senha"
               name="confirsenhaMot"
+            />
+
+            <Checkbox
+              title={"Mostrar senha"}
+              onClick={handleTogglePassword}
             />
 
             <p className="contentLinks">

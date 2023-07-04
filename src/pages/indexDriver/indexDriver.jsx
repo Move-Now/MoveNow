@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Footer } from "../../components/Footer/Footer";
+import { Link } from 'react-router-dom';
+
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import "./style.css";
 import { GoogleMapComponent } from "../../components/GoogleMap/GoogleMap";
@@ -41,7 +43,7 @@ const StyledDriver = styled.div`
 `;
 
 export function IndexDriver() {
-  // FAZER A API DO BACK-END, PARA RETORNAR O COMPONENTE 'GoogleMapComponent' NELE JA CONTEM A DIV 'client-order' QUE ESTA ESTILIZADA NO CSS DESSE COMPONENTE, DENTRO DESSA API TER VARIAVEL QUE ARMAZENE A ORIGEM E DESTINO QUE NEM O EXEMPLO ABAIXO...
+
   const [orcamentos, setOrcamentos] = useState([]);
   const [quantidadeItens, setQuantidadeItens] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -53,12 +55,21 @@ export function IndexDriver() {
         const dadosRota = result.data;
         const ultimosCincoOrcamentos = dadosRota.slice(-5);
         setOrcamentos(ultimosCincoOrcamentos);
-        setTimeout(() => setIsLoading(false), 5000);
+  
+        const quantidadeItensPromises = ultimosCincoOrcamentos.map(async (orcamento) => {
+          const response = await axios.get(`http://localhost:8800/orcamentos/${orcamento.id_carreto}`);
+          return response.data.length;
+        });
+  
+        const quantidadeItensResult = await Promise.all(quantidadeItensPromises);
+        setQuantidadeItens(quantidadeItensResult);
+  
+        setTimeout(() => setIsLoading(false), 3000);
       } catch (error) {
         console.log(error);
       }
     }
-
+  
     pegarOrcamentos();
   }, []);
 
@@ -83,16 +94,18 @@ export function IndexDriver() {
           <div className="driver-orders-content">
             {/* RETORNAR A API DO BACK NESSE ESPAÇO */}
             {isLoading ? (
-              <p>Carregando...</p>
+              <p className="details-paragraph">Carregando...</p>
             ) : (
               orcamentos.map((item, index) => (
-                <GoogleMapComponent
-                  id={item.id_carreto}
-                  key={index}
-                  id_carreto={item.id_carreto}
-                  origin={item.origem}
-                  destination={item.destino}
-                />
+                <div key={index}>
+                  <GoogleMapComponent
+                    id={item.id_carreto}
+                    id_carreto={item.id_carreto}
+                    origin={item.origem}
+                    destination={item.destino}
+                    quantidadeItens={quantidadeItens[index]}
+                  />
+                </div>
               ))
             )}
           </div>

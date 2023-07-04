@@ -111,7 +111,6 @@ export function App() {
         theme={isDarkMode ? darkTheme : lightTheme}
         img={imageLogo}
         iconeToggle={iconeToggle}
-        isLoggedIn={getIsLoggedin}
       />
       <Outlet theme={isDarkMode ? darkTheme : lightTheme} />
     </ThemeProvider>

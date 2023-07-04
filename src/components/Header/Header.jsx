@@ -6,6 +6,7 @@ import { BiMenu } from "react-icons/bi";
 import { IoIosClose } from "react-icons/io";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { getIsLoggedin } from "../../pages/App/App";
 
 const StyledHeader = styled.div`
   header {
@@ -75,7 +76,7 @@ export function Header(props) {
         </Link>
         <nav className={toggle && "navDisabled"}>
           <ul>
-            {props.isLoggedIn ? (
+            {getIsLoggedin ? (
               <>
                 <Link to={"/user"} onClick={hide}>
               <li onClick={hide}>Página inicial</li>

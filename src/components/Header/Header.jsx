@@ -135,7 +135,6 @@ export function Header(props) {
                 )}
           </ul>
         </nav>
-
         <div className="iconsWrapper">
           <BiMenu className="menuIcon" onClick={() => setToggle(!toggle)} />
           <IoIosClose className="menuCloseIcon disabled" />

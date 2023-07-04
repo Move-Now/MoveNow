@@ -26,7 +26,7 @@ const lightTheme = {
   buttonBorderSecondary: "3px solid #3066BE",
   buttonFontWeight: "600",
   transitionComponents: "0.7s ease-in-out",
-  glassFooter: "rgba(48, 102, 190, 0.25)", 
+  glassFooter: "rgba(48, 102, 190, 0.25)",
   // Adicione outras propriedades de estilo específicas do tema claro aqui
 };
 
@@ -46,13 +46,14 @@ const darkTheme = {
   buttonSecondaryColor: "#FFFFFF",
   buttonBackgroundPrimaryColor: "#FB6730",
   buttonBackgroundSecondaryColor: "transparent",
-  buttonBorderSecondary:"3px solid #FB6730",
+  buttonBorderSecondary: "3px solid #FB6730",
   buttonFontWeight: "600",
   transitionComponents: "0.7s ease-in-out",
-  glassFooter: "rgba(252, 112, 19, 0.33)", 
+  glassFooter: "rgba(252, 112, 19, 0.33)",
   // Adicione outras propriedades de estilo específicas do tema escuro aqui
 };
 
+export let isLoggedin = false;
 export function App() {
   const storedTheme = localStorage.getItem("theme");
   const [isDarkMode, setIsDarkMode] = useState(storedTheme === "dark");
@@ -73,7 +74,9 @@ export function App() {
       document.body.style.transition = ""; // remove a transição
     }
 
-    document.body.style.backgroundColor = isDarkMode ? darkTheme.backgroundColor : lightTheme.backgroundColor;
+    document.body.style.backgroundColor = isDarkMode
+      ? darkTheme.backgroundColor
+      : lightTheme.backgroundColor;
 
     // Limpa a transição ao desmontar o componente
     return () => {
@@ -84,19 +87,23 @@ export function App() {
   const imageLogo = isDarkMode
     ? "../../src/assets/logoDark.png"
     : "../../src/assets/logoLight.png";
-  
-  const iconeToggle = isDarkMode
-  ? <BsFillSunFill className="modeIcon" onClick={toggleTheme}/>
-  : <FaRegMoon className="modeIcon" onClick={toggleTheme}/>;
 
-
+  const iconeToggle = isDarkMode ? (
+    <BsFillSunFill className="modeIcon" onClick={toggleTheme} />
+  ) : (
+    <FaRegMoon className="modeIcon" onClick={toggleTheme} />
+  );
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-        <Header action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/>
-        {/* <HeaderDriver action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/> */}
-        {/* <HeaderUser action={toggleTheme} theme={isDarkMode ? darkTheme : lightTheme} img={imageLogo} iconeToggle={iconeToggle}/> */}
-        <Outlet theme={isDarkMode ? darkTheme : lightTheme}/>
+      <Header
+        action={toggleTheme}
+        theme={isDarkMode ? darkTheme : lightTheme}
+        img={imageLogo}
+        iconeToggle={iconeToggle}
+        isLoggedIn={isLoggedin}
+      />
+      <Outlet theme={isDarkMode ? darkTheme : lightTheme} />
     </ThemeProvider>
   );
 }

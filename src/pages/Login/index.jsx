@@ -8,6 +8,7 @@ import { BiLock } from "react-icons/bi";
 import "./style.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { isLoggedin } from "../App/App";
 
 const StyledLogin = styled.div`
   #loginMain {
@@ -94,7 +95,7 @@ export function Login() {
       if (responseData.message === "LogadoUser") {
         setLoggedInUserId(responseData.id); // Salvando o ID na variável loggedInUserId
         console.log("ID do usuário logado:", responseData.id);
-
+        isLoggedin = true
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',

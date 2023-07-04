@@ -76,44 +76,7 @@ export function Header(props) {
         </Link>
         <nav className={toggle && "navDisabled"}>
           <ul>
-            {getIsLoggedin ? (
-              <>
-                <Link to={"/user"} onClick={hide}>
-              <li onClick={hide}>Página inicial</li>
-            </Link>
-
-            <Link to={"/orcamentos"} onClick={hide}>
-              <li onClick={hide}>Orçamentos recebidos</li>
-            </Link>
-
-            <Link to={"/orcamento"} onClick={hide}>
-              <li onClick={hide}>Solicite um carreto</li>
-           </Link>
-
-            <Link to={"/sobreNos"} onClick={hide}>
-              <li onClick={hide}>Quem somos?</li>
-            </Link>
-
-            <Link to={"/faq"} onClick={hide}>
-              <li onClick={hide}>
-                ajuda
-              </li>
-            </Link>
-
-            <li className="divider">|</li>
-
-            <Link to={"/profileUser"} onClick={hide}>
-              <li onClick={hide}>
-                Meu perfil
-              </li>
-            </Link>
-
-            <li onClick={hide}>
-              Sair
-            </li>
-              </>
-            ) : (
-              <>
+          
                 <Link to={"/"}>
                   <li>Home</li>
                 </Link>
@@ -170,8 +133,6 @@ export function Header(props) {
                     </Link>
                   </div>
                 )}
-              </>
-            )}
           </ul>
         </nav>
 

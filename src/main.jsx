@@ -16,7 +16,7 @@ import { Faq } from "./pages/Faq/Faq";
 import { WorkWithUs } from "./pages/WorkWithUs/WorkWithUs";
 import { IndexDriver } from "./pages/indexDriver/indexDriver";
 import { IndexDriverDetails } from "./pages/IndexDriverDetails/IndexDriverDetails";
-import AddUsuario from "./pages/SignUpClient/AddUsuario";
+
 import { LandingPageUser } from "./pages/LandingPageUser";
 import { Ranqueamento } from "./pages/RankingDriver/Ranqueamento";
 import { ProfileDriver } from "./pages/ProfileDriver/ProfileDriver";
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: getIsLoggedin ? <LandingPageUser/> : <LandingPage />
+        element: <LandingPage />
       },
       {
         path: "orcamento",

@@ -53,7 +53,17 @@ const darkTheme = {
   // Adicione outras propriedades de estilo específicas do tema escuro aqui
 };
 
-export let isLoggedin = false;
+
+let isLoggedin = false;
+
+export const setIsLoggedin = (value) => {
+  isLoggedin = value;
+};
+
+export const getIsLoggedin = () => {
+  return isLoggedin;
+};
+
 export function App() {
   const storedTheme = localStorage.getItem("theme");
   const [isDarkMode, setIsDarkMode] = useState(storedTheme === "dark");

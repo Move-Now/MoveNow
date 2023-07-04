@@ -22,7 +22,7 @@ import { Ranqueamento } from "./pages/RankingDriver/Ranqueamento";
 import { ProfileDriver } from "./pages/ProfileDriver/ProfileDriver";
 import { OrdersReceived } from "./pages/OrdersReceived/OrdersReceived";
 import { ProfileUser } from "./pages/ProfileUser/ProfileUser";
-import { isLoggedin } from "./pages/App/App";
+import { setIsLoggedin, getIsLoggedin } from "./pages/App/App";
 
 //Configurando o React Router
 const router = createBrowserRouter([
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: isLoggedin ? <LandingPageUser/> : <LandingPage />
+        element: getIsLoggedin ? <LandingPageUser/> : <LandingPage />
       },
       {
         path: "orcamento",
